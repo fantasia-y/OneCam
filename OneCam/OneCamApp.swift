@@ -11,7 +11,11 @@ import SwiftUI
 struct OneCamApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthenticatedView() {
+                Text("You need to log in")
+            } content: {
+                ContentView()
+            }
         }
     }
 }

@@ -7,18 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F82D541A2B066EC9000BE2B3 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */; };
+		F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */; };
+		F82D54202B066F2C000BE2B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541F2B066F2C000BE2B3 /* User.swift */; };
+		F82D54222B066F8B000BE2B3 /* AuthUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54212B066F8B000BE2B3 /* AuthUtils.swift */; };
+		F82D54282B067177000BE2B3 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54272B067177000BE2B3 /* AuthView.swift */; };
+		F82D542A2B06718B000BE2B3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54292B06718B000BE2B3 /* LoginView.swift */; };
+		F82D542C2B0671A2000BE2B3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D542B2B0671A2000BE2B3 /* SignUpView.swift */; };
+		F82D542E2B0671BE000BE2B3 /* ThirdPartyLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D542D2B0671BE000BE2B3 /* ThirdPartyLoginView.swift */; };
+		F82D54312B067212000BE2B3 /* CustomTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */; };
+		F82D54342B068876000BE2B3 /* CreateSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54332B068876000BE2B3 /* CreateSessionView.swift */; };
+		F82D54372B068A79000BE2B3 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54362B068A79000BE2B3 /* ContentViewModel.swift */; };
+		F82D54392B068BAF000BE2B3 /* CreateSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54382B068BAF000BE2B3 /* CreateSessionViewModel.swift */; };
+		F82D543D2B068D4D000BE2B3 /* CreateSessionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D543C2B068D4D000BE2B3 /* CreateSessionSettingsView.swift */; };
+		F82D54412B06A225000BE2B3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54402B06A225000BE2B3 /* Session.swift */; };
 		F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC94532AF141DB00D0F466 /* OneCamApp.swift */; };
 		F8EC94562AF141DB00D0F466 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC94552AF141DB00D0F466 /* ContentView.swift */; };
 		F8EC94582AF141DF00D0F466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC94572AF141DF00D0F466 /* Assets.xcassets */; };
 		F8EC945B2AF141DF00D0F466 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC945A2AF141DF00D0F466 /* Preview Assets.xcassets */; };
+		F8F6B7272B06592200B9E41D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7262B06592100B9E41D /* ApiClient.swift */; };
+		F8F6B7292B06593400B9E41D /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7282B06593400B9E41D /* KeychainStorage.swift */; };
+		F8F6B72C2B0659B500B9E41D /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8F6B72B2B0659B500B9E41D /* KeychainSwift */; };
+		F8F6B7302B065A0F00B9E41D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B72F2B065A0F00B9E41D /* Token.swift */; };
+		F8F6B7332B065A5900B9E41D /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = F8F6B7322B065A5900B9E41D /* JWTDecode */; };
+		F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7352B065BA100B9E41D /* Extensions.swift */; };
+		F8F6B7382B065C1F00B9E41D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7372B065C1F00B9E41D /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F8115BCC2AF14B5A009CCBFA /* OneCam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneCam.entitlements; sourceTree = "<group>"; };
+		F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
+		F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedViewModel.swift; sourceTree = "<group>"; };
+		F82D541F2B066F2C000BE2B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F82D54212B066F8B000BE2B3 /* AuthUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUtils.swift; sourceTree = "<group>"; };
+		F82D54252B06710A000BE2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F82D54272B067177000BE2B3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		F82D54292B06718B000BE2B3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F82D542B2B0671A2000BE2B3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F82D542D2B0671BE000BE2B3 /* ThirdPartyLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginView.swift; sourceTree = "<group>"; };
+		F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldBase.swift; sourceTree = "<group>"; };
+		F82D54332B068876000BE2B3 /* CreateSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionView.swift; sourceTree = "<group>"; };
+		F82D54362B068A79000BE2B3 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		F82D54382B068BAF000BE2B3 /* CreateSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionViewModel.swift; sourceTree = "<group>"; };
+		F82D543C2B068D4D000BE2B3 /* CreateSessionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionSettingsView.swift; sourceTree = "<group>"; };
+		F82D54402B06A225000BE2B3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		F8EC94502AF141DA00D0F466 /* OneCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC94532AF141DB00D0F466 /* OneCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCamApp.swift; sourceTree = "<group>"; };
 		F8EC94552AF141DB00D0F466 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F8EC94572AF141DF00D0F466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8EC945A2AF141DF00D0F466 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F8F6B7262B06592100B9E41D /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		F8F6B7282B06593400B9E41D /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
+		F8F6B72F2B065A0F00B9E41D /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		F8F6B7352B065BA100B9E41D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F8F6B7372B065C1F00B9E41D /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,12 +68,86 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8F6B72C2B0659B500B9E41D /* KeychainSwift in Frameworks */,
+				F8F6B7332B065A5900B9E41D /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F82D54172B066EB2000BE2B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54322B068865000BE2B3 /* Session */,
+				F82D542F2B0671F3000BE2B3 /* Components */,
+				F82D54182B066EB7000BE2B3 /* Auth */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F82D54182B066EB7000BE2B3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */,
+				F82D54272B067177000BE2B3 /* AuthView.swift */,
+				F82D54292B06718B000BE2B3 /* LoginView.swift */,
+				F82D542B2B0671A2000BE2B3 /* SignUpView.swift */,
+				F82D542D2B0671BE000BE2B3 /* ThirdPartyLoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F82D541B2B066EF5000BE2B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54352B0689AF000BE2B3 /* Session */,
+				F82D541C2B066EFC000BE2B3 /* Auth */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F82D541C2B066EFC000BE2B3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F82D542F2B0671F3000BE2B3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F82D54322B068865000BE2B3 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54332B068876000BE2B3 /* CreateSessionView.swift */,
+				F82D543C2B068D4D000BE2B3 /* CreateSessionSettingsView.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		F82D54352B0689AF000BE2B3 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54382B068BAF000BE2B3 /* CreateSessionViewModel.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		F82D543F2B06A21C000BE2B3 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54402B06A225000BE2B3 /* Session.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
 		F8EC94472AF141DA00D0F466 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +167,16 @@
 		F8EC94522AF141DA00D0F466 /* OneCam */ = {
 			isa = PBXGroup;
 			children = (
-				F8EC94532AF141DB00D0F466 /* OneCamApp.swift */,
+				F82D54252B06710A000BE2B3 /* Info.plist */,
+				F82D541B2B066EF5000BE2B3 /* ViewModel */,
+				F82D54362B068A79000BE2B3 /* ContentViewModel.swift */,
+				F82D54172B066EB2000BE2B3 /* View */,
 				F8EC94552AF141DB00D0F466 /* ContentView.swift */,
+				F8F6B7342B065B9800B9E41D /* Util */,
+				F8F6B72D2B0659FC00B9E41D /* Model */,
+				F8F6B7252B06590F00B9E41D /* Api */,
+				F8115BCC2AF14B5A009CCBFA /* OneCam.entitlements */,
+				F8EC94532AF141DB00D0F466 /* OneCamApp.swift */,
 				F8EC94572AF141DF00D0F466 /* Assets.xcassets */,
 				F8EC94592AF141DF00D0F466 /* Preview Content */,
 			);
@@ -65,6 +189,43 @@
 				F8EC945A2AF141DF00D0F466 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F8F6B7252B06590F00B9E41D /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				F8F6B7262B06592100B9E41D /* ApiClient.swift */,
+				F8F6B7282B06593400B9E41D /* KeychainStorage.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		F8F6B72D2B0659FC00B9E41D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F82D543F2B06A21C000BE2B3 /* Session */,
+				F8F6B72E2B065A0600B9E41D /* Auth */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F8F6B72E2B065A0600B9E41D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				F8F6B72F2B065A0F00B9E41D /* Token.swift */,
+				F82D541F2B066F2C000BE2B3 /* User.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		F8F6B7342B065B9800B9E41D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				F8F6B7352B065BA100B9E41D /* Extensions.swift */,
+				F8F6B7372B065C1F00B9E41D /* DateUtils.swift */,
+				F82D54212B066F8B000BE2B3 /* AuthUtils.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +244,10 @@
 			dependencies = (
 			);
 			name = OneCam;
+			packageProductDependencies = (
+				F8F6B72B2B0659B500B9E41D /* KeychainSwift */,
+				F8F6B7322B065A5900B9E41D /* JWTDecode */,
+			);
 			productName = OneCam;
 			productReference = F8EC94502AF141DA00D0F466 /* OneCam.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +276,10 @@
 				Base,
 			);
 			mainGroup = F8EC94472AF141DA00D0F466;
+			packageReferences = (
+				F8F6B72A2B0659B500B9E41D /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode" */,
+			);
 			productRefGroup = F8EC94512AF141DA00D0F466 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +306,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F82D541A2B066EC9000BE2B3 /* AuthenticatedView.swift in Sources */,
 				F8EC94562AF141DB00D0F466 /* ContentView.swift in Sources */,
+				F82D543D2B068D4D000BE2B3 /* CreateSessionSettingsView.swift in Sources */,
+				F82D542E2B0671BE000BE2B3 /* ThirdPartyLoginView.swift in Sources */,
+				F82D54312B067212000BE2B3 /* CustomTextFieldBase.swift in Sources */,
+				F82D54342B068876000BE2B3 /* CreateSessionView.swift in Sources */,
+				F82D54282B067177000BE2B3 /* AuthView.swift in Sources */,
+				F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */,
+				F82D54222B066F8B000BE2B3 /* AuthUtils.swift in Sources */,
+				F82D54392B068BAF000BE2B3 /* CreateSessionViewModel.swift in Sources */,
+				F8F6B7302B065A0F00B9E41D /* Token.swift in Sources */,
+				F8F6B7292B06593400B9E41D /* KeychainStorage.swift in Sources */,
+				F8F6B7382B065C1F00B9E41D /* DateUtils.swift in Sources */,
+				F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */,
+				F82D54412B06A225000BE2B3 /* Session.swift in Sources */,
 				F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */,
+				F82D542C2B0671A2000BE2B3 /* SignUpView.swift in Sources */,
+				F82D54372B068A79000BE2B3 /* ContentViewModel.swift in Sources */,
+				F82D542A2B06718B000BE2B3 /* LoginView.swift in Sources */,
+				F82D54202B066F2C000BE2B3 /* User.swift in Sources */,
+				F8F6B7272B06592200B9E41D /* ApiClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,12 +457,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OneCam/OneCam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneCam/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RFHB4JYK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneCam/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -298,12 +488,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OneCam/OneCam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneCam/Preview Content\"";
 				DEVELOPMENT_TEAM = B2RFHB4JYK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneCam/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -344,6 +536,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F8F6B72A2B0659B500B9E41D /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
+		F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F8F6B72B2B0659B500B9E41D /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8F6B72A2B0659B500B9E41D /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+		F8F6B7322B065A5900B9E41D /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F8EC94482AF141DA00D0F466 /* Project object */;
 }

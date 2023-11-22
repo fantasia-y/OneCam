@@ -90,6 +90,10 @@ class ApiClient {
         self.baseUrl = baseUrl
     }
     
+    public func getBaseUrl() -> String {
+        return baseUrl
+    }
+    
     public func hasAccessToken() -> Bool {
         return !accessToken.token.isEmpty
     }

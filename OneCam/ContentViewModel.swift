@@ -9,4 +9,5 @@ import Foundation
 
 class ContentViewModel: ObservableObject {
     @Published var showCreateSession = false
+    @Published var showCodeScanner = false
 }

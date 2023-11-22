@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct ContentView: View {
     @EnvironmentObject var authenticatedViewModel: AuthenticatedViewModel
@@ -32,14 +33,18 @@ struct ContentView: View {
             }
             
             Button("Join session") {
-                
+                viewModel.showCodeScanner.toggle()
             }
             .buttonStyle(.borderedProminent)
+            .sheet(isPresented: $viewModel.showCodeScanner) {
+                JoinSessionView(showCodeScanner: $viewModel.showCodeScanner)
+            }
             
             Spacer()
             
             // List sessions
             
+            // Temp
             Button("Logout") {
                 Task {
                     await authenticatedViewModel.logout()

@@ -15,12 +15,12 @@ struct JoinSessionView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            CodeScannerView(codeTypes: [.qr], showViewfinder: true, simulatedData: "Test Data") { result in
+            CodeScannerView(codeTypes: [.qr], showViewfinder: true, simulatedData: "https://lamb-uncommon-goose.ngrok-free.app/join/c37ea2a3-631f-4d33-a693-83d543995bb1") { result in
                 switch(result) {
                 case .success(let data):
                     if let url = URL(string: data.string), URLUtils.isOwnHost(url) {
                         if let sessionId = UUID(uuidString: url.lastPathComponent) {
-                            path.append(sessionId.uuidString)
+                            path.append(sessionId.uuidString.lowercased())
                         } else {
                             // TODO correct host, invalid url
                         }
@@ -39,8 +39,8 @@ struct JoinSessionView: View {
                     showCodeScanner = false
                 }
             }
-            .navigationDestination(for: String.self) { string in
-                Text(string)
+            .navigationDestination(for: String.self) { id in
+                PreviewSessionView(showCodeScanner: $showCodeScanner, id: id)
                     .toolbar() {
                         Button("Cancel") {
                             showCodeScanner = false

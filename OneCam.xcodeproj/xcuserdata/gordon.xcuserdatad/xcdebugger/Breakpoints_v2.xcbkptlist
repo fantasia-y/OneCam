@@ -3,4 +3,54 @@
    uuid = "BB1F67AB-4CB8-4268-BFA6-CCC9B98B615D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD7FB37A-0893-456D-BBE9-9314033C3B85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/ViewModel/Session/PreviewSessionViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "isJoinable(forUser:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AD7FB37A-0893-456D-BBE9-9314033C3B85 - 27b70028b71814c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OneCam.PreviewSessionViewModel.isJoinable(forUser: OneCam.User) -&gt; Swift.Bool"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Session/PreviewSessionViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "557">
+               </Location>
+               <Location
+                  uuid = "AD7FB37A-0893-456D-BBE9-9314033C3B85 - a7a0e68b067b62eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (OneCam.User) -&gt; Swift.Bool in implicit closure #1 () throws -&gt; Swift.Bool in OneCam.PreviewSessionViewModel.isJoinable(forUser: OneCam.User) -&gt; Swift.Bool"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Session/PreviewSessionViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -10,41 +10,49 @@ import SwiftUI
 struct CreateSessionSettingsView: View {
     @EnvironmentObject var viewModel: CreateSessionViewModel
     
+    @Binding var showCreateSession: Bool
+    
     var body: some View {
         // Cover preview
-        
-        DatePicker("Valid until", selection: $viewModel.validUntil, displayedComponents: .date)
-        
-        Picker("Max. participants", selection: $viewModel.maxParticipants) {
-            Text("10")
-                .tag(10)
+        VStack {
+            DatePicker("Valid until", selection: $viewModel.validUntil, displayedComponents: .date)
             
-            Text("20")
-                .tag(20)
+            Picker("Max. participants", selection: $viewModel.maxParticipants) {
+                Text("10")
+                    .tag(10)
+                
+                Text("20")
+                    .tag(20)
+                
+                Text("30")
+                    .tag(30)
+                
+                Text("40")
+                    .tag(40)
+                
+                Text("50")
+                    .tag(50)
+            }
             
-            Text("30")
-                .tag(30)
+            Toggle(isOn: $viewModel.allowGuests, label: {
+                Text("Allow guests")
+            })
             
-            Text("40")
-                .tag(40)
-            
-            Text("50")
-                .tag(50)
+            Button("Publish") {
+                Task {
+                    await viewModel.publish()
+                }
+            }
+            .buttonStyle(.borderedProminent)
         }
-        
-        Toggle(isOn: $viewModel.allowGuests, label: {
-            Text("Allow guests")
-        })
-        
-        Button("Publish") {
-            Task {
-                await viewModel.publish()
+        .toolbar() {
+            Button("Cancel") {
+                showCreateSession = false
             }
         }
-        .buttonStyle(.borderedProminent)
     }
 }
 
 #Preview {
-    CreateSessionSettingsView()
+    CreateSessionSettingsView(showCreateSession: .constant(true))
 }

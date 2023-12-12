@@ -10,6 +10,24 @@
       }
     },
     {
+      "identity" : "gordonkirschapi",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fantasia-y/GordonKirschAPI.git",
+      "state" : {
+        "revision" : "7cee2d7c86c0d19b3ac498baf193c549265cea6b",
+        "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "gordonkirschutils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/fantasia-y/GordonKirschUtils.git",
+      "state" : {
+        "revision" : "32e6f713340d881bb4ecb626654b97cf8366ef76",
+        "version" : "1.0.5"
+      }
+    },
+    {
       "identity" : "jwtdecode.swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/auth0/JWTDecode.swift",

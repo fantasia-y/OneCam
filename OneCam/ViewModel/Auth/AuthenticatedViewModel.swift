@@ -9,6 +9,8 @@ import Foundation
 import AuthenticationServices
 import Combine
 import JWTDecode
+import GordonKirschAPI
+import GordonKirschUtils
 
 enum AuthenticationState {
     case unauthenticated
@@ -41,7 +43,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func checkAccessToken() {
-        self.authenticationState = ApiClient.shared.hasAccessToken() ? .authenticated : .unauthenticated
+        self.authenticationState = API.shared.hasAccessToken() ? .authenticated : .unauthenticated
         
         if self.authenticationState == .authenticated {
             onAuthenticated()
@@ -89,7 +91,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
                 }
                 
                 Task {
-                    let result = await ApiClient.shared.login(withIDToken: idTokenString, fromProvider: "apple")
+                    let result = await API.shared.login(withIDToken: idTokenString, fromProvider: "apple")
                     await MainActor.run {
                         self.handleLoginResponse(result)
                     }
@@ -103,7 +105,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func handleThirdPartySignIn(withProvider provider: String) {
-        let url = ApiClient.shared.generateConnectUrl(forProvider: provider, redirectTo: "coliving://oauth-callback")
+        let url = API.shared.generateConnectUrl(forProvider: provider, redirectTo: "coliving://oauth-callback")
         
         let session = ASWebAuthenticationSession(url: url, callbackURLScheme: "coliving") { callbackUrl, error in
             if let error {
@@ -113,7 +115,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
             
             guard let callbackUrl else { return }
             
-            let result = ApiClient.shared.login(fromURL: callbackUrl)
+            let result = API.shared.login(fromURL: callbackUrl)
             
             self.handleLoginResponse(result)
         }
@@ -123,7 +125,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func login() async {
-        let result = await ApiClient.shared.login(email: email, password: password)
+        let result = await API.shared.login(email: email, password: password)
         
         await MainActor.run {
             handleLoginResponse(result)
@@ -131,7 +133,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func register() async {
-        let result = await ApiClient.shared.register(email: email, password: password)
+        let result = await API.shared.register(email: email, password: password)
         
         await MainActor.run {
             handleLoginResponse(result)
@@ -157,7 +159,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func logout() async {
-        await ApiClient.shared.logout()
+        await API.shared.logout()
         await MainActor.run {
             authenticationState = .unauthenticated
         }

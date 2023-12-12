@@ -8,22 +8,12 @@
 import Foundation
 
 struct User: Codable, Identifiable, Hashable {
-    let id: String
+    let id: Int
     let email: String?
     let displayname: String?
     let imageUrl: String?
-    let emailVerified: Bool
-    let setupDone: Bool
-    
-    enum CodingKeys: String, CodingKey {
-        case imageUrl = "image_url"
-        case emailVerified = "email_verified"
-        case setupDone = "setup_done"
-        
-        case id
-        case email
-        case displayname
-    }
+    let emailVerified: Bool?
+    let setupDone: Bool?
 }
 
 struct UpdateUser: Codable {
@@ -33,7 +23,7 @@ struct UpdateUser: Codable {
 
 extension User {
     static let Example = User(
-        id: "1edcf4d6-51e4-6602-b6bf-b9b7cfc1c077",
+        id: 1,
         email: "me@gordonkirsch.dev",
         displayname: "Gordon",
         imageUrl: "2374EA57-8EBD-48C4-BBEB-08779895BBD6.jpeg",

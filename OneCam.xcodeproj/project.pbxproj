@@ -10,7 +10,6 @@
 		F82D541A2B066EC9000BE2B3 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */; };
 		F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */; };
 		F82D54202B066F2C000BE2B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541F2B066F2C000BE2B3 /* User.swift */; };
-		F82D54222B066F8B000BE2B3 /* AuthUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54212B066F8B000BE2B3 /* AuthUtils.swift */; };
 		F82D54282B067177000BE2B3 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54272B067177000BE2B3 /* AuthView.swift */; };
 		F82D542A2B06718B000BE2B3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54292B06718B000BE2B3 /* LoginView.swift */; };
 		F82D542C2B0671A2000BE2B3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D542B2B0671A2000BE2B3 /* SignUpView.swift */; };
@@ -21,21 +20,26 @@
 		F82D54392B068BAF000BE2B3 /* CreateSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54382B068BAF000BE2B3 /* CreateSessionViewModel.swift */; };
 		F82D543D2B068D4D000BE2B3 /* CreateSessionSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D543C2B068D4D000BE2B3 /* CreateSessionSettingsView.swift */; };
 		F82D54412B06A225000BE2B3 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54402B06A225000BE2B3 /* Session.swift */; };
+		F82FD5D72B27A53A008CF1F1 /* ShareSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82FD5D62B27A53A008CF1F1 /* ShareSessionView.swift */; };
 		F832BE362B0E8ECF0037DA45 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F832BE352B0E8ECF0037DA45 /* CodeScanner */; };
 		F832BE382B0EB21B0037DA45 /* JoinSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE372B0EB21B0037DA45 /* JoinSessionView.swift */; };
 		F832BE3D2B0EBFCB0037DA45 /* QRCodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */; };
 		F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3E2B0EC7050037DA45 /* URLUtils.swift */; };
+		F89493B82B27BFF700D6A7B6 /* PreviewSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493B72B27BFF700D6A7B6 /* PreviewSessionView.swift */; };
+		F89493BA2B27CB0A00D6A7B6 /* PreviewSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493B92B27CB0A00D6A7B6 /* PreviewSessionViewModel.swift */; };
+		F89493BC2B27D09900D6A7B6 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493BB2B27D09900D6A7B6 /* SessionView.swift */; };
+		F89493BE2B27D5D300D6A7B6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493BD2B27D5D300D6A7B6 /* UserData.swift */; };
+		F89493C12B27D74300D6A7B6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493C02B27D74300D6A7B6 /* HomeView.swift */; };
+		F89493C42B27D77000D6A7B6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493C32B27D77000D6A7B6 /* HomeViewModel.swift */; };
+		F89493C82B27EAFC00D6A7B6 /* GordonKirschAPI in Frameworks */ = {isa = PBXBuildFile; productRef = F89493C72B27EAFC00D6A7B6 /* GordonKirschAPI */; };
+		F89493CB2B27EDFD00D6A7B6 /* GordonKirschUtils in Frameworks */ = {isa = PBXBuildFile; productRef = F89493CA2B27EDFD00D6A7B6 /* GordonKirschUtils */; };
 		F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC94532AF141DB00D0F466 /* OneCamApp.swift */; };
 		F8EC94562AF141DB00D0F466 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC94552AF141DB00D0F466 /* ContentView.swift */; };
 		F8EC94582AF141DF00D0F466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC94572AF141DF00D0F466 /* Assets.xcassets */; };
 		F8EC945B2AF141DF00D0F466 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC945A2AF141DF00D0F466 /* Preview Assets.xcassets */; };
-		F8F6B7272B06592200B9E41D /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7262B06592100B9E41D /* ApiClient.swift */; };
-		F8F6B7292B06593400B9E41D /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7282B06593400B9E41D /* KeychainStorage.swift */; };
 		F8F6B72C2B0659B500B9E41D /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F8F6B72B2B0659B500B9E41D /* KeychainSwift */; };
-		F8F6B7302B065A0F00B9E41D /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B72F2B065A0F00B9E41D /* Token.swift */; };
 		F8F6B7332B065A5900B9E41D /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = F8F6B7322B065A5900B9E41D /* JWTDecode */; };
 		F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7352B065BA100B9E41D /* Extensions.swift */; };
-		F8F6B7382B065C1F00B9E41D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7372B065C1F00B9E41D /* DateUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +47,6 @@
 		F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedViewModel.swift; sourceTree = "<group>"; };
 		F82D541F2B066F2C000BE2B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		F82D54212B066F8B000BE2B3 /* AuthUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUtils.swift; sourceTree = "<group>"; };
 		F82D54252B06710A000BE2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F82D54272B067177000BE2B3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		F82D54292B06718B000BE2B3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -55,19 +58,22 @@
 		F82D54382B068BAF000BE2B3 /* CreateSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionViewModel.swift; sourceTree = "<group>"; };
 		F82D543C2B068D4D000BE2B3 /* CreateSessionSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSessionSettingsView.swift; sourceTree = "<group>"; };
 		F82D54402B06A225000BE2B3 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		F82FD5D62B27A53A008CF1F1 /* ShareSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSessionView.swift; sourceTree = "<group>"; };
 		F832BE372B0EB21B0037DA45 /* JoinSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSessionView.swift; sourceTree = "<group>"; };
 		F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeUtils.swift; sourceTree = "<group>"; };
 		F832BE3E2B0EC7050037DA45 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
+		F89493B72B27BFF700D6A7B6 /* PreviewSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSessionView.swift; sourceTree = "<group>"; };
+		F89493B92B27CB0A00D6A7B6 /* PreviewSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSessionViewModel.swift; sourceTree = "<group>"; };
+		F89493BB2B27D09900D6A7B6 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		F89493BD2B27D5D300D6A7B6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		F89493C02B27D74300D6A7B6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F89493C32B27D77000D6A7B6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F8EC94502AF141DA00D0F466 /* OneCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC94532AF141DB00D0F466 /* OneCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCamApp.swift; sourceTree = "<group>"; };
 		F8EC94552AF141DB00D0F466 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F8EC94572AF141DF00D0F466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8EC945A2AF141DF00D0F466 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F8F6B7262B06592100B9E41D /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		F8F6B7282B06593400B9E41D /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
-		F8F6B72F2B065A0F00B9E41D /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		F8F6B7352B065BA100B9E41D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F8F6B7372B065C1F00B9E41D /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +83,9 @@
 			files = (
 				F8F6B72C2B0659B500B9E41D /* KeychainSwift in Frameworks */,
 				F8F6B7332B065A5900B9E41D /* JWTDecode in Frameworks */,
+				F89493C82B27EAFC00D6A7B6 /* GordonKirschAPI in Frameworks */,
 				F832BE362B0E8ECF0037DA45 /* CodeScanner in Frameworks */,
+				F89493CB2B27EDFD00D6A7B6 /* GordonKirschUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +95,8 @@
 		F82D54172B066EB2000BE2B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F8EC94552AF141DB00D0F466 /* ContentView.swift */,
+				F89493BF2B27D73B00D6A7B6 /* Home */,
 				F82D54322B068865000BE2B3 /* Session */,
 				F82D542F2B0671F3000BE2B3 /* Components */,
 				F82D54182B066EB7000BE2B3 /* Auth */,
@@ -109,6 +119,8 @@
 		F82D541B2B066EF5000BE2B3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				F82D54362B068A79000BE2B3 /* ContentViewModel.swift */,
+				F89493C22B27D76700D6A7B6 /* Home */,
 				F82D54352B0689AF000BE2B3 /* Session */,
 				F82D541C2B066EFC000BE2B3 /* Auth */,
 			);
@@ -137,6 +149,9 @@
 				F832BE372B0EB21B0037DA45 /* JoinSessionView.swift */,
 				F82D54332B068876000BE2B3 /* CreateSessionView.swift */,
 				F82D543C2B068D4D000BE2B3 /* CreateSessionSettingsView.swift */,
+				F82FD5D62B27A53A008CF1F1 /* ShareSessionView.swift */,
+				F89493B72B27BFF700D6A7B6 /* PreviewSessionView.swift */,
+				F89493BB2B27D09900D6A7B6 /* SessionView.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -145,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				F82D54382B068BAF000BE2B3 /* CreateSessionViewModel.swift */,
+				F89493B92B27CB0A00D6A7B6 /* PreviewSessionViewModel.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -155,6 +171,22 @@
 				F82D54402B06A225000BE2B3 /* Session.swift */,
 			);
 			path = Session;
+			sourceTree = "<group>";
+		};
+		F89493BF2B27D73B00D6A7B6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F89493C02B27D74300D6A7B6 /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F89493C22B27D76700D6A7B6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F89493C32B27D77000D6A7B6 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F8EC94472AF141DA00D0F466 = {
@@ -178,12 +210,9 @@
 			children = (
 				F82D54252B06710A000BE2B3 /* Info.plist */,
 				F82D541B2B066EF5000BE2B3 /* ViewModel */,
-				F82D54362B068A79000BE2B3 /* ContentViewModel.swift */,
 				F82D54172B066EB2000BE2B3 /* View */,
-				F8EC94552AF141DB00D0F466 /* ContentView.swift */,
 				F8F6B7342B065B9800B9E41D /* Util */,
 				F8F6B72D2B0659FC00B9E41D /* Model */,
-				F8F6B7252B06590F00B9E41D /* Api */,
 				F8115BCC2AF14B5A009CCBFA /* OneCam.entitlements */,
 				F8EC94532AF141DB00D0F466 /* OneCamApp.swift */,
 				F8EC94572AF141DF00D0F466 /* Assets.xcassets */,
@@ -200,20 +229,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		F8F6B7252B06590F00B9E41D /* Api */ = {
-			isa = PBXGroup;
-			children = (
-				F8F6B7262B06592100B9E41D /* ApiClient.swift */,
-				F8F6B7282B06593400B9E41D /* KeychainStorage.swift */,
-			);
-			path = Api;
-			sourceTree = "<group>";
-		};
 		F8F6B72D2B0659FC00B9E41D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F82D543F2B06A21C000BE2B3 /* Session */,
 				F8F6B72E2B065A0600B9E41D /* Auth */,
+				F89493BD2B27D5D300D6A7B6 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,7 +242,6 @@
 		F8F6B72E2B065A0600B9E41D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				F8F6B72F2B065A0F00B9E41D /* Token.swift */,
 				F82D541F2B066F2C000BE2B3 /* User.swift */,
 			);
 			path = Auth;
@@ -231,8 +251,6 @@
 			isa = PBXGroup;
 			children = (
 				F8F6B7352B065BA100B9E41D /* Extensions.swift */,
-				F8F6B7372B065C1F00B9E41D /* DateUtils.swift */,
-				F82D54212B066F8B000BE2B3 /* AuthUtils.swift */,
 				F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */,
 				F832BE3E2B0EC7050037DA45 /* URLUtils.swift */,
 			);
@@ -259,6 +277,8 @@
 				F8F6B72B2B0659B500B9E41D /* KeychainSwift */,
 				F8F6B7322B065A5900B9E41D /* JWTDecode */,
 				F832BE352B0E8ECF0037DA45 /* CodeScanner */,
+				F89493C72B27EAFC00D6A7B6 /* GordonKirschAPI */,
+				F89493CA2B27EDFD00D6A7B6 /* GordonKirschUtils */,
 			);
 			productName = OneCam;
 			productReference = F8EC94502AF141DA00D0F466 /* OneCam.app */;
@@ -292,6 +312,8 @@
 				F8F6B72A2B0659B500B9E41D /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode" */,
 				F832BE342B0E8ECF0037DA45 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				F89493C62B27EAFC00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschAPI" */,
+				F89493C92B27EDFD00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschUtils" */,
 			);
 			productRefGroup = F8EC94512AF141DA00D0F466 /* Products */;
 			projectDirPath = "";
@@ -320,28 +342,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				F82D541A2B066EC9000BE2B3 /* AuthenticatedView.swift in Sources */,
+				F82FD5D72B27A53A008CF1F1 /* ShareSessionView.swift in Sources */,
 				F8EC94562AF141DB00D0F466 /* ContentView.swift in Sources */,
+				F89493C12B27D74300D6A7B6 /* HomeView.swift in Sources */,
 				F82D543D2B068D4D000BE2B3 /* CreateSessionSettingsView.swift in Sources */,
 				F832BE3D2B0EBFCB0037DA45 /* QRCodeUtils.swift in Sources */,
 				F82D542E2B0671BE000BE2B3 /* ThirdPartyLoginView.swift in Sources */,
 				F82D54312B067212000BE2B3 /* CustomTextFieldBase.swift in Sources */,
+				F89493BC2B27D09900D6A7B6 /* SessionView.swift in Sources */,
 				F82D54342B068876000BE2B3 /* CreateSessionView.swift in Sources */,
 				F82D54282B067177000BE2B3 /* AuthView.swift in Sources */,
 				F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */,
-				F82D54222B066F8B000BE2B3 /* AuthUtils.swift in Sources */,
 				F82D54392B068BAF000BE2B3 /* CreateSessionViewModel.swift in Sources */,
-				F8F6B7302B065A0F00B9E41D /* Token.swift in Sources */,
-				F8F6B7292B06593400B9E41D /* KeychainStorage.swift in Sources */,
-				F8F6B7382B065C1F00B9E41D /* DateUtils.swift in Sources */,
+				F89493B82B27BFF700D6A7B6 /* PreviewSessionView.swift in Sources */,
+				F89493BA2B27CB0A00D6A7B6 /* PreviewSessionViewModel.swift in Sources */,
 				F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */,
 				F82D54412B06A225000BE2B3 /* Session.swift in Sources */,
 				F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */,
 				F82D542C2B0671A2000BE2B3 /* SignUpView.swift in Sources */,
+				F89493BE2B27D5D300D6A7B6 /* UserData.swift in Sources */,
 				F82D54372B068A79000BE2B3 /* ContentViewModel.swift in Sources */,
 				F82D542A2B06718B000BE2B3 /* LoginView.swift in Sources */,
 				F82D54202B066F2C000BE2B3 /* User.swift in Sources */,
 				F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */,
-				F8F6B7272B06592200B9E41D /* ApiClient.swift in Sources */,
+				F89493C42B27D77000D6A7B6 /* HomeViewModel.swift in Sources */,
 				F832BE382B0EB21B0037DA45 /* JoinSessionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -458,7 +482,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -481,6 +505,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneCam/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -512,6 +537,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneCam/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -562,6 +588,22 @@
 				minimumVersion = 2.3.3;
 			};
 		};
+		F89493C62B27EAFC00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschAPI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fantasia-y/GordonKirschAPI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		F89493C92B27EDFD00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschUtils" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fantasia-y/GordonKirschUtils.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 		F8F6B72A2B0659B500B9E41D /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
@@ -585,6 +627,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F832BE342B0E8ECF0037DA45 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		F89493C72B27EAFC00D6A7B6 /* GordonKirschAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F89493C62B27EAFC00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschAPI" */;
+			productName = GordonKirschAPI;
+		};
+		F89493CA2B27EDFD00D6A7B6 /* GordonKirschUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F89493C92B27EDFD00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschUtils" */;
+			productName = GordonKirschUtils;
 		};
 		F8F6B72B2B0659B500B9E41D /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;

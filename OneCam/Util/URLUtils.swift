@@ -18,10 +18,10 @@ class URLUtils {
         return false
     }
     
-    static func generateShareUrl(forSession session: Session) -> URL {
+    static func generateShareUrl(forSession session: Group) -> URL {
         var url = URL(string: API.shared.getBaseUrl())!
         url.append(path: "join")
-        url.append(path: session.sessionId.uuidString.lowercased())
+        url.append(path: session.groupId.uuidString.lowercased())
 
         return url
     }

@@ -8,19 +8,19 @@
 import SwiftUI
 import CodeScanner
 
-struct JoinSessionView: View {
+struct JoinGroupView: View {
     @Binding var showCodeScanner: Bool
     
     @State private var path: [String] = []
     
     var body: some View {
         NavigationStack(path: $path) {
-            CodeScannerView(codeTypes: [.qr], showViewfinder: true, simulatedData: "https://lamb-uncommon-goose.ngrok-free.app/join/c37ea2a3-631f-4d33-a693-83d543995bb1") { result in
+            CodeScannerView(codeTypes: [.qr], showViewfinder: true, simulatedData: "https://lamb-uncommon-goose.ngrok-free.app/join/df46e7ba-140d-4721-8b9e-a359dce5e78a") { result in
                 switch(result) {
                 case .success(let data):
                     if let url = URL(string: data.string), URLUtils.isOwnHost(url) {
-                        if let sessionId = UUID(uuidString: url.lastPathComponent) {
-                            path.append(sessionId.uuidString.lowercased())
+                        if let groupId = UUID(uuidString: url.lastPathComponent) {
+                            path.append(groupId.uuidString.lowercased())
                         } else {
                             // TODO correct host, invalid url
                         }
@@ -40,7 +40,7 @@ struct JoinSessionView: View {
                 }
             }
             .navigationDestination(for: String.self) { id in
-                PreviewSessionView(showCodeScanner: $showCodeScanner, id: id)
+                PreviewGroupView(showCodeScanner: $showCodeScanner, id: id)
                     .toolbar() {
                         Button("Cancel") {
                             showCodeScanner = false
@@ -52,5 +52,5 @@ struct JoinSessionView: View {
 }
 
 #Preview {
-    JoinSessionView(showCodeScanner: .constant(true))
+    JoinGroupView(showCodeScanner: .constant(true))
 }

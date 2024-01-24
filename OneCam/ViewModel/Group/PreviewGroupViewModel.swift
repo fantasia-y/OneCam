@@ -8,22 +8,22 @@
 import Foundation
 import GordonKirschAPI
 
-class PreviewSessionViewModel: ObservableObject {
-    @Published var session: Session?
+class PreviewGroupViewModel: ObservableObject {
+    @Published var group: Group?
     
     @MainActor
-    func getSession(_ id: String) async {
-        let result = await API.shared.get(path: "/session/\(id)", decode: Session.self)
+    func getGroup(_ id: String) async {
+        let result = await API.shared.get(path: "/group/\(id)", decode: Group.self)
         
         if case .success(let data) = result {
-            session = data
+            group = data
         } else {
             // handle error
         }
     }
     
-    func joinSession(_ session: Session) async -> Bool {
-        let result = await API.shared.post(path: "/session/join", parameters: ["id": session.sessionId])
+    func joinGroup(_ group: Group) async -> Bool {
+        let result = await API.shared.post(path: "/group/join", parameters: ["id": group.groupId])
         
         if case .success = result {
             return true
@@ -34,7 +34,7 @@ class PreviewSessionViewModel: ObservableObject {
     }
     
     func isJoinable(forUser user: User) -> Bool {
-        if let session = session {
+        if let session = group {
             return session.owner.id != user.id && !session.participants.contains(where: { participant in
                 participant.id == user.id
             })

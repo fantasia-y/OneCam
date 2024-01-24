@@ -7,21 +7,29 @@
 
 import Foundation
 import GordonKirschAPI
+import SwiftUI
 
 class HomeViewModel: ObservableObject {
-    @Published var showCreateSession = false
-    @Published var showCodeScanner = false
+    @Published var path = NavigationPath()
     
-    @Published var sessions: [Session] = []
+    @Published var showCreateGroup = false
+    @Published var showCodeScanner = false
+    @Published var showProfile = false
+    
+    @Published var initialLoad = true
+    
+    @Published var groups: [Group] = []
     
     @MainActor
-    func getSessions() async {
-        let result = await API.shared.get(path: "/session", decode: [Session].self)
+    func getGroups() async {
+        let result = await API.shared.get(path: "/group", decode: [Group].self)
         
         if case .success(let data) = result {
-            sessions = data
+            groups = data
         } else {
             // handle error
         }
+        
+        if initialLoad { initialLoad.toggle() }
     }
 }

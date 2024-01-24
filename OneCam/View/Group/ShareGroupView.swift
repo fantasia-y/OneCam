@@ -8,8 +8,8 @@
 import SwiftUI
 import GordonKirschUtils
 
-struct ShareSessionView: View {
-    let session: Session
+struct ShareGroupView: View {
+    let session: Group
     
     var body: some View {
         Image(uiImage: QRCodeUtils.generate(forSession: session))
@@ -22,5 +22,5 @@ struct ShareSessionView: View {
 }
 
 #Preview {
-    ShareSessionView(session: Session.Example)
+    ShareGroupView(session: Group.Example)
 }

@@ -7,26 +7,26 @@
 
 import SwiftUI
 
-struct PreviewSessionView: View {
+struct PreviewGroupView: View {
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var homeViewModel: HomeViewModel
-    @StateObject var viewModel = PreviewSessionViewModel()
+    @StateObject var viewModel = PreviewGroupViewModel()
     
     @Binding var showCodeScanner: Bool
     let id: String
     
     var body: some View {
         VStack {
-            Text("Session Preview")
+            Text("Group Preview")
             
-            if let session = viewModel.session {
-                Text("Name: \(session.name)")
+            if let group = viewModel.group {
+                Text("Name: \(group.name)")
                 
                 Button("Join") {
                     Task {
-                        if await viewModel.joinSession(session) {
+                        if await viewModel.joinGroup(group) {
                             showCodeScanner = false
-                            homeViewModel.sessions.append(session)
+                            homeViewModel.groups.append(group)
                         }
                     }
                 }
@@ -35,12 +35,12 @@ struct PreviewSessionView: View {
         }
         .onAppear() {
             Task {
-                await viewModel.getSession(id)
+                await viewModel.getGroup(id)
             }
         }
     }
 }
 
 #Preview {
-    PreviewSessionView(showCodeScanner: .constant(true), id: "c37ea2a3-631f-4d33-a693-83d543995bb1")
+    PreviewGroupView(showCodeScanner: .constant(true), id: "c37ea2a3-631f-4d33-a693-83d543995bb1")
 }

@@ -6,67 +6,93 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct HomeView: View {
-    @EnvironmentObject var authenticatedViewModel: AuthenticatedViewModel
+    @EnvironmentObject var userData: UserData
     @StateObject var viewModel = HomeViewModel()
     
     var body: some View {
-        NavigationStack {
-            VStack {
-                HStack {
-                    Button("Create new session") {
-                        viewModel.showCreateSession = true
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .sheet(isPresented: $viewModel.showCreateSession) {
-                        CreateSessionView(showCreateSession: $viewModel.showCreateSession)
-                    }
-                    
-                    Button("Join session") {
-                        viewModel.showCodeScanner = true
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .sheet(isPresented: $viewModel.showCodeScanner) {
-                        JoinSessionView(showCodeScanner: $viewModel.showCodeScanner)
-                            .environmentObject(viewModel)
-                    }
-                }
-                
-                // List sessions
-                List(viewModel.sessions) { session in
-                    NavigationLink(session.name) {
-                        SessionView(session: session)
-                    }
-                }
-                .onAppear() {
-                    Task {
-                        await viewModel.getSessions()
-                    }
-                }
-                
-                Spacer()
-                
-                // Temp
-                HStack {
-                    Button("Logout") {
-                        Task {
-                            await authenticatedViewModel.logout()
+        if !viewModel.initialLoad {
+            NavigationStack(path: $viewModel.path) {
+                VStack {
+                    if viewModel.groups.isEmpty {
+                        HStack {
+                            Button("Create Group", systemImage: "plus") {
+                                viewModel.showCreateGroup = true
+                            }
+                            .buttonStyle(.borderedProminent)
+                            
+                            Button("Join Group", systemImage: "plus") {
+                                viewModel.showCodeScanner = true
+                            }
+                            .buttonStyle(.borderedProminent)
                         }
                     }
                     
-                    Button("Archive") {
+                    if !viewModel.groups.isEmpty {
+                        // List sessions
+                        List(viewModel.groups) { group in
+                            NavigationLink(value: group) {
+                                GroupListView(group: group)
+                            }
+                        }
+                        .listStyle(.plain)
+                        .refreshable {
+                            Task {
+                                await viewModel.getGroups()
+                            }
+                        }
+                    }
+                    
+                    Spacer()
+
+                }
+                .navigationTitle("Groups")
+                .navigationBarTitleDisplayMode(.large)
+                .navigationDestination(for: Group.self) { group in
+                    GroupView(group: group)
+                        .navigationBarTitleDisplayMode(.inline)
+                }
+                .sheet(isPresented: $viewModel.showCreateGroup) {
+                    CreateGroupView(showCreateGroup: $viewModel.showCreateGroup)
+                }
+                .sheet(isPresented: $viewModel.showCodeScanner) {
+                    JoinGroupView(showCodeScanner: $viewModel.showCodeScanner)
+                }
+                .sheet(isPresented: $viewModel.showProfile) {
+                    ProfileView(user: userData.currentUser, showProfile: $viewModel.showProfile)
+                }
+                .toolbar() {
+                    if !viewModel.groups.isEmpty {
+                        Button {
+                            viewModel.showCreateGroup = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
                         
+                        Button {
+                            viewModel.showCodeScanner = true
+                        } label: {
+                            Image(systemName: "person.badge.plus")
+                        }
+                    }
+                    
+                    Button {
+                        viewModel.showProfile = true
+                    } label: {
+                        Avatar(user: userData.currentUser)
                     }
                 }
-                .padding()
             }
-            .padding()
-            .toolbar() {
-                Button("Profile") {
-                    
+            .environmentObject(viewModel)
+        } else {
+            ProgressView()
+                .onAppear() {
+                    Task {
+                        await viewModel.getGroups()
+                    }
                 }
-            }
         }
     }
 }

@@ -26,8 +26,16 @@ extension User {
         id: 1,
         email: "me@gordonkirsch.dev",
         displayname: "Gordon",
-        imageUrl: "2374EA57-8EBD-48C4-BBEB-08779895BBD6.jpeg",
+        imageUrl: nil,
         emailVerified: true,
         setupDone: true
     )
+    
+    func getImageUrl(size: CGFloat = 32) -> String {
+        if let imageUrl, !imageUrl.isEmpty {
+            return imageUrl
+        }
+        // TODO replace with displayname when onboarding is implemented
+        return "https://ui-avatars.com/api/?name=\(email!)&size=128"
+    }
 }

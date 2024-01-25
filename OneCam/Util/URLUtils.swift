@@ -25,4 +25,14 @@ class URLUtils {
 
         return url
     }
+    
+    static func generateUrl(forImage image: GroupImage, andGroup group: Group) -> URL {
+        var url = URL(string: API.shared.getBaseUrl())!
+        url.append(path: "group")
+        url.append(path: group.groupId.uuidString.lowercased())
+        url.append(path: "images")
+        url.append(path: image.id.description)
+
+        return url
+    }
 }

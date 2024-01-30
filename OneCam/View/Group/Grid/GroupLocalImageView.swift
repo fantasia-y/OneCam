@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct GroupLocalImageView: View {
-    let image: UIImage
+    let image: GroupLocalImage
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image(uiImage: image)
+            Image(uiImage: image.image)
                 .resizable()
                 .aspectRatio(1.0, contentMode: .fill)
             
@@ -26,6 +26,6 @@ struct GroupLocalImageView: View {
 }
 
 #Preview {
-    GroupLocalImageView(image: .init(named: "test_image")!)
+    GroupLocalImageView(image: .init(group: Group.Example, image: .init(named: "test_image")!))
         .frame(width: 200, height: 200)
 }

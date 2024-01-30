@@ -18,20 +18,10 @@ class URLUtils {
         return false
     }
     
-    static func generateShareUrl(forSession session: Group) -> URL {
+    static func generateShareUrl(forGroup group: Group) -> URL {
         var url = URL(string: API.shared.getBaseUrl())!
         url.append(path: "join")
-        url.append(path: session.groupId.uuidString.lowercased())
-
-        return url
-    }
-    
-    static func generateUrl(forImage image: GroupImage, andGroup group: Group) -> URL {
-        var url = URL(string: API.shared.getBaseUrl())!
-        url.append(path: "group")
-        url.append(path: group.groupId.uuidString.lowercased())
-        url.append(path: "images")
-        url.append(path: image.id.description)
+        url.append(path: group.uuid)
 
         return url
     }

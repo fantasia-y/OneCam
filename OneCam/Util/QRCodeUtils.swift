@@ -12,6 +12,6 @@ import GordonKirschUtils
 
 extension QRCodeUtils {
     static func generate(forSession session: Group) -> UIImage {
-        return generate(from: URLUtils.generateShareUrl(forSession: session).absoluteString)
+        return generate(from: URLUtils.generateShareUrl(forGroup: session).absoluteString)
     }
 }

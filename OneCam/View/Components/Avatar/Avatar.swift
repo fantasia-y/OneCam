@@ -12,6 +12,7 @@ enum AvatarSize: CGFloat {
     case small = 32
     case medium = 50
     case large = 128
+    case extraLarge = 256
 }
 
 struct AvatarSizeKey: EnvironmentKey {
@@ -28,13 +29,21 @@ extension EnvironmentValues {
 struct Avatar: View {
     @Environment(\.avatarSize) var size
     let imageUrl: String
+    let image: Image?
     
     init(imageUrl: String) {
         self.imageUrl = imageUrl
+        self.image = nil
     }
     
-    init(user: User?) {
-        self.imageUrl = user?.getImageUrl() ?? ""
+    init(user: User?, filter: FilterType = FilterType.none) {
+        self.imageUrl = user?.urls[filter.rawValue] ?? ""
+        self.image = nil
+    }
+    
+    init(named: String) {
+        self.imageUrl = ""
+        self.image = Image(named)
     }
     
     var body: some View {
@@ -42,8 +51,14 @@ struct Avatar: View {
             CachedAsyncImage(url: URL(string: imageUrl)!) { phase in
                 switch phase {
                 case .empty:
-                    ProgressView()
-                        .frame(width: size.rawValue, height: size.rawValue)
+                    ZStack {
+                        Circle()
+                            .fill(Color(red: 0.85, green: 0.85, blue: 0.85))
+                            .frame(width: size.rawValue, height: size.rawValue)
+                        
+                        ProgressView()
+                            .frame(width: size.rawValue, height: size.rawValue)
+                    }
                 case .success(let image):
                     image
                         .resizable()
@@ -52,7 +67,7 @@ struct Avatar: View {
                 case .failure:
                     ZStack {
                         Circle()
-                            .fill(.gray)
+                            .fill(Color(red: 0.85, green: 0.85, blue: 0.85))
                             .frame(width: size.rawValue, height: size.rawValue)
                         
                         Image(systemName: "questionmark")
@@ -62,6 +77,11 @@ struct Avatar: View {
                     EmptyView()
                 }
             }
+        } else if let image {
+            image
+                .resizable()
+                .frame(width: size.rawValue, height: size.rawValue)
+                .clipShape(.circle)
         } else {
             EmptyView()
         }

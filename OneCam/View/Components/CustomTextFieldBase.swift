@@ -23,7 +23,7 @@ struct CustomTextFieldBase<Field: View>: View {
     var body: some View {
         fieldBuilder(placeholder, text)
             .padding(6)
-            .background(Color("lightGray"))
+            .background(.gray)
             .cornerRadius(6)
             .overlay {
                 if invalid {

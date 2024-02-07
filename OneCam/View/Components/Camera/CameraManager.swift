@@ -26,14 +26,17 @@ class CameraDelegate: NSObject, AVCapturePhotoCaptureDelegate {
         }
 
         if let imageData = photo.fileDataRepresentation(), let capturedImage = UIImage(data: imageData) {
+            let ciImage = CIImage(cgImage: capturedImage.cgImage!).oriented(forExifOrientation: 6)
+            
+            var cgImage: CGImage?
             if position == .front { // TODO lighting weird after flipping
-                let ciImage = CIImage(cgImage: capturedImage.cgImage!).oriented(forExifOrientation: 6)
                 let flippedImage = ciImage.transformed(by: CGAffineTransform(scaleX: -1, y: 1))
-                let cgImage = CIContext.init().createCGImage(flippedImage, from: flippedImage.extent)
-                return completion(.init(cgImage: cgImage!))
+                cgImage = CIContext.init().createCGImage(flippedImage, from: flippedImage.extent)
+            } else {
+                cgImage = CIContext.init().createCGImage(ciImage, from: ciImage.extent)
             }
             
-            completion(capturedImage)
+            completion(.init(cgImage: cgImage!))
         } else {
             print("CameraManager: Image not fetched.")
         }
@@ -166,31 +169,28 @@ class CameraManager: ObservableObject {
         }
     }
     
-    func toggleTorch() {
-        flashMode = flashMode == .off ? .on : .off
+    func cycleFlash() {
+        switch flashMode {
+        case .off:
+            flashMode = .on
+        case .on:
+            flashMode = .auto
+        case .auto:
+            flashMode = .off
+        @unknown default:
+            fatalError()
+        }
     }
     
     func captureImage() {
         sessionQueue.async {
-            var photoSettings = AVCapturePhotoSettings()
-            
-            if self.photoOutput.availablePhotoCodecTypes.contains(.hevc) {
-                photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
-            }
+            let photoSettings = AVCapturePhotoSettings()
             
             if let inputDevice = self.inputDevice, inputDevice.device.isFlashAvailable {
                 photoSettings.flashMode = self.flashMode
             }
-            
-            if let previewPhotoPixelFormatType = photoSettings.availablePreviewPhotoPixelFormatTypes.first {
-                photoSettings.previewPhotoFormat = [kCVPixelBufferPixelFormatTypeKey as String: previewPhotoPixelFormatType]
-            }
 
             photoSettings.photoQualityPrioritization = .quality
-              
-            if let videoConnection = self.photoOutput.connection(with: .video), videoConnection.isVideoOrientationSupported {
-                videoConnection.videoOrientation = .portrait
-            }
             
             self.cameraDelegate = CameraDelegate(position: self.position) { image in
                 self.image = image

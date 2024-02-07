@@ -38,6 +38,19 @@ struct CameraViewFinder: View {
     
     @Binding var showCamera: Bool
     
+    var flashIcon: String {
+        switch cameraManager.flashMode {
+        case .off:
+            return "bolt.slash"
+        case .on:
+            return "bolt.fill"
+        case .auto:
+            return "bolt.badge.automatic.fill"
+        @unknown default:
+            fatalError()
+        }
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -62,11 +75,11 @@ struct CameraViewFinder: View {
                             
                             if let device = AVCaptureDevice.default(for: .video), device.hasTorch {
                                 Button {
-                                    cameraManager.toggleTorch()
+                                    cameraManager.cycleFlash()
                                 } label: {
-                                    Image(systemName: cameraManager.flashMode == .on ? "bolt.fill" : "bolt.slash")
+                                    Image(systemName: flashIcon)
                                         .font(.system(size: 24))
-                                        .foregroundStyle(cameraManager.flashMode == .on ? .yellow : .white)
+                                        .foregroundStyle(cameraManager.flashMode == .off ? .white : .yellow)
                                 }
                                 .shadow(radius: 6)
                             }

@@ -8,14 +8,14 @@
 import Foundation
 
 enum FilterType: String, Codable {
-    case none = "image"
-    case thumbnail = "image_thumbnail"
+    case none = "original"
+    case thumbnail = "thumbnail"
 }
 
-struct GroupImage: Codable, Identifiable, Hashable {
+struct GroupImage: Codable, Identifiable, Hashable, ImageStorage {
     var id: Int
     var name: String
-    var urls: [String: String]
+    var urls: [String : String]
 }
 
 extension GroupImage {

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct GroupGridView: View {
     @EnvironmentObject var viewModel: GroupViewModel
@@ -22,7 +23,7 @@ struct GroupGridView: View {
                     }
                     
                     ForEach(Array(viewModel.images.enumerated()), id: \.element) { index, image in
-                        GroupImageView(image: image, group: group)
+                        GroupImageView(image: image, group: group, isEditing: .constant(false))
                             .environmentObject(viewModel)
                             .onAppear() {
                                 if viewModel.images.count < group.imageCount, index == viewModel.images.count - 9 {
@@ -43,21 +44,39 @@ struct GroupGridView: View {
                     .frame(width: 70, height: 70)
                     .shadow(radius: 6)
             }
-            .padding()
+            
+            if viewModel.showCarousel {
+                GroupCarouselView(group: group)
+                    .environmentObject(viewModel)
+                    .transition(
+                        .asymmetric(
+                            insertion: .opacity.animation(.easeIn),
+                            removal: .opacity.animation(.easeOut)
+                        )
+                    )
+            }
         }
         .navigationTitle(group.name)
-        
+        .toolbarBackground(.hidden, for: .navigationBar)
         .toolbar() {
-            Button {
-                viewModel.showShareView = true
-            } label: {
-                Image(systemName: "square.and.arrow.up")
-            }
-            
-            Button {
-                viewModel.showSettings = true
-            } label: {
-                Image(systemName: "gearshape")
+            if !viewModel.showCarousel {
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Button("Select", systemImage: "checkmark.circle") {
+                            
+                        }
+                        
+                        Button("Share", systemImage: "square.and.arrow.up") {
+                            viewModel.showShareView = true
+                        }
+                        
+                        Button("Settings", systemImage: "gear") {
+                            viewModel.showSettings = true
+                        }
+                    } label: {
+                        Image(systemName: "ellipsis")
+                    }
+                }
             }
         }
         .sheet(isPresented: $viewModel.showSettings) {
@@ -72,9 +91,10 @@ struct GroupGridView: View {
             }
         }
         .onAppear() {
-            Task { // TODO on call on first appear
+            Task {
                 if viewModel.currentPage == -1 {
                     await viewModel.getImages(group)
+                    // viewModel.getLocalImages(group)
                 }
             }
         }

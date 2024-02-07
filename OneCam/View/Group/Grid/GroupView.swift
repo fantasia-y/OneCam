@@ -30,12 +30,7 @@ struct GroupView: View {
         } else {
             GroupGridView(group: group)
                 .environmentObject(viewModel)
-                .overlay {
-                    if viewModel.showCarousel {
-                        GroupCarouselView(group: group)
-                            .environmentObject(viewModel)
-                    }
-                }
+                //.background(.black)
         }
     }
 }

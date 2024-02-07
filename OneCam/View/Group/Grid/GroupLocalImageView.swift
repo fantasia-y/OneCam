@@ -12,7 +12,7 @@ struct GroupLocalImageView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image(uiImage: image.image)
+            Image(uiImage: ImageUtils.cropImage(UIImage(data: image.image)!))
                 .resizable()
                 .aspectRatio(1.0, contentMode: .fill)
             
@@ -23,9 +23,4 @@ struct GroupLocalImageView: View {
                 .padding(4)
         }
     }
-}
-
-#Preview {
-    GroupLocalImageView(image: .init(group: Group.Example, image: .init(named: "test_image")!))
-        .frame(width: 200, height: 200)
 }

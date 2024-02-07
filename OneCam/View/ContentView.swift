@@ -14,8 +14,14 @@ struct ContentView: View {
     
     var body: some View {
         if viewModel.isLoaded {
-            HomeView()
-                .environmentObject(viewModel.userData)
+            switch viewModel.onboardingState {
+            case .accountSetup:
+                AccountSetupView()
+                    .environmentObject(viewModel)
+            case .finished, .emailVerification:
+                HomeView()
+                    .environmentObject(viewModel.userData)
+            }
         } else {
             VStack {
                 if !viewModel.failedLoading {

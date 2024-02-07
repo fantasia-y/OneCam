@@ -10,21 +10,19 @@ import CachedAsyncImage
 
 struct GroupCarouselView: View {
     @EnvironmentObject var viewModel: GroupViewModel
-    @Namespace var namespace
+    @Namespace var imageDetail
 
     let group: Group
     
-    @State var dragOffset: CGSize = CGSize.zero
-    @State var dragOffsetPredicted: CGSize = CGSize.zero
     @State var toolbarVisible = true
     @State var loadedImage: Image?
     @State var currentGroupImage: GroupImage?
+    @State var showDeleteDialog = false
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 Color.black
-                    .opacity(1.0 - (abs(dragOffset.height) / geometry.size.height))
                     .ignoresSafeArea(.all)
                 
                 ScrollViewReader { reader in
@@ -36,7 +34,6 @@ struct GroupCarouselView: View {
                                     case .empty:
                                         ZStack {
                                             Rectangle()
-                                                .fill(.gray)
                                                 .frame(width: geometry.size.width, height: geometry.size.height)
                                             
                                             ProgressView()
@@ -45,49 +42,19 @@ struct GroupCarouselView: View {
                                         phaseImage
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
-                                            .offset(x: self.dragOffset.width, y: self.dragOffset.height)
-                                            .scaleEffect(CGSize(width: 1 - (abs(dragOffset.height) / geometry.size.height), height: 1 - (abs(dragOffset.height) / geometry.size.height)))
                                             .frame(width: geometry.size.width, height: geometry.size.height)
                                             .containerRelativeFrame(.horizontal)
-                                            .matchedGeometryEffect(id: image.id, in: namespace)
+                                            .matchedGeometryEffect(id: image.id, in: imageDetail)
                                             .id(image.id)
-                                            .gesture(DragGesture(minimumDistance: 30, coordinateSpace: .local)
-                                                .onChanged { value in
-                                                    if value.translation.height != 0 {
-                                                        self.dragOffset = value.translation
-                                                        self.dragOffsetPredicted = value.predictedEndTranslation
-                                                    }
-                                                }
-                                                .onEnded { value in
-                                                    if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 2) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 2) {
-                                                        withAnimation(.spring()) {
-                                                            self.dragOffset = self.dragOffsetPredicted
-                                                        }
-                                                        
-                                                        withAnimation() {
-                                                            viewModel.showCarousel = false
-                                                        }
-                                                        return
-                                                    }
-                                                    withAnimation(.interactiveSpring()) {
-                                                        self.dragOffset = .zero
-                                                        self.dragOffsetPredicted = .zero
-                                                    }
-                                                }
-                                            )
-                                            .onTapGesture() {
-                                                withAnimation() {
-                                                    toolbarVisible.toggle()
-                                                }
-                                            }
                                             .onAppear() {
-                                                loadedImage = phaseImage
                                                 currentGroupImage = image
+                                                loadedImage = phaseImage
                                             }
                                     case .failure:
                                         ZStack {
                                             Rectangle()
                                                 .fill(.gray)
+                                                .frame(width: geometry.size.width, height: geometry.size.height)
                                             
                                             Image(systemName: "exclamationmark.triangle")
                                                 .foregroundStyle(.white)
@@ -108,60 +75,56 @@ struct GroupCarouselView: View {
                         }
                     }
                 }
-                
-                if toolbarVisible {
-                    VStack {
-                        HStack {
-                            Button {
-                                viewModel.showCarousel = false
-                            } label: {
-                                Image(systemName: "chevron.left")
-                                    .font(.system(size: 24))
-                            }
-                            
-                            Spacer()
+            }
+        }
+        .navigationBarBackButtonHidden()
+        .navigationTitle("")
+        .toolbar(content: {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    viewModel.showCarousel = false
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.body.bold())
+                        .foregroundColor(.white)
+                        .frame(width: 16, height: 16)
+                }
+            }
+            
+            ToolbarItem(placement: .topBarTrailing) {
+                HStack(spacing: 20) {
+                    if let loadedImage {
+                        ShareLink(item: loadedImage, preview: SharePreview("", image: loadedImage)) {
+                            Image(systemName: "square.and.arrow.up")
+                                .foregroundColor(.white)
+                                .frame(width: 16, height: 16)
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.white)
-                        
-                        Spacer()
-                        
-                        HStack {
-                            if let loadedImage {
-                                ShareLink(item: loadedImage, preview: SharePreview("", image: loadedImage)) {
-                                    Image(systemName: "square.and.arrow.up")
-                                        .font(.system(size: 24))
-                                }
-                            }
-                            
-                            Spacer()
-                            
-                            Button {
-                                Task {
-                                    if let currentGroupImage {
-                                        await viewModel.deleteImage(currentGroupImage, group: group)
-                                        if viewModel.images.count == 0 {
-                                            withAnimation() {
-                                                viewModel.showCarousel = false
-                                            }
+                    }
+                    
+                    Button {
+                        showDeleteDialog = true
+                    } label: {
+                        Image(systemName: "trash")
+                            .foregroundColor(.white)
+                            .frame(width: 16, height: 16)
+                    }
+                    .confirmationDialog("Are you sure you want to delete this image?", isPresented: $showDeleteDialog, titleVisibility: .visible) {
+                        Button("Delete", role: .destructive) {
+                            Task {
+                                if let currentGroupImage {
+                                    await viewModel.deleteImage(currentGroupImage, group: group)
+                                    if viewModel.images.count == 0 {
+                                        withAnimation() {
+                                            viewModel.showCarousel = false
                                         }
                                     }
                                 }
-                            } label: {
-                                Image(systemName: "trash")
-                                    .font(.system(size: 24))
                             }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(.white)
                     }
-                    .opacity(1.0 - (abs(dragOffset.height) / geometry.size.height))
                 }
             }
-        }
-        .toolbar(.hidden)
+        })
     }
 }
 

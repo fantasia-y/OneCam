@@ -32,6 +32,12 @@
 		F82D54392B068BAF000BE2B3 /* CreateGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54382B068BAF000BE2B3 /* CreateGroupViewModel.swift */; };
 		F82D54412B06A225000BE2B3 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54402B06A225000BE2B3 /* Group.swift */; };
 		F82FD5D72B27A53A008CF1F1 /* ShareGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82FD5D62B27A53A008CF1F1 /* ShareGroupView.swift */; };
+		F831A9872B73C101004C13B2 /* AccountSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831A9862B73C101004C13B2 /* AccountSetupView.swift */; };
+		F831A98A2B73C8A8004C13B2 /* AccountSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831A9892B73C8A8004C13B2 /* AccountSetupViewModel.swift */; };
+		F831A98C2B73CF65004C13B2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831A98B2B73CF65004C13B2 /* ImagePicker.swift */; };
+		F831A98E2B73D7F0004C13B2 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831A98D2B73D7EF004C13B2 /* ImageUtils.swift */; };
+		F831A9912B742783004C13B2 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831A9902B742783004C13B2 /* ImageStorage.swift */; };
+		F831A9942B743C82004C13B2 /* AvatarPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F831A9932B743C82004C13B2 /* AvatarPicker.swift */; };
 		F832BE362B0E8ECF0037DA45 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F832BE352B0E8ECF0037DA45 /* CodeScanner */; };
 		F832BE382B0EB21B0037DA45 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE372B0EB21B0037DA45 /* JoinGroupView.swift */; };
 		F832BE3D2B0EBFCB0037DA45 /* QRCodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */; };
@@ -91,6 +97,12 @@
 		F82D54382B068BAF000BE2B3 /* CreateGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewModel.swift; sourceTree = "<group>"; };
 		F82D54402B06A225000BE2B3 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		F82FD5D62B27A53A008CF1F1 /* ShareGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGroupView.swift; sourceTree = "<group>"; };
+		F831A9862B73C101004C13B2 /* AccountSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupView.swift; sourceTree = "<group>"; };
+		F831A9892B73C8A8004C13B2 /* AccountSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSetupViewModel.swift; sourceTree = "<group>"; };
+		F831A98B2B73CF65004C13B2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		F831A98D2B73D7EF004C13B2 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
+		F831A9902B742783004C13B2 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
+		F831A9932B743C82004C13B2 /* AvatarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPicker.swift; sourceTree = "<group>"; };
 		F832BE372B0EB21B0037DA45 /* JoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
 		F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeUtils.swift; sourceTree = "<group>"; };
 		F832BE3E2B0EC7050037DA45 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
@@ -179,6 +191,7 @@
 		F82D54182B066EB7000BE2B3 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				F831A9852B73C0F2004C13B2 /* Onboarding */,
 				F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */,
 				F82D54272B067177000BE2B3 /* AuthView.swift */,
 				F82D54292B06718B000BE2B3 /* LoginView.swift */,
@@ -202,6 +215,7 @@
 		F82D541C2B066EFC000BE2B3 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				F831A9882B73C899004C13B2 /* Onboarding */,
 				F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */,
 			);
 			path = Auth;
@@ -210,9 +224,9 @@
 		F82D542F2B0671F3000BE2B3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F831A9922B743BE8004C13B2 /* Avatar */,
 				F80397482B6845AC000D7CD8 /* Camera */,
 				F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */,
-				F80A44802B616D95007217DD /* Avatar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -250,6 +264,40 @@
 				F862A1192B6939C200C44AE3 /* GroupLocalImage.swift */,
 			);
 			path = Group;
+			sourceTree = "<group>";
+		};
+		F831A9852B73C0F2004C13B2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F831A9862B73C101004C13B2 /* AccountSetupView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F831A9882B73C899004C13B2 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F831A9892B73C8A8004C13B2 /* AccountSetupViewModel.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F831A98F2B742774004C13B2 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				F831A9902B742783004C13B2 /* ImageStorage.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		F831A9922B743BE8004C13B2 /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				F80A44802B616D95007217DD /* Avatar.swift */,
+				F831A98B2B73CF65004C13B2 /* ImagePicker.swift */,
+				F831A9932B743C82004C13B2 /* AvatarPicker.swift */,
+			);
+			path = Avatar;
 			sourceTree = "<group>";
 		};
 		F862A1162B692BD200C44AE3 /* Frameworks */ = {
@@ -333,6 +381,7 @@
 		F8F6B72D2B0659FC00B9E41D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F831A98F2B742774004C13B2 /* Image */,
 				F82D543F2B06A21C000BE2B3 /* Group */,
 				F8F6B72E2B065A0600B9E41D /* Auth */,
 				F89493BD2B27D5D300D6A7B6 /* UserData.swift */,
@@ -354,6 +403,7 @@
 				F8F6B7352B065BA100B9E41D /* Extensions.swift */,
 				F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */,
 				F832BE3E2B0EC7050037DA45 /* URLUtils.swift */,
+				F831A98D2B73D7EF004C13B2 /* ImageUtils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -478,14 +528,20 @@
 				F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */,
 				F82D542C2B0671A2000BE2B3 /* SignUpView.swift in Sources */,
 				F89493BE2B27D5D300D6A7B6 /* UserData.swift in Sources */,
+				F831A9912B742783004C13B2 /* ImageStorage.swift in Sources */,
 				F862A11E2B69490700C44AE3 /* GroupCarouselView.swift in Sources */,
 				F80A44782B6156E2007217DD /* PreviewCreateGroupView.swift in Sources */,
+				F831A98C2B73CF65004C13B2 /* ImagePicker.swift in Sources */,
 				F80A44842B617300007217DD /* ProfileView.swift in Sources */,
 				F8A4E5DD2B62BFD300632E82 /* GroupViewModel.swift in Sources */,
 				F8A4E5E02B62CA1E00632E82 /* GroupImageView.swift in Sources */,
+				F831A98A2B73C8A8004C13B2 /* AccountSetupViewModel.swift in Sources */,
+				F831A9872B73C101004C13B2 /* AccountSetupView.swift in Sources */,
 				F80A44862B617D7B007217DD /* GroupListView.swift in Sources */,
+				F831A9942B743C82004C13B2 /* AvatarPicker.swift in Sources */,
 				F82D54372B068A79000BE2B3 /* ContentViewModel.swift in Sources */,
 				F82D542A2B06718B000BE2B3 /* LoginView.swift in Sources */,
+				F831A98E2B73D7F0004C13B2 /* ImageUtils.swift in Sources */,
 				F82D54202B066F2C000BE2B3 /* User.swift in Sources */,
 				F8A4E5DB2B62BF8A00632E82 /* GroupImage.swift in Sources */,
 				F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */,

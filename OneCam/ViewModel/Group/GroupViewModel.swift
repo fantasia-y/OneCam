@@ -35,6 +35,10 @@ class GroupViewModel: ObservableObject {
         }
     }
     
+    func getLocalImages(_ group: Group) {
+        // self.localImages = GroupLocalImageDataSource.shared.fetch(byGroup: group)
+    }
+    
     func refreshImage(_ group: Group) async {
         self.currentPage = 0
         
@@ -47,30 +51,28 @@ class GroupViewModel: ObservableObject {
         }
     }
     
+    @MainActor
     func uploadImage(_ image: UIImage, group: Group) async {
         // store image locally (swift data)
         // else -> mark as queued
         // if upload fails -> mark as queued
-        let localImage = GroupLocalImage(group: group, image: image)
+        let localImage = GroupLocalImage(id: UUID(), group: group, image: image.jpegData(compressionQuality: 100)!)
         
         localImages.insert(localImage, at: 0)
+        // GroupLocalImageDataSource.shared.append(localImage)
         showCamera = false
         
-        if let data = image.jpegData(compressionQuality: 100) {
-            do {
-                let task = Amplify.Storage.uploadData(key: localImage.key, data: data, options: .init(contentType: "image/jpeg"))
-                let _ = try await task.value
-                
-                let result = await API.shared.post(path: "/group/\(group.uuid)/images", decode: GroupImage.self, parameters: ["name": localImage.name])
-                if case .success(let data) = result {
-                    self.replaceLocalImage(localImage, with: data)
-                } else {
-                    // TODO handle error
-                    print("Upload error")
-                }
-            } catch {
-                print(error)
+        if let _ = await ImageUtils.uploadImage(image, key: localImage.key) {
+            let result = await API.shared.post(path: "/group/\(group.uuid)/images", decode: GroupImage.self, parameters: ["name": localImage.name])
+            if case .success(let data) = result {
+                self.replaceLocalImage(localImage, with: data)
+            } else {
+                // TODO handle error
+                print("Upload error")
             }
+        } else {
+            // TODO handle error
+            print("Upload error")
         }
     }
     

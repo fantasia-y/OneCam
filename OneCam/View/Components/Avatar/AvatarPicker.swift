@@ -69,7 +69,7 @@ struct AvatarPicker: View {
         .onChange(of: pickedItem) {
             Task {
                 if let loaded = try? await pickedItem?.loadTransferable(type: Data.self) {
-                    image = ImageUtils.cropImage(UIImage(data: loaded)!)
+                    image = ImageUtils.cropSquareImage(UIImage(data: loaded)!)
                     pickedItem = nil
                 }
             }

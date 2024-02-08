@@ -31,13 +31,30 @@ struct HomeView: View {
                     }
                     
                     if !viewModel.groups.isEmpty {
-                        // List sessions
-                        List(viewModel.groups) { group in
-                            NavigationLink(value: group) {
-                                GroupListView(group: group)
+                        ScrollView {
+                            LazyVStack(spacing: 10) {
+                                ForEach(viewModel.groups) { group in
+                                    NavigationLink(value: group) {
+                                        GroupListView(group: group)
+                                    }
+                                    .buttonStyle(.plain)
+                                    .contextMenu() {
+                                        Button("Share", systemImage: "square.and.arrow.up") {
+                                            
+                                        }
+                                        
+                                        Button("Leave", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
+                                            
+                                        }
+                                        
+                                        Button("Delete", systemImage: "trash", role: .destructive) {
+                                            
+                                        }
+                                    }
+                                }
                             }
+                            .padding(.horizontal)
                         }
-                        .listStyle(.plain)
                         .refreshable {
                             Task {
                                 await viewModel.getGroups()
@@ -98,5 +115,8 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    NavigationStack {
+        HomeView()
+            .environmentObject(UserData())
+    }
 }

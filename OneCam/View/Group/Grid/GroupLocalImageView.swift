@@ -12,7 +12,7 @@ struct GroupLocalImageView: View {
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-            Image(uiImage: ImageUtils.cropImage(UIImage(data: image.image)!))
+            Image(uiImage: ImageUtils.cropSquareImage(UIImage(data: image.image)!))
                 .resizable()
                 .aspectRatio(1.0, contentMode: .fill)
             

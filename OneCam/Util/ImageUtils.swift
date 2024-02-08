@@ -10,7 +10,25 @@ import UIKit
 import Amplify
 
 class ImageUtils {
-    static func cropImage(_ image: UIImage) -> UIImage {
+    static func cropSquareImage(_ image: UIImage) -> UIImage {
+        let sideLength = min(
+            image.size.width,
+            image.size.height
+        )
+        
+        return cropImage(image, width: sideLength, height: sideLength)
+    }
+    
+    static func cropRectangleImage(_ image: UIImage) -> UIImage {
+        let sideLength = min(
+            image.size.width,
+            image.size.height
+        )
+        
+        return cropImage(image, width: sideLength, height: sideLength / 2)
+    }
+    
+    static private func cropImage(_ image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {
         let sideLength = min(
             image.size.width,
             image.size.height
@@ -25,8 +43,8 @@ class ImageUtils {
         let cropRect = CGRect(
             x: xOffset,
             y: yOffset,
-            width: sideLength,
-            height: sideLength
+            width: width,
+            height: height
         ).integral
 
         // Center crop the image

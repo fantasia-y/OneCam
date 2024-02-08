@@ -11,19 +11,28 @@ struct GroupListView: View {
     let group: Group
     
     var body: some View {
-        HStack(alignment: .top) {
-            Avatar(imageUrl: "https://images.pexels.com/photos/16153963/pexels-photo-16153963/free-photo-of-flower-heads-floating-in-a-bottled-water.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
-                .size(.medium)
+        ZStack(alignment: .bottomLeading) {
+            Image(uiImage: ImageUtils.cropRectangleImage(UIImage(imageLiteralResourceName: "test_image")))
+                .resizable()
+                .aspectRatio(contentMode: .fit)
             
-            VStack(alignment: .leading) {
-                Text(group.name)
-                    .bold()
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(group.name)
+                        .bold()
+                    
+                    Text("\(group.imageCount) image\(group.imageCount != 1 ? "s" : "")")
+                        .font(.subheadline)
+                        .foregroundStyle(Color("textSecondary"))
+                }
                 
-                Text("\(group.imageCount) Images")
-                    .foregroundStyle(.gray)
-                    .font(.subheadline)
+                Spacer()
             }
+            .padding()
+            .background(.thinMaterial)
+            .frame(maxWidth: .infinity)
         }
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 

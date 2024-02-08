@@ -27,7 +27,6 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     private var cancellables = Set<AnyCancellable>()
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
-    @Published var authenticationFlow: AuthenticationFlow = .login
     @Published var showLoginScreen = false
     
     @Published var currentUser: User?
@@ -58,10 +57,6 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         } catch {
             print(error)
         }
-    }
-    
-    func switchFlow() {
-        authenticationFlow = authenticationFlow == .login ? .signup : .login
     }
     
     func handleSignInWithAppleRequest(_ request: ASAuthorizationAppleIDRequest) {
@@ -144,6 +139,9 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         switch response {
         case .success(_):
             authenticationState = .authenticated
+            email = ""
+            password = ""
+            
             onAuthenticated()
             break;
         case .serverError(let error):

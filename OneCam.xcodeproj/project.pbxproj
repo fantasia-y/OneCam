@@ -19,12 +19,11 @@
 		F80A44812B616D95007217DD /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A44802B616D95007217DD /* Avatar.swift */; };
 		F80A44842B617300007217DD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A44832B617300007217DD /* ProfileView.swift */; };
 		F80A44862B617D7B007217DD /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A44852B617D7B007217DD /* GroupListView.swift */; };
+		F81FB4CF2B750AE500F4A53F /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FB4CE2B750AE500F4A53F /* GetStartedView.swift */; };
 		F82D541A2B066EC9000BE2B3 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */; };
 		F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */; };
 		F82D54202B066F2C000BE2B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541F2B066F2C000BE2B3 /* User.swift */; };
-		F82D54282B067177000BE2B3 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54272B067177000BE2B3 /* AuthView.swift */; };
-		F82D542A2B06718B000BE2B3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54292B06718B000BE2B3 /* LoginView.swift */; };
-		F82D542C2B0671A2000BE2B3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D542B2B0671A2000BE2B3 /* SignUpView.swift */; };
+		F82D542A2B06718B000BE2B3 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54292B06718B000BE2B3 /* AuthView.swift */; };
 		F82D542E2B0671BE000BE2B3 /* ThirdPartyLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D542D2B0671BE000BE2B3 /* ThirdPartyLoginView.swift */; };
 		F82D54312B067212000BE2B3 /* CustomTextFieldBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */; };
 		F82D54342B068876000BE2B3 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54332B068876000BE2B3 /* CreateGroupView.swift */; };
@@ -50,6 +49,7 @@
 		F862A11A2B6939C200C44AE3 /* GroupLocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F862A1192B6939C200C44AE3 /* GroupLocalImage.swift */; };
 		F862A11C2B69476E00C44AE3 /* GroupGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F862A11B2B69476E00C44AE3 /* GroupGridView.swift */; };
 		F862A11E2B69490700C44AE3 /* GroupCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F862A11D2B69490700C44AE3 /* GroupCarouselView.swift */; };
+		F880298F2B7501A000502F58 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880298E2B7501A000502F58 /* CustomButton.swift */; };
 		F89493B82B27BFF700D6A7B6 /* PreviewGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493B72B27BFF700D6A7B6 /* PreviewGroupView.swift */; };
 		F89493BA2B27CB0A00D6A7B6 /* PreviewGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493B92B27CB0A00D6A7B6 /* PreviewGroupViewModel.swift */; };
 		F89493BC2B27D09900D6A7B6 /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493BB2B27D09900D6A7B6 /* GroupView.swift */; };
@@ -83,13 +83,12 @@
 		F80A44832B617300007217DD /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F80A44852B617D7B007217DD /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 		F8115BCC2AF14B5A009CCBFA /* OneCam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneCam.entitlements; sourceTree = "<group>"; };
+		F81FB4CE2B750AE500F4A53F /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedViewModel.swift; sourceTree = "<group>"; };
 		F82D541F2B066F2C000BE2B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F82D54252B06710A000BE2B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F82D54272B067177000BE2B3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		F82D54292B06718B000BE2B3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		F82D542B2B0671A2000BE2B3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		F82D54292B06718B000BE2B3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		F82D542D2B0671BE000BE2B3 /* ThirdPartyLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdPartyLoginView.swift; sourceTree = "<group>"; };
 		F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldBase.swift; sourceTree = "<group>"; };
 		F82D54332B068876000BE2B3 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		F862A1192B6939C200C44AE3 /* GroupLocalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLocalImage.swift; sourceTree = "<group>"; };
 		F862A11B2B69476E00C44AE3 /* GroupGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGridView.swift; sourceTree = "<group>"; };
 		F862A11D2B69490700C44AE3 /* GroupCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCarouselView.swift; sourceTree = "<group>"; };
+		F880298E2B7501A000502F58 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F89493B72B27BFF700D6A7B6 /* PreviewGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewGroupView.swift; sourceTree = "<group>"; };
 		F89493B92B27CB0A00D6A7B6 /* PreviewGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewGroupViewModel.swift; sourceTree = "<group>"; };
 		F89493BB2B27D09900D6A7B6 /* GroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
@@ -193,10 +193,9 @@
 			children = (
 				F831A9852B73C0F2004C13B2 /* Onboarding */,
 				F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */,
-				F82D54272B067177000BE2B3 /* AuthView.swift */,
-				F82D54292B06718B000BE2B3 /* LoginView.swift */,
-				F82D542B2B0671A2000BE2B3 /* SignUpView.swift */,
+				F82D54292B06718B000BE2B3 /* AuthView.swift */,
 				F82D542D2B0671BE000BE2B3 /* ThirdPartyLoginView.swift */,
+				F81FB4CE2B750AE500F4A53F /* GetStartedView.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -227,6 +226,7 @@
 				F831A9922B743BE8004C13B2 /* Avatar */,
 				F80397482B6845AC000D7CD8 /* Camera */,
 				F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */,
+				F880298E2B7501A000502F58 /* CustomButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -514,19 +514,19 @@
 				F84C73732B6875A200FA8C25 /* GroupLocalImageView.swift in Sources */,
 				F89493BC2B27D09900D6A7B6 /* GroupView.swift in Sources */,
 				F82D54342B068876000BE2B3 /* CreateGroupView.swift in Sources */,
-				F82D54282B067177000BE2B3 /* AuthView.swift in Sources */,
 				F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */,
 				F82D54392B068BAF000BE2B3 /* CreateGroupViewModel.swift in Sources */,
 				F89493B82B27BFF700D6A7B6 /* PreviewGroupView.swift in Sources */,
 				F862A11A2B6939C200C44AE3 /* GroupLocalImage.swift in Sources */,
 				F80A447C2B6162D4007217DD /* GroupSettingsViewModel.swift in Sources */,
 				F89493BA2B27CB0A00D6A7B6 /* PreviewGroupViewModel.swift in Sources */,
+				F81FB4CF2B750AE500F4A53F /* GetStartedView.swift in Sources */,
+				F880298F2B7501A000502F58 /* CustomButton.swift in Sources */,
 				F862A11C2B69476E00C44AE3 /* GroupGridView.swift in Sources */,
 				F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */,
 				F80397522B6860CE000D7CD8 /* CameraViewFinder.swift in Sources */,
 				F82D54412B06A225000BE2B3 /* Group.swift in Sources */,
 				F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */,
-				F82D542C2B0671A2000BE2B3 /* SignUpView.swift in Sources */,
 				F89493BE2B27D5D300D6A7B6 /* UserData.swift in Sources */,
 				F831A9912B742783004C13B2 /* ImageStorage.swift in Sources */,
 				F862A11E2B69490700C44AE3 /* GroupCarouselView.swift in Sources */,
@@ -540,7 +540,7 @@
 				F80A44862B617D7B007217DD /* GroupListView.swift in Sources */,
 				F831A9942B743C82004C13B2 /* AvatarPicker.swift in Sources */,
 				F82D54372B068A79000BE2B3 /* ContentViewModel.swift in Sources */,
-				F82D542A2B06718B000BE2B3 /* LoginView.swift in Sources */,
+				F82D542A2B06718B000BE2B3 /* AuthView.swift in Sources */,
 				F831A98E2B73D7F0004C13B2 /* ImageUtils.swift in Sources */,
 				F82D54202B066F2C000BE2B3 /* User.swift in Sources */,
 				F8A4E5DB2B62BF8A00632E82 /* GroupImage.swift in Sources */,

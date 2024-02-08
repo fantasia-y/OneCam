@@ -25,7 +25,7 @@ struct OneCamApp: App {
     var body: some Scene {
         WindowGroup {
             AuthenticatedView() {
-                Text("You need to log in")
+                GetStartedView()
             } content: {
                 ContentView()
             }

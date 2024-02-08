@@ -18,8 +18,8 @@ struct ThirdPartyLoginView: View {
             } onCompletion: { result in
                 viewModel.handleSignInWithAppleCompletion(result)
             }
-            .frame(width: 240, height: 45)
-            .cornerRadius(6)
+            .frame(height: 55)
+            .cornerRadius(10)
             
             Button {
                 viewModel.handleGoogleSignIn()
@@ -27,17 +27,17 @@ struct ThirdPartyLoginView: View {
                 HStack {
                     Image("google")
                         .resizable()
-                        .frame(width: 16, height: 16)
+                        .frame(width: 20, height: 20)
                     
                     Text("Sign in with Google")
+                        .bold()
                 }
+                .frame(maxWidth: .infinity)
             }
-            .frame(width: 240, height: 45)
-            .buttonStyle(.plain)
-            .overlay {
-                RoundedRectangle(cornerRadius: 6)
-                    .stroke()
-            }
+            .padding()
+            .background(Color("buttonSecondary"))
+            .foregroundStyle(Color("textPrimary"))
+            .cornerRadius(10)
         }
     }
 }

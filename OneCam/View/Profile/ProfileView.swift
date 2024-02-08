@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ProfileView: View {
     @EnvironmentObject var authenticatedViewModel: AuthenticatedViewModel
+    
+    @State var newImage: UIImage?
+    @State var isLoading = false
     
     let user: User?
     var showProfile: Binding<Bool>
@@ -25,8 +29,12 @@ struct ProfileView: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            Avatar(user: user)
-                .size(.large)
+            AvatarPicker(image: $newImage, loadUserImage: true, isLoading: isLoading)
+                .onChange(of: newImage) {
+                    // TODO upload image
+                    isLoading = true
+                    print("new image")
+                }
             
             Text(user?.displayname ?? "Displayname")
                 .bold()

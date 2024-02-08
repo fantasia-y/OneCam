@@ -16,23 +16,40 @@ struct GroupSettingsView: View {
     @Binding var showSettings: Bool
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
+            // Avatar
+            
+            // participant list
+            List {
+                ForEach(group.participants) { participant in
+                    HStack {
+                        Avatar(user: participant)
+                        
+                        Text(participant.displayname ?? "")
+                    }
+                }
+            }
+            .scrollDisabled(true)
+            
             if let user = userData.currentUser {
-                Button("Leave Group") {
-                    Task {
-                        if await viewModel.leaveGroup(group, user: user) {
-                            showSettings = false
-                            homeViewModel.groups.removeAll(where: { $0.id == group.id })
-                            homeViewModel.path.removeLast()
+                List {
+                    Button("Leave Group", role: .destructive) {
+                        Task {
+                            if await viewModel.leaveGroup(group, user: user) {
+                                showSettings = false
+                                homeViewModel.groups.removeAll(where: { $0.id == group.id })
+                                homeViewModel.path.removeLast()
+                            }
+                        }
+                    }
+                    
+                    if group.isOwner(user) {
+                        Button("Delete Group", role: .destructive) {
+                            
                         }
                     }
                 }
-                
-                if group.isOwner(user) {
-                    Button("Delete Group") {
-                        
-                    }
-                }
+                .scrollDisabled(true)
             }
         }
     }
@@ -40,4 +57,6 @@ struct GroupSettingsView: View {
 
 #Preview {
     GroupSettingsView(group: Group.Example, showSettings: .constant(false))
+        .environmentObject(UserData(currentUser: User.Example))
+        .environmentObject(HomeViewModel())
 }

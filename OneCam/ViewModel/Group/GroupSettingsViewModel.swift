@@ -10,7 +10,7 @@ import GordonKirschAPI
 
 class GroupSettingsViewModel: ObservableObject {
     func leaveGroup(_ group: Group, user: User) async -> Bool {
-        let result = await API.shared.delete(path: "/group/\(group.groupId)/user/\(user.id)", decode: [Group].self)
+        let result = await API.shared.delete(path: "/group/\(group.uuid)/user/\(user.id)", decode: [Group].self)
         
         if case .success(_) = result {
             return true

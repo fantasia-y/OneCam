@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct User: Codable, Identifiable, Hashable {
+struct User: Codable, Identifiable, Hashable, ImageStorage {
     let id: Int
     let email: String?
     let displayname: String?
-    let imageUrl: String?
     let emailVerified: Bool?
     let setupDone: Bool?
+    var urls: [String : String]
 }
 
 struct UpdateUser: Codable {
@@ -26,16 +26,8 @@ extension User {
         id: 1,
         email: "me@gordonkirsch.dev",
         displayname: "Gordon",
-        imageUrl: nil,
         emailVerified: true,
-        setupDone: true
+        setupDone: true,
+        urls: [:]
     )
-    
-    func getImageUrl(size: CGFloat = 32) -> String {
-        if let imageUrl, !imageUrl.isEmpty {
-            return imageUrl
-        }
-        // TODO replace with displayname when onboarding is implemented
-        return "https://ui-avatars.com/api/?name=\(email!)&size=128"
-    }
 }

@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-onecam-dev-133716-authRole",
+      "UnauthRoleArn": "arn:aws:iam::524931250165:role/amplify-onecam-dev-133716-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::524931250165:role/amplify-onecam-dev-133716-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-onecam-dev-133716-deployment",
+      "UnauthRoleName": "amplify-onecam-dev-133716-unauthRole",
+      "StackName": "amplify-onecam-dev-133716",
+      "StackId": "arn:aws:cloudformation:eu-central-1:524931250165:stack/amplify-onecam-dev-133716/4d91ad70-bf6c-11ee-8815-0a65019b0b6b",
+      "AmplifyAppId": "da8e1ahrpuwsv"
+    },
+    "categories": {
+      "auth": {
+        "onecamf7d3590e": {}
+      },
+      "storage": {
+        "onecamdev": {}
+      }
+    }
+  }
+}

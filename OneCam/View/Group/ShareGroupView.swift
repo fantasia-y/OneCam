@@ -17,7 +17,7 @@ struct ShareGroupView: View {
                 .scaledToFit()
                 .frame(width: 200, height: 200)
         
-        ShareLink(item: URLUtils.generateShareUrl(forSession: session))
+        ShareLink(item: URLUtils.generateShareUrl(forGroup: session))
     }
 }
 

@@ -23,7 +23,7 @@ class PreviewGroupViewModel: ObservableObject {
     }
     
     func joinGroup(_ group: Group) async -> Bool {
-        let result = await API.shared.post(path: "/group/join", parameters: ["id": group.groupId])
+        let result = await API.shared.post(path: "/group/join", parameters: ["id": group.uuid])
         
         if case .success = result {
             return true

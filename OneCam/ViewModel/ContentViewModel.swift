@@ -7,6 +7,8 @@
 
 import Foundation
 import GordonKirschAPI
+import UIKit
+import Amplify
 
 enum OnboardingState {
     case emailVerification
@@ -46,6 +48,29 @@ class ContentViewModel: ObservableObject {
             self.onboardingState = .emailVerification
         } else if !user.setupDone! {
             self.onboardingState = .accountSetup
+        }
+    }
+    
+    @MainActor
+    func updateUser(_ displayname: String, _ image: UIImage?) async {
+        let key = "\(UUID().uuidString.lowercased()).jpg"
+        var parameters = ["displayname": displayname]
+        
+        if let image, let _ = await ImageUtils.uploadImage(image, key: "user/\(key)") {
+            parameters["image"] = key
+        }
+        
+        let result = await API.shared.put(path: "/user/onboarding", decode: User.self, parameters: parameters)
+        switch result {
+        case .success(let data):
+            self.onUserLoaded(data)
+            break
+        case .serverError(let err), .authError(let err):
+            print(err.message)
+            break
+        case .networkError(let err):
+            print(err)
+            break
         }
     }
 }

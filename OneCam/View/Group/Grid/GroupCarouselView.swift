@@ -130,4 +130,5 @@ struct GroupCarouselView: View {
 
 #Preview {
     GroupCarouselView(group: Group.Example)
+        .environmentObject(GroupViewModel())
 }

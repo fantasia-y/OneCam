@@ -27,6 +27,7 @@ struct CustomButton: View {
     @Environment(\.buttonStyle) var buttonStyle
     
     let text: String
+    let loading: Bool
     let action: () async -> ()
     
     var buttonColor: Color {
@@ -49,6 +50,13 @@ struct CustomButton: View {
     
     init(_ text: String, action: @escaping () async -> ()) {
         self.text = text
+        self.loading = false
+        self.action = action
+    }
+    
+    init(_ text: String, loading: Bool, action: @escaping () async -> ()) {
+        self.text = text
+        self.loading = loading
         self.action = action
     }
     
@@ -58,14 +66,20 @@ struct CustomButton: View {
                 await action()
             }
         } label: {
-            Text(text)
-                .fontWeight(.bold)
-                .frame(maxWidth: .infinity)
+            if loading {
+                ProgressView()
+                    .frame(maxWidth: .infinity)
+            } else {
+                Text(text)
+                    .fontWeight(.bold)
+                    .frame(maxWidth: .infinity)
+            }
         }
         .padding()
         .background(buttonColor)
         .foregroundColor(textColor)
         .cornerRadius(10)
+        .disabled(loading)
     }
 }
 
@@ -76,7 +90,13 @@ extension CustomButton {
 }
 
 #Preview {
-    CustomButton("Test") {
-        print("Test")
+    VStack {
+        CustomButton("Test") {
+            print("Test")
+        }
+        
+        CustomButton("Test", loading: true) {
+            print("Test")
+        }
     }
 }

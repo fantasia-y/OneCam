@@ -20,6 +20,9 @@
 		F80A44842B617300007217DD /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A44832B617300007217DD /* ProfileView.swift */; };
 		F80A44862B617D7B007217DD /* GroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A44852B617D7B007217DD /* GroupListView.swift */; };
 		F81FB4CF2B750AE500F4A53F /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FB4CE2B750AE500F4A53F /* GetStartedView.swift */; };
+		F81FB4D12B750F5A00F4A53F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FB4D02B750F5A00F4A53F /* OnboardingView.swift */; };
+		F81FB4D32B75131E00F4A53F /* FirstStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FB4D22B75131E00F4A53F /* FirstStepView.swift */; };
+		F81FB4D72B751B7A00F4A53F /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = F81FB4D62B751B7A00F4A53F /* SwiftUIIntrospect */; };
 		F82D541A2B066EC9000BE2B3 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */; };
 		F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */; };
 		F82D54202B066F2C000BE2B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541F2B066F2C000BE2B3 /* User.swift */; };
@@ -84,6 +87,8 @@
 		F80A44852B617D7B007217DD /* GroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListView.swift; sourceTree = "<group>"; };
 		F8115BCC2AF14B5A009CCBFA /* OneCam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneCam.entitlements; sourceTree = "<group>"; };
 		F81FB4CE2B750AE500F4A53F /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
+		F81FB4D02B750F5A00F4A53F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		F81FB4D22B75131E00F4A53F /* FirstStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepView.swift; sourceTree = "<group>"; };
 		F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedViewModel.swift; sourceTree = "<group>"; };
 		F82D541F2B066F2C000BE2B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -137,6 +142,7 @@
 				F8F6B7332B065A5900B9E41D /* JWTDecode in Frameworks */,
 				F89493C82B27EAFC00D6A7B6 /* GordonKirschAPI in Frameworks */,
 				F862A1112B69249C00C44AE3 /* AWSS3StoragePlugin in Frameworks */,
+				F81FB4D72B751B7A00F4A53F /* SwiftUIIntrospect in Frameworks */,
 				F862A1152B69249C00C44AE3 /* CoreMLPredictionsPlugin in Frameworks */,
 				F862A1132B69249C00C44AE3 /* Amplify in Frameworks */,
 				F80A447F2B61695D007217DD /* CachedAsyncImage in Frameworks */,
@@ -173,6 +179,15 @@
 				F80A44832B617300007217DD /* ProfileView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F81FB4D42B75132000F4A53F /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				F831A9862B73C101004C13B2 /* AccountSetupView.swift */,
+				F81FB4D22B75131E00F4A53F /* FirstStepView.swift */,
+			);
+			path = Steps;
 			sourceTree = "<group>";
 		};
 		F82D54172B066EB2000BE2B3 /* View */ = {
@@ -269,7 +284,8 @@
 		F831A9852B73C0F2004C13B2 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				F831A9862B73C101004C13B2 /* AccountSetupView.swift */,
+				F81FB4D42B75132000F4A53F /* Steps */,
+				F81FB4D02B750F5A00F4A53F /* OnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -435,6 +451,7 @@
 				F862A1122B69249C00C44AE3 /* Amplify */,
 				F862A1142B69249C00C44AE3 /* CoreMLPredictionsPlugin */,
 				F862A1172B692BD200C44AE3 /* AWSCognitoAuthPlugin */,
+				F81FB4D62B751B7A00F4A53F /* SwiftUIIntrospect */,
 			);
 			productName = OneCam;
 			productReference = F8EC94502AF141DA00D0F466 /* OneCam.app */;
@@ -472,6 +489,7 @@
 				F89493C92B27EDFD00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschUtils" */,
 				F80A447D2B61695D007217DD /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				F862A0FD2B69249C00C44AE3 /* XCRemoteSwiftPackageReference "amplify-swift" */,
+				F81FB4D52B751B7A00F4A53F /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = F8EC94512AF141DA00D0F466 /* Products */;
 			projectDirPath = "";
@@ -546,6 +564,8 @@
 				F8A4E5DB2B62BF8A00632E82 /* GroupImage.swift in Sources */,
 				F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */,
 				F89493C42B27D77000D6A7B6 /* HomeViewModel.swift in Sources */,
+				F81FB4D12B750F5A00F4A53F /* OnboardingView.swift in Sources */,
+				F81FB4D32B75131E00F4A53F /* FirstStepView.swift in Sources */,
 				F80A447A2B615CA5007217DD /* GroupSettingsView.swift in Sources */,
 				F832BE382B0EB21B0037DA45 /* JoinGroupView.swift in Sources */,
 			);
@@ -771,6 +791,14 @@
 				minimumVersion = 2.1.1;
 			};
 		};
+		F81FB4D52B751B7A00F4A53F /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
 		F832BE342B0E8ECF0037DA45 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
@@ -826,6 +854,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F80A447D2B61695D007217DD /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
 			productName = CachedAsyncImage;
+		};
+		F81FB4D62B751B7A00F4A53F /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F81FB4D52B751B7A00F4A53F /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 		F832BE352B0E8ECF0037DA45 /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;

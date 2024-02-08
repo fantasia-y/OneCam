@@ -21,6 +21,9 @@ class ContentViewModel: ObservableObject {
     @Published var isLoaded = false
     @Published var failedLoading = false
     @Published var userData = UserData()
+    @Published var loadingUserUpdate = false
+    
+    var onboardingUser: User?
     
     @MainActor
     func loadUser() async {
@@ -52,7 +55,9 @@ class ContentViewModel: ObservableObject {
     }
     
     @MainActor
-    func updateUser(_ displayname: String, _ image: UIImage?) async {
+    func updateUser(_ displayname: String, _ image: UIImage?, completion: @escaping () -> ()) async {
+        self.loadingUserUpdate = true
+        
         let key = "\(UUID().uuidString.lowercased()).jpg"
         var parameters = ["displayname": displayname]
         
@@ -63,7 +68,8 @@ class ContentViewModel: ObservableObject {
         let result = await API.shared.put(path: "/user/onboarding", decode: User.self, parameters: parameters)
         switch result {
         case .success(let data):
-            self.onUserLoaded(data)
+            self.onboardingUser = data
+            completion()
             break
         case .serverError(let err), .authError(let err):
             print(err.message)
@@ -71,6 +77,15 @@ class ContentViewModel: ObservableObject {
         case .networkError(let err):
             print(err)
             break
+        }
+        
+        self.loadingUserUpdate = false
+    }
+    
+    @MainActor
+    func finishOnboarding() {
+        if let onboardingUser {
+            self.onUserLoaded(onboardingUser)
         }
     }
 }

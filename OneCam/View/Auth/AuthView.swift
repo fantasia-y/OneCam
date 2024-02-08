@@ -20,6 +20,7 @@ struct AuthView: View {
             
             Text("Get started by creating or logging into an account")
                 .multilineTextAlignment(.center)
+                .padding(.bottom, 25)
             
             CustomTextField("E-Mail", text: $viewModel.email)
                 .keyboardType(.emailAddress)

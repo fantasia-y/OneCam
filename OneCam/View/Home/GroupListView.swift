@@ -6,15 +6,43 @@
 //
 
 import SwiftUI
+import CachedAsyncImage
 
 struct GroupListView: View {
     let group: Group
     
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            Image(uiImage: ImageUtils.cropRectangleImage(UIImage(imageLiteralResourceName: "test_image")))
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            CachedAsyncImage(url: URL(string: group.urls[FilterType.none.rawValue]!)!) { phase in
+                switch phase {
+                case .empty:
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color("buttonSecondary"))
+                            .frame(height: 180)
+                        
+                        ProgressView()
+                    }
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 180)
+                        .contentShape(Rectangle())
+                        .clipped()
+                case .failure:
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color("buttonSecondary"))
+                            .frame(height: 180)
+                        
+                        Image(systemName: "questionmark")
+                            .foregroundStyle(.white)
+                    }
+                @unknown default:
+                    EmptyView()
+                }
+            }
             
             HStack {
                 VStack(alignment: .leading) {

@@ -14,7 +14,7 @@ enum FilterType: String, Codable {
 
 struct GroupImage: Codable, Identifiable, Hashable, ImageStorage {
     var id: Int
-    var imageName: String
+    var imageName: String?
     var urls: [String : String]
 }
 

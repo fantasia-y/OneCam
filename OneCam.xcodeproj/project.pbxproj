@@ -23,6 +23,7 @@
 		F81FB4D12B750F5A00F4A53F /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FB4D02B750F5A00F4A53F /* OnboardingView.swift */; };
 		F81FB4D32B75131E00F4A53F /* FirstStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81FB4D22B75131E00F4A53F /* FirstStepView.swift */; };
 		F81FB4D72B751B7A00F4A53F /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = F81FB4D62B751B7A00F4A53F /* SwiftUIIntrospect */; };
+		F829C83E2B75551F00D7DB2A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F829C83D2B75551F00D7DB2A /* CarouselView.swift */; };
 		F82D541A2B066EC9000BE2B3 /* AuthenticatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */; };
 		F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */; };
 		F82D54202B066F2C000BE2B3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82D541F2B066F2C000BE2B3 /* User.swift */; };
@@ -64,6 +65,9 @@
 		F8A4E5DB2B62BF8A00632E82 /* GroupImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4E5DA2B62BF8A00632E82 /* GroupImage.swift */; };
 		F8A4E5DD2B62BFD300632E82 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4E5DC2B62BFD300632E82 /* GroupViewModel.swift */; };
 		F8A4E5E02B62CA1E00632E82 /* GroupImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4E5DF2B62CA1E00632E82 /* GroupImageView.swift */; };
+		F8EC88E02B7662AD00853DC6 /* CreateGroupNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC88DF2B7662AD00853DC6 /* CreateGroupNameView.swift */; };
+		F8EC88E32B7663A400853DC6 /* CreateGroupImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC88E22B7663A400853DC6 /* CreateGroupImageView.swift */; };
+		F8EC88E52B76861100853DC6 /* CreateGroupPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC88E42B76861100853DC6 /* CreateGroupPreviewView.swift */; };
 		F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC94532AF141DB00D0F466 /* OneCamApp.swift */; };
 		F8EC94562AF141DB00D0F466 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC94552AF141DB00D0F466 /* ContentView.swift */; };
 		F8EC94582AF141DF00D0F466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8EC94572AF141DF00D0F466 /* Assets.xcassets */; };
@@ -89,6 +93,7 @@
 		F81FB4CE2B750AE500F4A53F /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		F81FB4D02B750F5A00F4A53F /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F81FB4D22B75131E00F4A53F /* FirstStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepView.swift; sourceTree = "<group>"; };
+		F829C83D2B75551F00D7DB2A /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		F82D54192B066EC9000BE2B3 /* AuthenticatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedView.swift; sourceTree = "<group>"; };
 		F82D541D2B066F08000BE2B3 /* AuthenticatedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedViewModel.swift; sourceTree = "<group>"; };
 		F82D541F2B066F2C000BE2B3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -124,6 +129,9 @@
 		F8A4E5DA2B62BF8A00632E82 /* GroupImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupImage.swift; sourceTree = "<group>"; };
 		F8A4E5DC2B62BFD300632E82 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
 		F8A4E5DF2B62CA1E00632E82 /* GroupImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupImageView.swift; sourceTree = "<group>"; };
+		F8EC88DF2B7662AD00853DC6 /* CreateGroupNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupNameView.swift; sourceTree = "<group>"; };
+		F8EC88E22B7663A400853DC6 /* CreateGroupImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupImageView.swift; sourceTree = "<group>"; };
+		F8EC88E42B76861100853DC6 /* CreateGroupPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupPreviewView.swift; sourceTree = "<group>"; };
 		F8EC94502AF141DA00D0F466 /* OneCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8EC94532AF141DB00D0F466 /* OneCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneCamApp.swift; sourceTree = "<group>"; };
 		F8EC94552AF141DB00D0F466 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -238,6 +246,7 @@
 		F82D542F2B0671F3000BE2B3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F8EC88DE2B76621100853DC6 /* Carousel */,
 				F831A9922B743BE8004C13B2 /* Avatar */,
 				F80397482B6845AC000D7CD8 /* Camera */,
 				F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */,
@@ -249,9 +258,9 @@
 		F82D54322B068865000BE2B3 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				F8EC88DD2B76614D00853DC6 /* Create */,
 				F8A4E5DE2B62CA0600632E82 /* Grid */,
 				F832BE372B0EB21B0037DA45 /* JoinGroupView.swift */,
-				F82D54332B068876000BE2B3 /* CreateGroupView.swift */,
 				F82FD5D62B27A53A008CF1F1 /* ShareGroupView.swift */,
 				F89493B72B27BFF700D6A7B6 /* PreviewGroupView.swift */,
 				F80A44772B6156E2007217DD /* PreviewCreateGroupView.swift */,
@@ -350,6 +359,25 @@
 				F862A11D2B69490700C44AE3 /* GroupCarouselView.swift */,
 			);
 			path = Grid;
+			sourceTree = "<group>";
+		};
+		F8EC88DD2B76614D00853DC6 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				F82D54332B068876000BE2B3 /* CreateGroupView.swift */,
+				F8EC88DF2B7662AD00853DC6 /* CreateGroupNameView.swift */,
+				F8EC88E22B7663A400853DC6 /* CreateGroupImageView.swift */,
+				F8EC88E42B76861100853DC6 /* CreateGroupPreviewView.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		F8EC88DE2B76621100853DC6 /* Carousel */ = {
+			isa = PBXGroup;
+			children = (
+				F829C83D2B75551F00D7DB2A /* CarouselView.swift */,
+			);
+			path = Carousel;
 			sourceTree = "<group>";
 		};
 		F8EC94472AF141DA00D0F466 = {
@@ -529,10 +557,13 @@
 				F803974C2B6846AE000D7CD8 /* CameraManager.swift in Sources */,
 				F82D54312B067212000BE2B3 /* CustomTextFieldBase.swift in Sources */,
 				F80397472B68456A000D7CD8 /* CameraView.swift in Sources */,
+				F829C83E2B75551F00D7DB2A /* CarouselView.swift in Sources */,
 				F84C73732B6875A200FA8C25 /* GroupLocalImageView.swift in Sources */,
 				F89493BC2B27D09900D6A7B6 /* GroupView.swift in Sources */,
 				F82D54342B068876000BE2B3 /* CreateGroupView.swift in Sources */,
+				F8EC88E32B7663A400853DC6 /* CreateGroupImageView.swift in Sources */,
 				F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */,
+				F8EC88E52B76861100853DC6 /* CreateGroupPreviewView.swift in Sources */,
 				F82D54392B068BAF000BE2B3 /* CreateGroupViewModel.swift in Sources */,
 				F89493B82B27BFF700D6A7B6 /* PreviewGroupView.swift in Sources */,
 				F862A11A2B6939C200C44AE3 /* GroupLocalImage.swift in Sources */,
@@ -550,6 +581,7 @@
 				F862A11E2B69490700C44AE3 /* GroupCarouselView.swift in Sources */,
 				F80A44782B6156E2007217DD /* PreviewCreateGroupView.swift in Sources */,
 				F831A98C2B73CF65004C13B2 /* ImagePicker.swift in Sources */,
+				F8EC88E02B7662AD00853DC6 /* CreateGroupNameView.swift in Sources */,
 				F80A44842B617300007217DD /* ProfileView.swift in Sources */,
 				F8A4E5DD2B62BFD300632E82 /* GroupViewModel.swift in Sources */,
 				F8A4E5E02B62CA1E00632E82 /* GroupImageView.swift in Sources */,
@@ -707,11 +739,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneCam/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -720,9 +753,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.gordonkirsch.OneCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -740,11 +776,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OneCam/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR Code";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -753,9 +790,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.gordonkirsch.OneCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

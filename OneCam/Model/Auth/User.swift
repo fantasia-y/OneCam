@@ -13,12 +13,8 @@ struct User: Codable, Identifiable, Hashable, ImageStorage {
     let displayname: String?
     let emailVerified: Bool?
     let setupDone: Bool?
+    var imageName: String?
     var urls: [String : String]
-}
-
-struct UpdateUser: Codable {
-    var displayname: String
-    var imageUrl: String?
 }
 
 extension User {

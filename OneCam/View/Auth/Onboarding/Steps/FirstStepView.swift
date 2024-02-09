@@ -18,16 +18,17 @@ struct FirstStepView: View {
             Spacer()
             
             HStack {
-                CustomButton("Back") {
+                Button("Back") {
                     withAnimation {
                         selection -= 1
                     }
                 }
-                .style(.secondary)
+                .secondary()
                 
-                CustomButton("Finish") {
+                Button("Finish") {
                     onFinish()
                 }
+                .primary()
             }
         }
         .padding()

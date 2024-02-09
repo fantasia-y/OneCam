@@ -30,14 +30,15 @@ struct AuthView: View {
             CustomSecureField("Password", text: $viewModel.password)
             
             HStack {
-                CustomButton("Log in") {
+                AsyncButton("Log in") {
                     await viewModel.login()
                 }
-                .style(.secondary)
+                .secondary()
                 
-                CustomButton("Sign up") {
+                AsyncButton("Sign up") {
                     await viewModel.register()
                 }
+                .primary()
             }
             
             HStack {

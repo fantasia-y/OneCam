@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ImageStorage {
+    var imageName: String? { get set }
     var urls: [String: String] { get set }
 }

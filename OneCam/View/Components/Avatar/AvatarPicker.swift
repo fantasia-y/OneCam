@@ -12,6 +12,7 @@ struct AvatarPicker: View {
     @EnvironmentObject var userData: UserData
     
     @Binding var image: UIImage?
+    @Binding var croppedImage: UIImage?
     var displayname: String?
     var loadUserImage = false
     var isLoading = false
@@ -25,12 +26,12 @@ struct AvatarPicker: View {
         Button {
             showImageSelection = true
         } label: {
-            if let image = image {
+            if let image = croppedImage {
                 if loadUserImage {
                     if isLoading {
                         ZStack {
                             Circle()
-                                .fill(Color(red: 0.85, green: 0.85, blue: 0.85))
+                                .fill(Color("buttonSecondary"))
                                 .frame(width: 128, height: 128)
                             
                             ProgressView()
@@ -47,7 +48,7 @@ struct AvatarPicker: View {
                 }
             } else {
                 if let displayname, !displayname.isEmpty {
-                    Avatar(imageUrl: "https://ui-avatars.com/api/?name=\(displayname)")
+                    Avatar(imageUrl: "https://ui-avatars.com/api/?name=\(displayname)&size=256")
                         .size(.large)
                 } else if loadUserImage {
                     Avatar(user: userData.currentUser)
@@ -55,11 +56,11 @@ struct AvatarPicker: View {
                 } else {
                     ZStack {
                         Circle()
-                            .fill(Color(red: 0.85, green: 0.85, blue: 0.85))
+                            .fill(Color("buttonSecondary"))
                             .frame(width: 128, height: 128)
                         
                         Image(systemName: "plus")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("textPrimary"))
                             .bold()
                     }
                 }
@@ -69,7 +70,8 @@ struct AvatarPicker: View {
         .onChange(of: pickedItem) {
             Task {
                 if let loaded = try? await pickedItem?.loadTransferable(type: Data.self) {
-                    image = ImageUtils.cropSquareImage(UIImage(data: loaded)!)
+                    image = UIImage(data: loaded)!
+                    croppedImage = ImageUtils.cropSquareImage(UIImage(data: loaded)!)
                     pickedItem = nil
                 }
             }
@@ -91,7 +93,7 @@ struct AvatarPicker: View {
         }
         .photosPicker(isPresented: $showLibrary, selection: $pickedItem)
         .fullScreenCover(isPresented: $showCamera) {
-            ImagePicker(selectedImage: $image)
+            ImagePicker(selectedImage: $image, croppedImage: $croppedImage)
                 .background() {
                     Color.black.ignoresSafeArea()
                 }

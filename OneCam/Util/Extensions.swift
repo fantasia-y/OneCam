@@ -7,6 +7,8 @@
 
 import Foundation
 import JWTDecode
+import UIKit
+import SwiftUI
 
 extension JWT {
     var uuid: UUID {
@@ -20,4 +22,10 @@ extension JWT {
 
 extension URLCache {
     static let imageCache = URLCache(memoryCapacity: 512_000_000, diskCapacity: 10_000_000_000)
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }

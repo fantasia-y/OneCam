@@ -14,7 +14,7 @@ struct HomeView: View {
     
     var body: some View {
         if !viewModel.initialLoad {
-            NavigationStack(path: $viewModel.path) {
+            NavigationStack(path: $viewModel.path) {                
                 VStack {
                     if viewModel.groups.isEmpty {
                         HStack {

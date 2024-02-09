@@ -24,15 +24,17 @@ struct AccountSetupView: View {
             Text("Let's start by setting up your profile")
                 .padding(.bottom, 25)
             
-            AvatarPicker(image: $viewModel.image, displayname: viewModel.displaynameDebounced)
+            AvatarPicker(image: $viewModel.image, croppedImage: $viewModel.croppedImage, displayname: viewModel.displaynameDebounced)
             
             CustomTextField("Name", text: $viewModel.displayname)
             
             Spacer()
             
-            CustomButton("Next", loading: contentViewModel.loadingUserUpdate) {
+            AsyncButton("Next") {
+                hideKeyboard()
                 await contentViewModel.updateUser(viewModel.displayname, viewModel.image, completion: onFinish)
             }
+            .primary()
             .disabled(viewModel.displayname.isEmpty)
         }
         .padding()

@@ -16,6 +16,7 @@ class AccountSetupViewModel: ObservableObject {
     @Published var displayname = ""
     @Published var displaynameDebounced = ""
     @Published var image: UIImage?
+    @Published var croppedImage: UIImage?
     
     private var subscriptions = Set<AnyCancellable>()
     

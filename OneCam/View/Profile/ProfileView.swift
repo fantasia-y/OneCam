@@ -29,7 +29,7 @@ struct ProfileView: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            AvatarPicker(image: $newImage, loadUserImage: true, isLoading: isLoading)
+            AvatarPicker(image: $newImage, croppedImage: .constant(nil), loadUserImage: true, isLoading: isLoading)
                 .onChange(of: newImage) {
                     // TODO upload image
                     isLoading = true

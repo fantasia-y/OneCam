@@ -9,23 +9,32 @@ import Foundation
 import UIKit
 import Amplify
 
+enum CropOrientation {
+    case portrait
+    case landscape
+}
+
 class ImageUtils {
     static func cropSquareImage(_ image: UIImage) -> UIImage {
         let sideLength = min(
             image.size.width,
             image.size.height
         )
-        
         return cropImage(image, width: sideLength, height: sideLength)
     }
     
-    static func cropRectangleImage(_ image: UIImage) -> UIImage {
+    static func cropRectangleImage(_ image: UIImage, orientation: CropOrientation = .landscape) -> UIImage {
         let sideLength = min(
             image.size.width,
             image.size.height
         )
         
-        return cropImage(image, width: sideLength, height: sideLength / 2)
+        switch orientation {
+        case .portrait:
+            return cropImage(image, width: sideLength / 2, height: sideLength)
+        case .landscape:
+            return cropImage(image, width: sideLength, height: sideLength / 2)
+        }
     }
     
     static private func cropImage(_ image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {

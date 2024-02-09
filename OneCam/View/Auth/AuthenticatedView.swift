@@ -31,9 +31,10 @@ struct AuthenticatedView<Unauthenticated: View, Content: View>: View {
                     
                     Spacer()
                     
-                    CustomButton("Get started") {
+                    Button("Get started") {
                         viewModel.showLoginScreen = true
                     }
+                    .primary()
                 }
                 .padding()
             case .authenticated:

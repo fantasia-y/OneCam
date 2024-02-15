@@ -12,7 +12,6 @@ struct AvatarPicker: View {
     @EnvironmentObject var userData: UserData
     
     @Binding var image: UIImage?
-    @Binding var croppedImage: UIImage?
     var displayname: String?
     var loadUserImage = false
     var isLoading = false
@@ -26,7 +25,7 @@ struct AvatarPicker: View {
         Button {
             showImageSelection = true
         } label: {
-            if let image = croppedImage {
+            if let image {
                 if loadUserImage {
                     if isLoading {
                         ZStack {
@@ -71,7 +70,6 @@ struct AvatarPicker: View {
             Task {
                 if let loaded = try? await pickedItem?.loadTransferable(type: Data.self) {
                     image = UIImage(data: loaded)!
-                    croppedImage = ImageUtils.cropSquareImage(UIImage(data: loaded)!)
                     pickedItem = nil
                 }
             }
@@ -93,7 +91,7 @@ struct AvatarPicker: View {
         }
         .photosPicker(isPresented: $showLibrary, selection: $pickedItem)
         .fullScreenCover(isPresented: $showCamera) {
-            ImagePicker(selectedImage: $image, croppedImage: $croppedImage)
+            ImagePicker(selectedImage: $image)
                 .background() {
                     Color.black.ignoresSafeArea()
                 }

@@ -16,30 +16,7 @@ struct CreateGroupPreviewView: View {
             Text("Like what you see?")
                 .frame(maxWidth: .infinity)
             
-            ZStack(alignment: .bottomLeading) {
-                if let image = viewModel.croppedImage {
-                    Image(uiImage: image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                }
-                
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(viewModel.groupName)
-                            .bold()
-                        
-                        Text("0 images")
-                            .font(.subheadline)
-                            .foregroundStyle(Color("textSecondary"))
-                    }
-                    
-                    Spacer()
-                }
-                .padding()
-                .background(.thinMaterial)
-                .frame(maxWidth: .infinity)
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            PreviewGroupView(image: viewModel.image, name: viewModel.groupName)
             
             Spacer()
             

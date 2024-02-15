@@ -35,7 +35,7 @@ struct HomeView: View {
                             LazyVStack(spacing: 10) {
                                 ForEach(viewModel.groups) { group in
                                     NavigationLink(value: group) {
-                                        GroupListView(group: group)
+                                        PreviewGroupView(group: group, size: .list)
                                     }
                                     .buttonStyle(.plain)
                                     .contextMenu() {
@@ -72,10 +72,10 @@ struct HomeView: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }
                 .sheet(isPresented: $viewModel.showCreateGroup) {
-                    CreateGroupView(showCreateGroup: $viewModel.showCreateGroup)
+                    CreateGroupView()
                 }
                 .sheet(isPresented: $viewModel.showCodeScanner) {
-                    JoinGroupView(showCodeScanner: $viewModel.showCodeScanner)
+                    JoinGroupView()
                 }
                 .sheet(isPresented: $viewModel.showProfile) {
                     ProfileView(user: userData.currentUser, showProfile: $viewModel.showProfile)

@@ -16,7 +16,6 @@ class CreateGroupViewModel: ObservableObject {
     @Published var page = 1
     
     @Published var image: UIImage?
-    @Published var croppedImage: UIImage?
     @Published var pickedItem: PhotosPickerItem?
     
     @Published var showImageSelection = false

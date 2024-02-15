@@ -24,7 +24,7 @@ struct AccountSetupView: View {
             Text("Let's start by setting up your profile")
                 .padding(.bottom, 25)
             
-            AvatarPicker(image: $viewModel.image, croppedImage: $viewModel.croppedImage, displayname: viewModel.displaynameDebounced)
+            AvatarPicker(image: $viewModel.image, displayname: viewModel.displaynameDebounced)
             
             CustomTextField("Name", text: $viewModel.displayname)
             

@@ -11,7 +11,6 @@ import SwiftUI
 struct ImagePicker: UIViewControllerRepresentable {
     
     @Binding var selectedImage: UIImage?
-    @Binding var croppedImage: UIImage?
     @Environment(\.presentationMode) var isPresented
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
@@ -41,7 +40,6 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         self.picker.selectedImage = selectedImage
-        self.picker.croppedImage = ImageUtils.cropSquareImage(selectedImage)
         self.picker.isPresented.wrappedValue.dismiss()
     }
 }

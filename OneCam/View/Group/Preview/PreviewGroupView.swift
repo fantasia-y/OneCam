@@ -35,8 +35,7 @@ struct PreviewGroupView: View {
         self.group = group
         self.size = size
     }
-    
-    // TODO conditional modifier for size
+
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             GeometryReader { geometry in

@@ -56,13 +56,42 @@ struct SecondaryButtonModifier: ViewModifier {
     }
 }
 
+struct DestructiveButtonStyle: ButtonStyle {
+    let isEnabled: Bool
+
+    func makeBody(configuration: Configuration) -> some View {
+        return configuration
+            .label
+            .bold()
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color("buttonSecondary"))
+            .foregroundColor(Color("textDestructive"))
+            .cornerRadius(10)
+            .opacity(isEnabled ? 1.0 : 0.8)
+    }
+}
+
+struct DestructiveButtonModifier: ViewModifier {
+    @Environment(\.isEnabled) var isEnabled
+    
+    func body(content: Content) -> some View {
+        content
+            .buttonStyle(DestructiveButtonStyle(isEnabled: isEnabled))
+    }
+}
+
 extension Button {
-    func primary(isLoading: Bool = false) -> some View {
+    func primary() -> some View {
         modifier(PrimaryButtonModifier())
     }
     
-    func secondary(isLoading: Bool = false) -> some View {
+    func secondary() -> some View {
         modifier(SecondaryButtonModifier())
+    }
+    
+    func destructive() -> some View {
+        modifier(DestructiveButtonModifier())
     }
 }
 
@@ -72,12 +101,16 @@ struct AsyncButton<Label: View>: View {
 
     @State private var isPerformingTask = false
 
-    func primary(isLoading: Bool = false) -> some View {
+    func primary() -> some View {
         modifier(PrimaryButtonModifier())
     }
     
-    func secondary(isLoading: Bool = false) -> some View {
+    func secondary() -> some View {
         modifier(SecondaryButtonModifier())
+    }
+    
+    func destructive() -> some View {
+        modifier(DestructiveButtonModifier())
     }
     
     var body: some View {
@@ -116,6 +149,24 @@ extension AsyncButton where Label == Text {
     }
 }
 
+struct CloseButton: View {
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        Button {
+            dismiss()
+        } label: {
+            Image(systemName: "xmark")
+                .foregroundStyle(.black)
+                .font(.system(size: 12))
+                .bold()
+                .padding(.all, 8)
+                .background(Color("buttonSecondary"))
+                .clipShape(Circle())
+        }
+    }
+}
+
 #Preview {
     VStack {
         Button("Normal") {
@@ -128,6 +179,11 @@ extension AsyncButton where Label == Text {
         }
         .secondary()
         
+        Button("Normal") {
+            print("Normal")
+        }
+        .destructive()
+        
         Button("Disabled") {
             print("Disabled")
         }
@@ -140,14 +196,25 @@ extension AsyncButton where Label == Text {
         .secondary()
         .disabled(true)
         
+        Button("Disabled") {
+            print("Disabled")
+        }
+        .destructive()
+        .disabled(true)
+        
         AsyncButton("Loading") {
-            print("Loading")
+            try? await Task.sleep(seconds: 5)
         }
         .primary()
         
         AsyncButton("Loading") {
-            print("Loading")
+            try? await Task.sleep(seconds: 5)
         }
         .secondary()
+        
+        AsyncButton("Loading") {
+            try? await Task.sleep(seconds: 5)
+        }
+        .destructive()
     }
 }

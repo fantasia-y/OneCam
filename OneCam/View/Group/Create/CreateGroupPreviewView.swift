@@ -16,6 +16,8 @@ struct CreateGroupPreviewView: View {
             Text("Like what you see?")
                 .frame(maxWidth: .infinity)
             
+            Spacer()
+            
             PreviewGroupView(image: viewModel.image, name: viewModel.groupName)
             
             Spacer()
@@ -35,7 +37,7 @@ struct CreateGroupPreviewView: View {
                 .primary()
             }
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 

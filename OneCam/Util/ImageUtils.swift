@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Amplify
+import SwiftUI
 
 enum CropOrientation {
     case portrait
@@ -28,5 +29,22 @@ class ImageUtils {
             }
         }
         return nil
+    }
+}
+
+extension Image {
+    func groupPreview(width: CGFloat, size: GroupPreviewType = .large) -> some View {
+        self
+            .resizable()
+            .scaledToFill()
+            .if(size == .large) { view in
+                view.frame(width: width, height: width * 1.25)
+            }
+            .if(size == .list) { view in
+                view.frame(height: 180)
+            }
+            .contentShape(Rectangle())
+            .clipped()
+            .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }

@@ -23,7 +23,9 @@ struct CameraView<Content: View>: View {
         // TODO image preview
         if let image = cameraManager.image {
             ZStack {
-                Color.black.ignoresSafeArea(.all)
+                Image(uiImage: image)
+                    .resizable() // TODO fix scaling
+                    .ignoresSafeArea()
                 
                 VStack {
                     HStack {
@@ -34,25 +36,21 @@ struct CameraView<Content: View>: View {
                                 .font(.system(size: 24))
                                 .foregroundStyle(.white)
                         }
-                        .padding(.vertical)
+                        .shadow(radius: 6)
                         
                         Spacer()
                     }
-                    .padding(.horizontal)
-                    
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.white)
-                        
-                        Image(uiImage: image)
-                            .resizable()
-                            .clipShape(.rect(cornerRadius: 8))
-                            .padding(.all, 3)
-                    }
                     .padding()
                     
-                    content(image)
-                    .frame(minHeight: 80)
+                    Spacer()
+                    
+                    HStack {
+                        content(image)
+                            .padding()
+                    }
+                    .background(.thinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding()
                 }
             }
         } else {

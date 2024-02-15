@@ -17,17 +17,20 @@ struct HomeView: View {
             NavigationStack(path: $viewModel.path) {                
                 VStack {
                     if viewModel.groups.isEmpty {
-                        HStack {
-                            Button("Create Group", systemImage: "plus") {
+                        VStack {
+                            Spacer()
+                            
+                            Button("Create Group") {
                                 viewModel.showCreateGroup = true
                             }
-                            .buttonStyle(.borderedProminent)
+                            .primary()
                             
-                            Button("Join Group", systemImage: "plus") {
+                            Button("Join Group") {
                                 viewModel.showCodeScanner = true
                             }
-                            .buttonStyle(.borderedProminent)
+                            .secondary()
                         }
+                        .padding()
                     }
                     
                     if !viewModel.groups.isEmpty {
@@ -40,7 +43,7 @@ struct HomeView: View {
                                     .buttonStyle(.plain)
                                     .contextMenu() {
                                         Button("Share", systemImage: "square.and.arrow.up") {
-                                            
+                                            viewModel.showShareGroup = true
                                         }
                                         
                                         Button("Leave", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
@@ -50,6 +53,9 @@ struct HomeView: View {
                                         Button("Delete", systemImage: "trash", role: .destructive) {
                                             
                                         }
+                                    }
+                                    .sheet(isPresented: $viewModel.showShareGroup) {
+                                        ShareGroupView(group: group)
                                     }
                                 }
                             }
@@ -78,7 +84,7 @@ struct HomeView: View {
                     JoinGroupView()
                 }
                 .sheet(isPresented: $viewModel.showProfile) {
-                    ProfileView(user: userData.currentUser, showProfile: $viewModel.showProfile)
+                    ProfileView(user: userData.currentUser)
                 }
                 .toolbar() {
                     if !viewModel.groups.isEmpty {

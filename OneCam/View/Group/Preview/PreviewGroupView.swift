@@ -37,8 +37,8 @@ struct PreviewGroupView: View {
     }
 
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
-            GeometryReader { geometry in
+        GeometryReader { geometry in
+            ZStack(alignment: .bottomLeading) {
                 if let group {
                     CachedAsyncImage(url: URL(string: group.urls[FilterType.none.rawValue]!)!) { phase in
                         switch phase {
@@ -47,7 +47,7 @@ struct PreviewGroupView: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .fill(Color("buttonSecondary"))
                                     .if(size == .large) { view in
-                                        view.frame(width: geometry.size.width)
+                                        view.frame(width: geometry.size.width, height: geometry.size.width * 1.25)
                                     }
                                     .if(size == .list) { view in
                                         view.frame(height: 180)
@@ -57,16 +57,7 @@ struct PreviewGroupView: View {
                             }
                         case .success(let image):
                             image
-                                .resizable()
-                                .scaledToFill()
-                                .if(size == .large) { view in
-                                    view.frame(width: geometry.size.width)
-                                }
-                                .if(size == .list) { view in
-                                    view.frame(height: 180)
-                                }
-                                .contentShape(Rectangle())
-                                .clipped()
+                                .groupPreview(width: geometry.size.width, size: size)
                         case .failure:
                             ZStack {
                                 RoundedRectangle(cornerRadius: 10)
@@ -82,36 +73,27 @@ struct PreviewGroupView: View {
                     }
                 } else if let image {
                     Image(uiImage: image)
-                        .resizable()
-                        .scaledToFill()
-                        .if(size == .large) { view in
-                            view.frame(width: geometry.size.width)
-                        }
-                        .if(size == .list) { view in
-                            view.frame(height: 180)
-                        }
-                        .contentShape(Rectangle())
-                        .clipped()
-                }
-            }
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(name)
-                        .bold()
-                    
-                    Text("\(imageCount) image\(imageCount != 1 ? "s" : "")")
-                        .font(.subheadline)
-                        .foregroundStyle(Color("textSecondary"))
+                        .groupPreview(width: geometry.size.width, size: size)
                 }
                 
-                Spacer()
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(name)
+                            .bold()
+                        
+                        Text("\(imageCount) image\(imageCount != 1 ? "s" : "")")
+                            .font(.subheadline)
+                            .foregroundStyle(Color("textSecondary"))
+                    }
+                    
+                    Spacer()
+                }
+                .padding()
+                .background(.thinMaterial)
+                .frame(maxWidth: .infinity)
             }
-            .padding()
-            .background(.thinMaterial)
-            .frame(maxWidth: .infinity)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }
-        .clipShape(RoundedRectangle(cornerRadius: 10))
         .if(size == .list) { view in
             view.frame(height: 180)
         }

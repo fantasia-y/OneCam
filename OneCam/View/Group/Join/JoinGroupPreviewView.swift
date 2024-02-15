@@ -15,6 +15,8 @@ struct JoinGroupPreviewView: View {
     var body: some View {
         VStack(spacing: 20) {
             if let group = viewModel.group {
+                Spacer()
+                
                 PreviewGroupView(group: group)
                 
                 Spacer()

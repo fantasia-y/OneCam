@@ -17,13 +17,10 @@ struct GroupView: View {
         if viewModel.showCamera {
             CameraView(showCamera: $viewModel.showCamera) { image in
                 HStack {
-                    Button("Upload", systemImage: "paperplane.fill") {
-                        Task {
-                            await viewModel.uploadImage(image, group: group)
-                        }
+                    AsyncButton("Upload") {
+                        await viewModel.uploadImage(image, group: group)
                     }
-                    .font(.system(size: 24))
-                    .foregroundStyle(.white)
+                    .primary()
                 }
             }
             .navigationBarBackButtonHidden()

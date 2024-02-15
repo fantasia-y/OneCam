@@ -15,6 +15,7 @@ struct GroupLocalImageView: View {
             Image(uiImage: UIImage(data: image.image)!)
                 .resizable()
                 .scaledToFill()
+                .frame(maxWidth: 200, maxHeight: 200)
                 .contentShape(Rectangle())
                 .clipped()
             

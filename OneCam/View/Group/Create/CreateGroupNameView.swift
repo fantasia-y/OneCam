@@ -29,7 +29,7 @@ struct CreateGroupNameView: View {
             .primary()
             .disabled(viewModel.groupName.isEmpty)
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 

@@ -13,12 +13,12 @@ struct CreateGroupView: View {
     @StateObject var viewModel = CreateGroupViewModel()
     
     var body: some View {
-        NavigationStack {
+        SheetWrapper(padding: .vertical) {
             VStack(spacing: 0) {
                 Text("Create a new Group")
                     .font(.title)
                     .bold()
-                    .padding(.top, 25)
+                    .padding(.bottom, 10)
                 
                 CarouselView(page: $viewModel.page) {
                     CreateGroupNameView()
@@ -30,9 +30,6 @@ struct CreateGroupView: View {
                     CreateGroupPreviewView()
                         .tag(3)
                 }
-            }
-            .toolbar() {
-                CloseButton()
             }
         }
         .environmentObject(viewModel)

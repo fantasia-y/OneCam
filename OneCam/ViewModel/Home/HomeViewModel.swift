@@ -15,6 +15,7 @@ class HomeViewModel: ObservableObject {
     @Published var showCreateGroup = false
     @Published var showCodeScanner = false
     @Published var showProfile = false
+    @Published var showShareGroup = false
     
     @Published var initialLoad = true
     

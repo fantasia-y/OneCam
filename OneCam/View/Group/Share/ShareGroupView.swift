@@ -12,12 +12,37 @@ struct ShareGroupView: View {
     let group: Group
     
     var body: some View {
-        Image(uiImage: QRCodeUtils.generate(forGroup: group))
-            .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-        
-        ShareLink(item: URLUtils.generateShareUrl(forGroup: group))
+        SheetWrapper {
+            GeometryReader { geometry in
+                VStack {
+                    Text("Let your friends scan this QR Code...")
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color("buttonSecondary"))
+                            .frame(width: geometry.size.width, height: geometry.size.width)
+                        
+                        Image(uiImage: QRCodeUtils.generate(forGroup: group))
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geometry.size.width - 25, height: geometry.size.width - 25)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    }
+                    
+                    HStack {
+                        VStack { Divider() }
+                        Text("or")
+                        VStack { Divider() }
+                    }
+                    .padding()
+                    
+                    Text("...send them a link to join this group")
+                    
+                    ShareLink(item: URLUtils.generateShareUrl(forGroup: group))
+                        .modifier(PrimaryButtonModifier())
+                }
+            }
+        }
     }
 }
 

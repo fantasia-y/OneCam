@@ -15,17 +15,14 @@ struct CreateGroupImageView: View {
             VStack(spacing: 20) {
                 Text("Next, let's choose a profile image")
                 
+                Spacer()
+                
                 Button {
                     viewModel.showImageSelection = true
                 } label: {
                     if let image = viewModel.image {
                         Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: geometry.size.width)
-                            .contentShape(Rectangle())
-                            .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .groupPreview(width: geometry.size.width)
                     } else {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
@@ -35,6 +32,7 @@ struct CreateGroupImageView: View {
                                 .foregroundStyle(Color("textPrimary"))
                                 .bold()
                         }
+                        .frame(width: geometry.size.width, height: geometry.size.width * 1.25)
                     }
                 }
                 .onChange(of: viewModel.pickedItem) {
@@ -88,7 +86,7 @@ struct CreateGroupImageView: View {
                 }
             }
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 

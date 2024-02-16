@@ -13,6 +13,8 @@ class JoinGroupViewModel: ObservableObject {
     @Published var groupId: String = ""
     @Published var page: Int = 1
     
+    @Published var toast: Toast?
+    
     init(group: Group? = nil) {
         self.group = group
     }
@@ -24,7 +26,7 @@ class JoinGroupViewModel: ObservableObject {
         if case .success(let data) = result {
             group = data
         } else {
-            // handle error
+            toast = Toast.Error
         }
     }
     
@@ -34,8 +36,8 @@ class JoinGroupViewModel: ObservableObject {
         if case .success = result {
             return true
         } else {
+            toast = Toast.Error
             return false
-            // handle error
         }
     }
     

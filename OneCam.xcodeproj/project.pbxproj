@@ -46,6 +46,8 @@
 		F862A1152B69249C00C44AE3 /* CoreMLPredictionsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1142B69249C00C44AE3 /* CoreMLPredictionsPlugin */; };
 		F862A1182B692BD200C44AE3 /* AWSCognitoAuthPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1172B692BD200C44AE3 /* AWSCognitoAuthPlugin */; };
 		F862A11A2B6939C200C44AE3 /* GroupLocalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F862A1192B6939C200C44AE3 /* GroupLocalImage.swift */; };
+		F874FB352B7F9E4D00868CA1 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874FB342B7F9E4D00868CA1 /* ToastView.swift */; };
+		F874FB372B7F9F2600868CA1 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874FB362B7F9F2600868CA1 /* ToastModifier.swift */; };
 		F880298F2B7501A000502F58 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F880298E2B7501A000502F58 /* CustomButton.swift */; };
 		F89493BE2B27D5D300D6A7B6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493BD2B27D5D300D6A7B6 /* UserData.swift */; };
 		F89493C12B27D74300D6A7B6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89493C02B27D74300D6A7B6 /* HomeView.swift */; };
@@ -112,6 +114,8 @@
 		F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeUtils.swift; sourceTree = "<group>"; };
 		F832BE3E2B0EC7050037DA45 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
 		F862A1192B6939C200C44AE3 /* GroupLocalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLocalImage.swift; sourceTree = "<group>"; };
+		F874FB342B7F9E4D00868CA1 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		F874FB362B7F9F2600868CA1 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 		F880298E2B7501A000502F58 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		F89493BD2B27D5D300D6A7B6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F89493C02B27D74300D6A7B6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		F82D542F2B0671F3000BE2B3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F874FB332B7F9E4200868CA1 /* Toast */,
 				F8E5193A2B7EB7B000A9E089 /* Sheet */,
 				F8EC88DE2B76621100853DC6 /* Carousel */,
 				F831A9922B743BE8004C13B2 /* Avatar */,
@@ -259,12 +264,12 @@
 		F82D54322B068865000BE2B3 /* Group */ = {
 			isa = PBXGroup;
 			children = (
+				F874FB322B7F801700868CA1 /* Settings */,
 				F8E519372B7EA78000A9E089 /* Share */,
 				F8E519342B7EA77700A9E089 /* Preview */,
 				F8E519292B7EA76F00A9E089 /* Main */,
 				F8E519242B7EA75F00A9E089 /* Join */,
 				F8EC88DD2B76614D00853DC6 /* Create */,
-				F80A44792B615CA5007217DD /* GroupSettingsView.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -330,6 +335,23 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F874FB322B7F801700868CA1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F80A44792B615CA5007217DD /* GroupSettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F874FB332B7F9E4200868CA1 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				F874FB342B7F9E4D00868CA1 /* ToastView.swift */,
+				F874FB362B7F9F2600868CA1 /* ToastModifier.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 		F89493BF2B27D73B00D6A7B6 /* Home */ = {
@@ -595,6 +617,7 @@
 				F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */,
 				F8EC88E52B76861100853DC6 /* CreateGroupPreviewView.swift in Sources */,
 				F82D54392B068BAF000BE2B3 /* CreateGroupViewModel.swift in Sources */,
+				F874FB352B7F9E4D00868CA1 /* ToastView.swift in Sources */,
 				F8E519302B7EA76F00A9E089 /* GroupCarouselView.swift in Sources */,
 				F862A11A2B6939C200C44AE3 /* GroupLocalImage.swift in Sources */,
 				F80A447C2B6162D4007217DD /* GroupSettingsViewModel.swift in Sources */,
@@ -626,6 +649,7 @@
 				F8A4E5DB2B62BF8A00632E82 /* GroupImage.swift in Sources */,
 				F8E5192F2B7EA76F00A9E089 /* GroupLocalImageView.swift in Sources */,
 				F8E519392B7EA78000A9E089 /* ShareGroupView.swift in Sources */,
+				F874FB372B7F9F2600868CA1 /* ToastModifier.swift in Sources */,
 				F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */,
 				F89493C42B27D77000D6A7B6 /* HomeViewModel.swift in Sources */,
 				F81FB4D12B750F5A00F4A53F /* OnboardingView.swift in Sources */,

@@ -21,7 +21,7 @@ struct GroupLocalImage: Hashable, Identifiable {
     }
     
     var name: String {
-        get { "\(id.uuidString.lowercased()).jpg" }
+        get { "\(id.uuidString.lowercased()).jpeg" }
     }
     
     var key: String {

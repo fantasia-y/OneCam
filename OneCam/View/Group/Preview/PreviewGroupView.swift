@@ -13,27 +13,30 @@ enum GroupPreviewType {
     case list
 }
 
-struct PreviewGroupView: View {
+struct PreviewGroupView<Actions: View>: View {
     let image: UIImage?
     let name: String
     let imageCount: Int
     let group: Group?
     let size: GroupPreviewType
+    let customActions: (() -> Actions)?
     
-    init(image: UIImage?, name: String, size: GroupPreviewType = .large) {
+    init(image: UIImage?, name: String, size: GroupPreviewType = .large, customActions: (() -> Actions)?) {
         self.image = image
         self.name = name
         self.imageCount = 0
         self.group = nil
         self.size = size
+        self.customActions = customActions
     }
     
-    init(group: Group, size: GroupPreviewType = .large) {
+    init(group: Group, size: GroupPreviewType = .large, customActions: (() -> Actions)?) {
         self.image = nil
         self.name = group.name
         self.imageCount = group.imageCount
         self.group = group
         self.size = size
+        self.customActions = customActions
     }
 
     var body: some View {
@@ -87,6 +90,8 @@ struct PreviewGroupView: View {
                     }
                     
                     Spacer()
+                    
+                    customActions?()
                 }
                 .padding()
                 .background(.thinMaterial)
@@ -97,6 +102,26 @@ struct PreviewGroupView: View {
         .if(size == .list) { view in
             view.frame(height: 180)
         }
+    }
+}
+
+extension PreviewGroupView where Actions == EmptyView {
+    init(image: UIImage?, name: String, size: GroupPreviewType = .large) {
+        self.image = image
+        self.name = name
+        self.imageCount = 0
+        self.group = nil
+        self.size = size
+        self.customActions = nil
+    }
+    
+    init(group: Group, size: GroupPreviewType = .large) {
+        self.image = nil
+        self.name = group.name
+        self.imageCount = group.imageCount
+        self.group = group
+        self.size = size
+        self.customActions = nil
     }
 }
 

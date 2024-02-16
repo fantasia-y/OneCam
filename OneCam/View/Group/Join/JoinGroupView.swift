@@ -42,6 +42,7 @@ struct JoinGroupView: View {
                     .tag(2)
             }
         }
+        .toastView(toast: $viewModel.toast)
     }
 }
 

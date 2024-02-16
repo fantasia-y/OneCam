@@ -17,13 +17,14 @@ class CreateGroupViewModel: ObservableObject {
     
     @Published var image: UIImage?
     @Published var pickedItem: PhotosPickerItem?
+    @Published var toast: Toast?
     
     @Published var showImageSelection = false
     @Published var showCamera = false
     @Published var showLibrary = false
     
     @MainActor
-    func publish() async {
+    func publish() async -> Group? {
         var parameters = ["name": groupName]
         
         let key = "\(UUID().uuidString.lowercased()).jpg"
@@ -35,10 +36,11 @@ class CreateGroupViewModel: ObservableObject {
         let result = await API.shared.post(path: "/group", decode: Group.self, parameters: parameters)
         
         if case .success(let data) = result {
-            print(data)
-            group = data
+            return data
         } else {
-            // handle error
+            toast = Toast.Error
         }
+        
+        return nil
     }
 }

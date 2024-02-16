@@ -20,6 +20,7 @@ class HomeViewModel: ObservableObject {
     @Published var initialLoad = true
     
     @Published var groups: [Group] = []
+    @Published var toast: Toast?
     
     @MainActor
     func getGroups() async {
@@ -28,7 +29,7 @@ class HomeViewModel: ObservableObject {
         if case .success(let data) = result {
             groups = data
         } else {
-            // handle error
+            toast = Toast.Error
         }
         
         if initialLoad { initialLoad.toggle() }

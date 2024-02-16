@@ -80,7 +80,7 @@ struct GroupGridView: View {
             }
         }
         .sheet(isPresented: $viewModel.showSettings) {
-            GroupSettingsView(group: group, showSettings: $viewModel.showSettings)
+            GroupSettingsView(group: group)
         }
         .sheet(isPresented: $viewModel.showShareView) {
             ShareGroupView(group: group)

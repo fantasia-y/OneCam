@@ -27,7 +27,7 @@ struct NewGroup: Codable {
 }
 
 extension Group {
-    static let Example = Group(id: 1, name: "Test Session", groupId: UUID(uuidString: "df46e7ba-140d-4721-8b9e-a359dce5e78a")!, owner: User.Example, participants: [], imageCount: 10, imageName: "", urls: ["original":"https://onecam-dev133716-dev.s3.eu-central-1.amazonaws.com/public/user/cd709dc1-6603-400c-af8c-9c621b162a82.jpg"])
+    static let Example = Group(id: 1, name: "Test Session", groupId: UUID(uuidString: "df46e7ba-140d-4721-8b9e-a359dce5e78a")!, owner: User.Example, participants: [User.Example, User.Example, User.Example, User.Example, User.Example, User.Example, User.Example], imageCount: 10, imageName: "", urls: ["original":"https://onecam-dev133716-dev.s3.eu-central-1.amazonaws.com/public/user/cd709dc1-6603-400c-af8c-9c621b162a82.jpg"])
     
     func isOwner(_ user: User) -> Bool {
         return owner.id == user.id

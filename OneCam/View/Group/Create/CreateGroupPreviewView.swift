@@ -10,13 +10,12 @@ import SwiftUI
 struct CreateGroupPreviewView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var viewModel: CreateGroupViewModel
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     var body: some View {
         VStack(spacing: 20) {
             Text("Like what you see?")
                 .frame(maxWidth: .infinity)
-            
-            Spacer()
             
             PreviewGroupView(image: viewModel.image, name: viewModel.groupName)
             
@@ -31,8 +30,10 @@ struct CreateGroupPreviewView: View {
                 .secondary()
                 
                 AsyncButton("Create") {
-                    await viewModel.publish()
-                    dismiss()
+                    if let group = await viewModel.publish() {
+                        homeViewModel.groups.append(group)
+                        dismiss()
+                    }
                 }
                 .primary()
             }
@@ -44,4 +45,5 @@ struct CreateGroupPreviewView: View {
 #Preview {
     CreateGroupPreviewView()
         .environmentObject(CreateGroupViewModel())
+        .environmentObject(HomeViewModel())
 }

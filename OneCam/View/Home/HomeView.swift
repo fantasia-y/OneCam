@@ -109,6 +109,7 @@ struct HomeView: View {
                 }
             }
             .environmentObject(viewModel)
+            .toastView(toast: $viewModel.toast)
         } else {
             ProgressView()
                 .onAppear() {

@@ -33,6 +33,7 @@ struct CreateGroupView: View {
             }
         }
         .environmentObject(viewModel)
+        .toastView(toast: $viewModel.toast)
     }
 }
 

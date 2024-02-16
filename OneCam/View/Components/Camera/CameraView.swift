@@ -20,37 +20,42 @@ struct CameraView<Content: View>: View {
     }
     
     var body: some View {
-        // TODO image preview
         if let image = cameraManager.image {
-            ZStack {
-                Image(uiImage: image)
-                    .resizable() // TODO fix scaling
-                    .ignoresSafeArea()
-                
-                VStack {
-                    HStack {
-                        Button {
-                            cameraManager.image = nil
-                        } label: {
-                            Image(systemName: "xmark")
-                                .font(.system(size: 24))
-                                .foregroundStyle(.white)
+            GeometryReader { geometry in
+                ZStack {
+                    Color.black.ignoresSafeArea()
+                    
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .clipped()
+                    
+                    VStack {
+                        HStack {
+                            Button {
+                                cameraManager.image = nil
+                            } label: {
+                                Image(systemName: "xmark")
+                                    .font(.system(size: 24))
+                                    .foregroundStyle(.white)
+                            }
+                            .shadow(radius: 6)
+                            
+                            Spacer()
                         }
-                        .shadow(radius: 6)
+                        .padding()
                         
                         Spacer()
+                        
+                        HStack {
+                            content(image)
+                                .padding()
+                        }
+                        .background(.thinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .padding()
                     }
-                    .padding()
-                    
-                    Spacer()
-                    
-                    HStack {
-                        content(image)
-                            .padding()
-                    }
-                    .background(.thinMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .padding()
                 }
             }
         } else {

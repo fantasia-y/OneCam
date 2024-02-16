@@ -15,8 +15,6 @@ struct CreateGroupImageView: View {
             VStack(spacing: 20) {
                 Text("Next, let's choose a profile image")
                 
-                Spacer()
-                
                 Button {
                     viewModel.showImageSelection = true
                 } label: {

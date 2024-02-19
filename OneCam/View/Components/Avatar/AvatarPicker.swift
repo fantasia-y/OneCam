@@ -14,7 +14,6 @@ struct AvatarPicker: View {
     @Binding var image: UIImage?
     var displayname: String?
     var loadUserImage = false
-    var isLoading = false
     
     @State var pickedItem: PhotosPickerItem?
     @State var showImageSelection = false
@@ -26,31 +25,18 @@ struct AvatarPicker: View {
             showImageSelection = true
         } label: {
             if let image {
-                if loadUserImage {
-                    if isLoading {
-                        ZStack {
-                            Circle()
-                                .fill(Color("buttonSecondary"))
-                                .frame(width: 128, height: 128)
-                            
-                            ProgressView()
-                        }
-                    } else {
-                        Avatar(user: userData.currentUser)
-                            .size(.large)
-                    }
-                } else {
-                    Image(uiImage: image)
-                        .resizable()
-                        .frame(width: 128, height: 128)
-                        .clipShape(Circle())
-                }
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 128, height: 128)
+                    .clipShape(Circle())
+                    .clipped()
             } else {
-                if let displayname, !displayname.isEmpty {
-                    Avatar(imageUrl: "https://ui-avatars.com/api/?name=\(displayname)&size=256")
-                        .size(.large)
-                } else if loadUserImage {
+                if loadUserImage {
                     Avatar(user: userData.currentUser)
+                        .size(.large)
+                } else if let displayname, !displayname.isEmpty {
+                    Avatar(imageUrl: "https://ui-avatars.com/api/?name=\(displayname)&size=256")
                         .size(.large)
                 } else {
                     ZStack {
@@ -65,7 +51,6 @@ struct AvatarPicker: View {
                 }
             }
         }
-        .disabled(isLoading)
         .onChange(of: pickedItem) {
             Task {
                 if let loaded = try? await pickedItem?.loadTransferable(type: Data.self) {
@@ -83,7 +68,7 @@ struct AvatarPicker: View {
                 showLibrary = true
             }
             
-            if let _ = image, !loadUserImage {
+            if let _ = image {
                 Button("Remove", role: .destructive) {
                     image = nil
                 }

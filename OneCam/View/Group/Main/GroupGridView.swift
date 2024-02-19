@@ -11,7 +11,7 @@ import UIKit
 struct GroupGridView: View {
     @EnvironmentObject var viewModel: GroupViewModel
     
-    let group: Group
+    @State var group: Group
     let columns = [GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2)]
     
     var body: some View {
@@ -80,7 +80,7 @@ struct GroupGridView: View {
             }
         }
         .sheet(isPresented: $viewModel.showSettings) {
-            GroupSettingsView(group: group)
+            GroupSettingsView(group: $group)
         }
         .sheet(isPresented: $viewModel.showShareView) {
             ShareGroupView(group: group)

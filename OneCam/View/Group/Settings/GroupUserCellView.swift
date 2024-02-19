@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GroupUserCellView: View {
+    @EnvironmentObject var userData: UserData
     @EnvironmentObject var viewModel: GroupSettingsViewModel
     
     let group: Group
@@ -24,7 +25,9 @@ struct GroupUserCellView: View {
             if group.isOwner(user) {
                 Text("Owner")
                     .foregroundStyle(Color("textSecondary"))
-            } else {
+            }
+            
+            if let currentUser = userData.currentUser, currentUser.id != user.id, group.isOwner(currentUser) {
                 Menu {
                     Button("Remove", systemImage: "trash", role: .destructive) {
                         viewModel.showRemoveDialog = true
@@ -43,4 +46,5 @@ struct GroupUserCellView: View {
 #Preview {
     GroupUserCellView(group: Group.Example, user: User.Example)
         .environmentObject(GroupSettingsViewModel())
+        .environmentObject(UserData())
 }

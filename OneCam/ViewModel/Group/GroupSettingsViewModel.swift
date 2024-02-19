@@ -7,13 +7,22 @@
 
 import Foundation
 import GordonKirschAPI
+import UIKit
+import _PhotosUI_SwiftUI
 
 class GroupSettingsViewModel: ObservableObject {
     @Published var showRemoveDialog = false
     @Published var showDeleteDialog = false
     @Published var showLeaveDialog = false
+    @Published var showImageSelection = false
+    @Published var showCamera = false
+    @Published var showLibrary = false
     
     @Published var selectedUser: User?
+    
+    @Published var pickedItem: PhotosPickerItem?
+    @Published var newImage: UIImage?
+    @Published var newName: String = ""
     
     @MainActor
     func removeSelectedUserFrom(group: Group) async -> User? {
@@ -27,6 +36,27 @@ class GroupSettingsViewModel: ObservableObject {
             } else {
                 // toast
             }
+        }
+        
+        return nil
+    }
+    
+    @MainActor
+    func save(group: Group) async -> Group? {
+        var parameters = ["name": newName]
+        
+        let key = "\(UUID().uuidString.lowercased()).jpg"
+        
+        if let newImage, let _ = await ImageUtils.uploadImage(newImage, key: "group/\(key)") {
+            parameters["imageName"] = key
+        }
+        
+        let result = await API.shared.put(path: "/group/\(group.uuid)", decode: Group.self, parameters: parameters)
+        
+        if case .success(let data) = result {
+            return data
+        } else {
+            // toast = Toast.Error
         }
         
         return nil

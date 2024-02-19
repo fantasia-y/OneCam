@@ -67,7 +67,6 @@ struct GroupImageView: View {
                             }
                     }
                     .disabled(isEditing)
-                    // .matchedGeometryEffect(id: self.image.id, in: namespace)
                 case .failure:
                     ZStack {
                         Rectangle()

@@ -51,9 +51,11 @@ struct HomeView: View {
                                             viewModel.selectedGroup = group
                                         }
                                         
-                                        Button("Delete", systemImage: "trash", role: .destructive) {
-                                            viewModel.showDeleteDialog = true
-                                            viewModel.selectedGroup = group
+                                        if let currentUser = userData.currentUser, group.isOwner(currentUser) {
+                                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                                viewModel.showDeleteDialog = true
+                                                viewModel.selectedGroup = group
+                                            }
                                         }
                                     }
                                     .sheet(isPresented: $viewModel.showShareGroup) {
@@ -86,7 +88,7 @@ struct HomeView: View {
                     JoinGroupView()
                 }
                 .sheet(isPresented: $viewModel.showProfile) {
-                    ProfileView(user: userData.currentUser)
+                    ProfileView()
                 }
                 .confirmationDialog("Are you sure you want to leave this group?", isPresented: $viewModel.showLeaveDialog, titleVisibility: .visible) {
                     Button("Leave", role: .destructive) {

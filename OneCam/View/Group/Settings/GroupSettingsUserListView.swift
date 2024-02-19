@@ -17,50 +17,37 @@ struct GroupSettingsUserListView: View {
     }
     
     var body: some View {
-        VStack(spacing: 0) {
-            GroupUserCellView(group: group, user: group.owner)
-            
-            if truncate {
-                ForEach(group.participants[..<participantListNum].indices, id: \.self) { index in
-                    VStack { Divider() }
-                        .padding(.horizontal, 12)
-                    
-                    GroupUserCellView(group: group, user: group.participants[index])
-                }
-            } else {
-                ForEach(group.participants) { participant in
-                    VStack { Divider() }
-                        .padding(.horizontal, 12)
-                    
-                    GroupUserCellView(group: group, user: participant)
-                }
-            }
-            
-            
-            if participantListNum < group.participants.count, truncate {
-                VStack { Divider() }
-                    .padding(.horizontal, 12)
+        Card {
+            VStack(spacing: 0) {
+                GroupUserCellView(group: group, user: group.owner)
                 
-                Button {
-                    path.wrappedValue.append(group)
-                } label: {
-                    HStack {
-                        Text("Show all...")
+                if truncate {
+                    ForEach(group.participants[..<participantListNum].indices, id: \.self) { index in
+                        CardDivider()
                         
-                        Spacer()
+                        GroupUserCellView(group: group, user: group.participants[index])
+                    }
+                } else {
+                    ForEach(group.participants) { participant in
+                        CardDivider()
                         
-                        Image(systemName: "chevron.right")
+                        GroupUserCellView(group: group, user: participant)
                     }
                 }
-                .padding()
-                .foregroundStyle(Color("textSecondary"))
+                
+                
+                if participantListNum < group.participants.count, truncate {
+                    CardDivider()
+                    
+                    CardListButton(text: "Show all...", secondary: true) {
+                        path.wrappedValue.append("users")
+                    }
+                }
             }
         }
-        .background(Color("buttonSecondary"))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 
 #Preview {
-    GroupSettingsUserListView(group: Group.Example, path: .constant(NavigationPath()))
+    GroupSettingsUserListView(group: Group.Example, path: .constant(NavigationPath()), truncate: true)
 }

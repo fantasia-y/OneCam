@@ -26,16 +26,18 @@ class HomeViewModel: ObservableObject {
     @Published var selectedGroup: Group?
     
     @MainActor
-    func getGroups() async {
+    func getGroups() async -> [Group] {
         let result = await API.shared.get(path: "/group", decode: [Group].self)
         
+        if initialLoad { initialLoad.toggle() }
         if case .success(let data) = result {
             groups = data
+            return data
         } else {
             toast = Toast.Error
         }
         
-        if initialLoad { initialLoad.toggle() }
+        return []
     }
     
     @MainActor
@@ -78,6 +80,12 @@ class HomeViewModel: ObservableObject {
             return true
         } else {
             return false
+        }
+    }
+    
+    func updateGroup(_ group: Group) {
+        if let index = groups.firstIndex(where: { $0.uuid == group.uuid }) {
+            groups[index] = group
         }
     }
 }

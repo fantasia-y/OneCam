@@ -12,7 +12,7 @@ struct ShareGroupView: View {
     let group: Group
     
     var body: some View {
-        SheetWrapper {
+        SheetWrapper { _ in
             GeometryReader { geometry in
                 VStack {
                     Text("Let your friends scan this QR Code...")

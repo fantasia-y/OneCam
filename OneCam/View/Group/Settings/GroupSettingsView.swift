@@ -13,35 +13,10 @@ struct GroupSettingsView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @StateObject var viewModel = GroupSettingsViewModel()
     
-    let group: Group
-    
-    var participantListNum: Int {
-        min(3, group.participants.count)
-    }
-    
-    struct Cell: View {
-        let group: Group
-        let user: User
-        
-        var body: some View {
-            HStack {
-                Avatar(user: user)
-                
-                Text(user.displayname ?? "")
-                
-                Spacer()
-                
-                if group.isOwner(user) {
-                    Text("Owner")
-                        .foregroundStyle(Color("textSecondary"))
-                }
-            }
-            .padding(.all, 12)
-        }
-    }
+    @State var group: Group
     
     var body: some View {
-        SheetWrapper(title: "Settings") {
+        SheetWrapper(title: "Settings") { path in
             VStack(alignment: .leading) {
                 PreviewGroupView(group: group, size: .list) {
                     Button {
@@ -58,59 +33,62 @@ struct GroupSettingsView: View {
                     .bold()
                     .padding(.top, 15)
                 
-                VStack(spacing: 0) {
-                    Cell(group: group, user: group.owner)
-                    
-                    ForEach(group.participants[..<participantListNum].indices, id: \.self) { index in
-                        VStack { Divider() }
-                            .padding(.horizontal, 12)
-                        
-                        Cell(group: group, user: group.participants[index])
-                    }
-                    
-                    if participantListNum < group.participants.count {
-                        VStack { Divider() }
-                            .padding(.horizontal, 12)
-                        
-                        Button {
-                            
-                        } label: {
-                            HStack {
-                                Text("Show all...")
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
+                GroupSettingsUserListView(group: group, path: path, truncate: true)
+                    .confirmationDialog("Are you sure you want to remove this user from the group?", isPresented: $viewModel.showRemoveDialog, titleVisibility: .visible) {
+                        Button("Remove", role: .destructive) {
+                            Task {
+                                if let removedUser = await viewModel.removeSelectedUserFrom(group: group) {
+                                    if let group = homeViewModel.remove(user: removedUser, fromGroup: group) {
+                                        self.group = group // TODO update ui
+                                    }
+                                }
                             }
                         }
-                        .padding()
-                        .foregroundStyle(Color("textSecondary"))
                     }
-                }
-                .background(Color("buttonSecondary"))
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .navigationDestination(for: Group.self) { group in
+                        ScrollView {
+                            GroupSettingsUserListView(group: group, path: path)
+                                .padding()
+                        }
+                        .navigationBarTitleDisplayMode(.inline)
+                    }
                 
                 Spacer()
                 
                 if let user = userData.currentUser {
-                    AsyncButton("Leave") {
-                        if await viewModel.leaveGroup(group, user: user) {
-                            dismiss()
-                            homeViewModel.groups.removeAll(where: { $0.id == group.id })
-                            homeViewModel.path.removeLast()
-                        }
+                    Button("Leave") {
+                        viewModel.showLeaveDialog = true
                     }
                     .destructive()
+                    .confirmationDialog("Are you sure you want to leave this group?", isPresented: $viewModel.showLeaveDialog, titleVisibility: .visible) {
+                        Button("Leave", role: .destructive) {
+                            Task {
+                                if await homeViewModel.leaveGroup(group, user: user) {
+                                    dismiss()
+                                }
+                            }
+                        }
+                    }
                     
                     if group.isOwner(user) {
-                        AsyncButton("Delete") {
-                            
+                        Button("Delete") {
+                            viewModel.showDeleteDialog = true
                         }
                         .destructive()
+                        .confirmationDialog("Are you sure you want to delete this group?", isPresented: $viewModel.showDeleteDialog, titleVisibility: .visible) {
+                            Button("Delete", role: .destructive) {
+                                Task {
+                                    if await homeViewModel.deleteGroup(group) {
+                                        dismiss()
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
+        .environmentObject(viewModel)
     }
 }
 

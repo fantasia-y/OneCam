@@ -18,7 +18,7 @@ struct ProfileView: View {
     let user: User?
     
     var body: some View {
-        SheetWrapper {
+        SheetWrapper { _ in
             VStack(spacing: 5) {
                 AvatarPicker(image: $newImage, loadUserImage: true, isLoading: isLoading)
                     .onChange(of: newImage) {

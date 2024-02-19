@@ -13,7 +13,7 @@ struct CreateGroupView: View {
     @StateObject var viewModel = CreateGroupViewModel()
     
     var body: some View {
-        SheetWrapper(padding: .vertical) {
+        SheetWrapper(padding: .vertical) { _ in
             VStack(spacing: 0) {
                 Text("Create a new Group")
                     .font(.title)

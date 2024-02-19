@@ -47,11 +47,13 @@ struct HomeView: View {
                                         }
                                         
                                         Button("Leave", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
-                                            
+                                            viewModel.showLeaveDialog = true
+                                            viewModel.selectedGroup = group
                                         }
                                         
                                         Button("Delete", systemImage: "trash", role: .destructive) {
-                                            
+                                            viewModel.showDeleteDialog = true
+                                            viewModel.selectedGroup = group
                                         }
                                     }
                                     .sheet(isPresented: $viewModel.showShareGroup) {
@@ -85,6 +87,28 @@ struct HomeView: View {
                 }
                 .sheet(isPresented: $viewModel.showProfile) {
                     ProfileView(user: userData.currentUser)
+                }
+                .confirmationDialog("Are you sure you want to leave this group?", isPresented: $viewModel.showLeaveDialog, titleVisibility: .visible) {
+                    Button("Leave", role: .destructive) {
+                        Task {
+                            if let currentUser = userData.currentUser, let group = viewModel.selectedGroup {
+                                if await viewModel.leaveGroup(group, user: currentUser) {
+                                    viewModel.selectedGroup = nil
+                                }
+                            }
+                        }
+                    }
+                }
+                .confirmationDialog("Are you sure you want to delete this group?", isPresented: $viewModel.showDeleteDialog, titleVisibility: .visible) {
+                    Button("Delete", role: .destructive) {
+                        Task {
+                            if let group = viewModel.selectedGroup {
+                                if await viewModel.deleteGroup(group) {
+                                    viewModel.selectedGroup = nil
+                                }
+                            }
+                        }
+                    }
                 }
                 .toolbar() {
                     if !viewModel.groups.isEmpty {

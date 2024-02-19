@@ -56,6 +56,8 @@
 		F89493CB2B27EDFD00D6A7B6 /* GordonKirschUtils in Frameworks */ = {isa = PBXBuildFile; productRef = F89493CA2B27EDFD00D6A7B6 /* GordonKirschUtils */; };
 		F8A4E5DB2B62BF8A00632E82 /* GroupImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4E5DA2B62BF8A00632E82 /* GroupImage.swift */; };
 		F8A4E5DD2B62BFD300632E82 /* GroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A4E5DC2B62BFD300632E82 /* GroupViewModel.swift */; };
+		F8C1E1BC2B83BF11005EC82C /* GroupUserCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E1BB2B83BF11005EC82C /* GroupUserCellView.swift */; };
+		F8C1E1BE2B83CF80005EC82C /* GroupSettingsUserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E1BD2B83CF80005EC82C /* GroupSettingsUserListView.swift */; };
 		F8E519232B7EA6F500A9E089 /* JoinGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E519222B7EA6F500A9E089 /* JoinGroupViewModel.swift */; };
 		F8E519272B7EA75F00A9E089 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E519252B7EA75F00A9E089 /* JoinGroupView.swift */; };
 		F8E519282B7EA75F00A9E089 /* JoinGroupPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E519262B7EA75F00A9E089 /* JoinGroupPreviewView.swift */; };
@@ -122,6 +124,8 @@
 		F89493C32B27D77000D6A7B6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F8A4E5DA2B62BF8A00632E82 /* GroupImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupImage.swift; sourceTree = "<group>"; };
 		F8A4E5DC2B62BFD300632E82 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		F8C1E1BB2B83BF11005EC82C /* GroupUserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUserCellView.swift; sourceTree = "<group>"; };
+		F8C1E1BD2B83CF80005EC82C /* GroupSettingsUserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsUserListView.swift; sourceTree = "<group>"; };
 		F8E519222B7EA6F500A9E089 /* JoinGroupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupViewModel.swift; sourceTree = "<group>"; };
 		F8E519252B7EA75F00A9E089 /* JoinGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
 		F8E519262B7EA75F00A9E089 /* JoinGroupPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupPreviewView.swift; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 			isa = PBXGroup;
 			children = (
 				F80A44792B615CA5007217DD /* GroupSettingsView.swift */,
+				F8C1E1BB2B83BF11005EC82C /* GroupUserCellView.swift */,
+				F8C1E1BD2B83CF80005EC82C /* GroupSettingsUserListView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -610,11 +616,13 @@
 				F803974C2B6846AE000D7CD8 /* CameraManager.swift in Sources */,
 				F82D54312B067212000BE2B3 /* CustomTextFieldBase.swift in Sources */,
 				F8E519232B7EA6F500A9E089 /* JoinGroupViewModel.swift in Sources */,
+				F8C1E1BC2B83BF11005EC82C /* GroupUserCellView.swift in Sources */,
 				F80397472B68456A000D7CD8 /* CameraView.swift in Sources */,
 				F829C83E2B75551F00D7DB2A /* CarouselView.swift in Sources */,
 				F82D54342B068876000BE2B3 /* CreateGroupView.swift in Sources */,
 				F8EC88E32B7663A400853DC6 /* CreateGroupImageView.swift in Sources */,
 				F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */,
+				F8C1E1BE2B83CF80005EC82C /* GroupSettingsUserListView.swift in Sources */,
 				F8EC88E52B76861100853DC6 /* CreateGroupPreviewView.swift in Sources */,
 				F82D54392B068BAF000BE2B3 /* CreateGroupViewModel.swift in Sources */,
 				F874FB352B7F9E4D00868CA1 /* ToastView.swift in Sources */,

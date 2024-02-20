@@ -10,7 +10,7 @@ import CachedAsyncImage
 
 enum AvatarSize: CGFloat {
     case small = 32
-    case medium = 50
+    case medium = 64
     case large = 128
     case extraLarge = 256
 }
@@ -36,7 +36,7 @@ struct Avatar: View {
         self.image = nil
     }
     
-    init(user: User?, filter: FilterType = FilterType.none) {
+    init(user: User?, filter: FilterType = FilterType.thumbnail) {
         self.imageUrl = user?.urls[filter.rawValue] ?? ""
         self.image = nil
     }
@@ -62,6 +62,8 @@ struct Avatar: View {
                 case .success(let image):
                     image
                         .resizable()
+                        .scaledToFill()
+                        .clipped()
                         .frame(width: size.rawValue, height: size.rawValue)
                         .clipShape(.circle)
                 case .failure:

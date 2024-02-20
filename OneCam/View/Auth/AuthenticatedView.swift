@@ -29,12 +29,14 @@ struct AuthenticatedView<Unauthenticated: View, Content: View>: View {
                                 .environmentObject(viewModel)
                         }
                     
-                    Button {
+                    Spacer()
+                    
+                    Button("Get started") {
                         viewModel.showLoginScreen = true
-                    } label: {
-                        Text("Log in")
                     }
+                    .primary()
                 }
+                .padding()
             case .authenticated:
                 VStack {
                     content
@@ -48,12 +50,10 @@ struct AuthenticatedView<Unauthenticated: View, Content: View>: View {
     }
 }
 
-struct AuthenticatedView_Previews: PreviewProvider {
-    static var previews: some View {
-        AuthenticatedView() {
-            Text("You need to log in")
-        } content: {
-            Text("You are logged in")
-        }
+#Preview {
+    AuthenticatedView() {
+        GetStartedView()
+    } content: {
+        Text("You are logged in")
     }
 }

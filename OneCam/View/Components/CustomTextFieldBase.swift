@@ -22,14 +22,18 @@ struct CustomTextFieldBase<Field: View>: View {
     
     var body: some View {
         fieldBuilder(placeholder, text)
-            .padding(6)
-            .background(.gray)
-            .cornerRadius(6)
+            .padding(12)
+            .background(.background)
+            .cornerRadius(10)
             .overlay {
                 if invalid {
-                    RoundedRectangle(cornerRadius: 6)
+                    RoundedRectangle(cornerRadius: 10)
                         .stroke()
-                        .fill(.red)
+                        .fill(Color("textDestructive"))
+                } else {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke()
+                        .fill(Color("buttonSecondary"))
                 }
             }
     }
@@ -48,7 +52,13 @@ struct CustomTextField: View {
     
     var body: some View {
         CustomTextFieldBase(placeholder, text: text, invalid: invalid) { placeholder, text in
-            TextField(placeholder, text: text)
+            TextField("", text: text)
+                .overlay(alignment: .leading,content: {
+                    if text.wrappedValue.isEmpty {
+                        Text(placeholder)
+                            .foregroundStyle(Color("textSecondary"))
+                    }
+                })
         }
     }
 }
@@ -66,16 +76,20 @@ struct CustomSecureField: View {
     
     var body: some View {
         CustomTextFieldBase(placeholder, text: text, invalid: invalid) { placeholder, text in
-            SecureField(placeholder, text: text)
+            SecureField("", text: text)
+                .overlay(alignment: .leading,content: {
+                    if text.wrappedValue.isEmpty {
+                        Text(placeholder)
+                            .foregroundStyle(Color("textSecondary"))
+                    }
+                })
         }
     }
 }
 
-struct CustomTextField_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomTextFieldBase("Placeholder", text: .constant(""), invalid: false) { placeholder, text in
-            TextField(placeholder, text: text)
-        }
-        .padding()
+#Preview {
+    CustomTextFieldBase("Placeholder", text: .constant(""), invalid: false) { placeholder, text in
+        TextField(placeholder, text: text)
     }
+    .padding()
 }

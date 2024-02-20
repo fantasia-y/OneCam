@@ -27,14 +27,15 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     private var cancellables = Set<AnyCancellable>()
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
-    @Published var authenticationFlow: AuthenticationFlow = .login
     @Published var showLoginScreen = false
+    @Published var toast: Toast?
     
     @Published var currentUser: User?
     
     @Published var email = ""
     @Published var password = ""
-    @Published var password2 = ""
+    
+    @Published var authError = ""
     
     private var currentNonce: String?
     
@@ -58,10 +59,6 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         } catch {
             print(error)
         }
-    }
-    
-    func switchFlow() {
-        authenticationFlow = authenticationFlow == .login ? .signup : .login
     }
     
     func handleSignInWithAppleRequest(_ request: ASAuthorizationAppleIDRequest) {
@@ -144,16 +141,20 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         switch response {
         case .success(_):
             authenticationState = .authenticated
+            email = ""
+            password = ""
+            
             onAuthenticated()
             break;
         case .serverError(let error):
             if error.message == Errors.ERR_WRONG_CREDENTIALS {
-                print("email and password do not match")
+                authError = "The username or password you entered is incorrect"
+            } else {
+                toast = Toast.from(response: response)
             }
             break;
         default:
-            // TODO handle error
-            print("Unknown Error")
+            toast = Toast.from(response: response)
             break;
         }
     }

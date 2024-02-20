@@ -21,6 +21,9 @@ class ContentViewModel: ObservableObject {
     @Published var isLoaded = false
     @Published var failedLoading = false
     @Published var userData = UserData()
+    @Published var toast: Toast?
+    
+    var onboardingUser: User?
     
     @MainActor
     func loadUser() async {
@@ -52,7 +55,7 @@ class ContentViewModel: ObservableObject {
     }
     
     @MainActor
-    func updateUser(_ displayname: String, _ image: UIImage?) async {
+    func updateUser(_ displayname: String, _ image: UIImage?, completion: @escaping () -> ()) async {
         let key = "\(UUID().uuidString.lowercased()).jpg"
         var parameters = ["displayname": displayname]
         
@@ -61,16 +64,18 @@ class ContentViewModel: ObservableObject {
         }
         
         let result = await API.shared.put(path: "/user/onboarding", decode: User.self, parameters: parameters)
-        switch result {
-        case .success(let data):
-            self.onUserLoaded(data)
-            break
-        case .serverError(let err), .authError(let err):
-            print(err.message)
-            break
-        case .networkError(let err):
-            print(err)
-            break
+        if case .success(let data) = result {
+            self.onboardingUser = data
+            completion()
+        } else {
+            toast = Toast.from(response: result)
+        }
+    }
+    
+    @MainActor
+    func finishOnboarding() {
+        if let onboardingUser {
+            self.onUserLoaded(onboardingUser)
         }
     }
 }

@@ -12,6 +12,8 @@ import AWSS3StoragePlugin
 
 @main
 struct OneCamApp: App {
+    @StateObject var colorSchemeSetting = ColorSchemeSetting()
+    
     init() {
         do {
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
@@ -25,10 +27,12 @@ struct OneCamApp: App {
     var body: some Scene {
         WindowGroup {
             AuthenticatedView() {
-                Text("You need to log in")
+                GetStartedView()
             } content: {
                 ContentView()
             }
+            .preferredColorScheme(colorSchemeSetting.colorScheme)
+            .environmentObject(colorSchemeSetting)
         }
     }
 }

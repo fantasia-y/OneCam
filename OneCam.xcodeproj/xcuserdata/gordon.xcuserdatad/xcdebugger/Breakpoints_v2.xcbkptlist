@@ -100,5 +100,85 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "341B38DC-80FB-4A48-A3F9-57906B2BF56D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/View/Group/Settings/GroupSettingsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25A70644-BCC6-48ED-9CCE-2644F9865E78"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/ViewModel/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "remove(user:fromGroup:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E9BCB8F-EEB3-439C-9E64-90A9B972D777"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/ViewModel/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "remove(user:fromGroup:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2E9BCB8F-EEB3-439C-9E64-90A9B972D777 - 627cd65417c0ed54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OneCam.HomeViewModel.remove(user: OneCam.User, fromGroup: OneCam.Group) -&gt; ()"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "829">
+               </Location>
+               <Location
+                  uuid = "2E9BCB8F-EEB3-439C-9E64-90A9B972D777 - 8944c575e9dcf372"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (OneCam.User) -&gt; Swift.Bool in OneCam.HomeViewModel.remove(user: OneCam.User, fromGroup: OneCam.Group) -&gt; ()"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

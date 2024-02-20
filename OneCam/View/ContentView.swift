@@ -16,7 +16,7 @@ struct ContentView: View {
         if viewModel.isLoaded {
             switch viewModel.onboardingState {
             case .accountSetup:
-                AccountSetupView()
+                OnboardingView()
                     .environmentObject(viewModel)
             case .finished, .emailVerification:
                 HomeView()

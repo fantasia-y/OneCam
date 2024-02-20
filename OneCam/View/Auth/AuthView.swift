@@ -22,12 +22,18 @@ struct AuthView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 25)
             
-            CustomTextField("E-Mail", text: $viewModel.email)
+            CustomTextField("E-Mail", text: $viewModel.email, invalid: !viewModel.authError.isEmpty)
                 .keyboardType(.emailAddress)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
             
-            CustomSecureField("Password", text: $viewModel.password)
+            CustomSecureField("Password", text: $viewModel.password, invalid: !viewModel.authError.isEmpty)
+            
+            if !viewModel.authError.isEmpty {
+                Text("The username or password you entered is incorrect")
+                    .foregroundStyle(Color("textDestructive"))
+                    .font(.subheadline)
+            }
             
             HStack {
                 AsyncButton("Log in") {
@@ -57,6 +63,7 @@ struct AuthView: View {
                 .foregroundStyle(Color("textSecondary"))
         }
         .padding()
+        .toastView(toast: $viewModel.toast, isSheet: true)
     }
 }
 

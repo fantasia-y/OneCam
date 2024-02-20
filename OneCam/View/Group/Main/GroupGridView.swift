@@ -66,7 +66,9 @@ struct GroupGridView: View {
                             
                         }
                         
-                        Button("Share", systemImage: "square.and.arrow.up") {
+                        ShareLink(item: URLUtils.generateShareUrl(forGroup: group))
+
+                        Button("Share QR Code...", systemImage: "qrcode") {
                             viewModel.showShareView = true
                         }
                         
@@ -98,9 +100,11 @@ struct GroupGridView: View {
                 }
             }
         }
+        .toastView(toast: $viewModel.toast)
     }
 }
 
 #Preview {
     GroupGridView(group: Group.Example)
+        .environmentObject(GroupViewModel())
 }

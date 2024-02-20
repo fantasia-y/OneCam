@@ -94,4 +94,6 @@ struct GroupImageView: View {
 
 #Preview {
     GroupImageView(image: GroupImage.Example, group: Group.Example, isEditing: .constant(false))
+        .environmentObject(GroupViewModel())
+        .environmentObject(UserData())
 }

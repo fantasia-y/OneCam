@@ -29,7 +29,7 @@ struct CustomTextFieldBase<Field: View>: View {
                 if invalid {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke()
-                        .fill(.red)
+                        .fill(Color("textDestructive"))
                 } else {
                     RoundedRectangle(cornerRadius: 10)
                         .stroke()

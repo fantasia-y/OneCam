@@ -7,11 +7,15 @@
 
 import SwiftUI
 import UIKit
+import StoreKit
 
 struct ProfileView: View {
+    @Environment(\.requestReview) var requestReview
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var authenticatedViewModel: AuthenticatedViewModel
     @EnvironmentObject var userData: UserData
+    @EnvironmentObject var colorSchemeSetting: ColorSchemeSetting
     @StateObject var viewModel = ProfileViewModel()
     
     var body: some View {
@@ -53,14 +57,14 @@ struct ProfileView: View {
                         
                         Card {
                             VStack(spacing: 0) {
-                                CardListButton(text: "Dark Mode") {
-                                    
+                                CardListButton(text: "Design") {
+                                    path.wrappedValue.append("darkmode")
                                 }
                                 
                                 CardDivider()
                                 
                                 CardListButton(text: "Notifications") {
-                                    
+                                    path.wrappedValue.append("notifications")
                                 }
                             }
                         }
@@ -74,19 +78,19 @@ struct ProfileView: View {
                         Card {
                             VStack(spacing: 0) {
                                 CardListButton(text: "Rate us") {
-                                    
+                                    requestReview()
                                 }
                                 
                                 CardDivider()
                                 
                                 CardListButton(text: "Help") {
-                                    
+                                    path.wrappedValue.append("help")
                                 }
                                 
                                 CardDivider()
                                 
                                 CardListButton(text: "About us") {
-                                    
+                                    path.wrappedValue.append("about")
                                 }
                             }
                         }
@@ -105,9 +109,25 @@ struct ProfileView: View {
                         .foregroundStyle(Color("textSecondary"))
                 }
                 .navigationTitle("Settings")
+                .navigationDestination(for: String.self) { path in
+                    switch path {
+                    case "darkmode":
+                        DarkModeSettingsView()
+                    case "notifications":
+                        NotificationsSettingsView()
+                    case "help":
+                        HelpView()
+                    case "about":
+                        AboutView()
+                    default:
+                        EmptyView()
+                    }
+                }
             }
         }
         .environmentObject(viewModel)
+        .preferredColorScheme(colorScheme)
+        .toastView(toast: $viewModel.toast, isSheet: true)
     }
 }
 
@@ -115,4 +135,5 @@ struct ProfileView: View {
     ProfileView()
         .environmentObject(AuthenticatedViewModel())
         .environmentObject(UserData(currentUser: User.Example))
+        .environmentObject(ColorSchemeSetting())
 }

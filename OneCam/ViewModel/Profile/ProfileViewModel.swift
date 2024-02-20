@@ -13,6 +13,8 @@ class ProfileViewModel: ObservableObject {
     @Published var image: UIImage?
     @Published var newDisplayname: String = ""
     
+    @Published var toast: Toast?
+    
     @MainActor
     func updateUser() async -> User? {
         let key = "\(UUID().uuidString.lowercased()).jpg"
@@ -23,15 +25,10 @@ class ProfileViewModel: ObservableObject {
         }
         
         let result = await API.shared.put(path: "/user", decode: User.self, parameters: parameters)
-        switch result {
-        case .success(let data):
+        if case .success(let data) = result {
             return data
-        case .serverError(let err), .authError(let err):
-            print(err.message)
-            break
-        case .networkError(let err):
-            print(err)
-            break
+        } else {
+            toast = Toast.from(response: result)
         }
         
         return nil

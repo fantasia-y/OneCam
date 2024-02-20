@@ -33,7 +33,7 @@ struct CreateGroupView: View {
             }
         }
         .environmentObject(viewModel)
-        .toastView(toast: $viewModel.toast)
+        .toastView(toast: $viewModel.toast, isSheet: true)
     }
 }
 

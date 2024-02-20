@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import GordonKirschAPI
 
 struct Toast: Equatable {
     var style: ToastStyle
@@ -13,7 +14,25 @@ struct Toast: Equatable {
     var duration: Double = 3
     var width: Double = .infinity
     
-    static let Error = Toast(style: .error, message: "An error occured")
+    static let ServerError = Toast(style: .error, message: "An error occured")
+    static let AuthError = Toast(style: .error, message: "Unautorized")
+    static let NetworkError = Toast(style: .error, message: "No internet connection")
+    
+    static func from<T>(response: ApiResult<T>) -> Toast? {
+        switch response {
+        case .authError(let err):
+            print(err.message)
+            return self.AuthError
+        case .networkError(let err):
+            print(err)
+            return self.NetworkError
+        case .serverError(let err):
+            print(err.message)
+            return self.ServerError
+        default:
+            return nil
+        }
+    }
 }
 
 enum ToastStyle {

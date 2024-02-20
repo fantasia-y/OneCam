@@ -37,7 +37,31 @@ extension View {
         }
     }
     
-    func toastView(toast: Binding<Toast?>) -> some View {
-        self.modifier(ToastModifier(toast: toast))
+    func toastView(toast: Binding<Toast?>, isSheet: Bool = false) -> some View {
+        self.modifier(ToastModifier(toast: toast, isSheet: isSheet))
+    }
+}
+
+extension ColorScheme {
+    var stringValue: String? {
+        switch self {
+        case .dark:
+            return "dark"
+        case .light:
+            return "light"
+        default:
+            return nil
+        }
+    }
+    
+    static func from(string: String?) -> Self? {
+        switch string {
+        case "dark":
+            return .dark
+        case "light":
+            return .light
+        default:
+            return nil
+        }
     }
 }

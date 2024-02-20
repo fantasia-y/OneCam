@@ -41,6 +41,9 @@
 		F832BE362B0E8ECF0037DA45 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F832BE352B0E8ECF0037DA45 /* CodeScanner */; };
 		F832BE3D2B0EBFCB0037DA45 /* QRCodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */; };
 		F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3E2B0EC7050037DA45 /* URLUtils.swift */; };
+		F85450612B85442100E70E8D /* NotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450602B85442100E70E8D /* NotificationsSettingsView.swift */; };
+		F85450642B8545F600E70E8D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450632B8545F600E70E8D /* AboutView.swift */; };
+		F85450662B8545FE00E70E8D /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450652B8545FE00E70E8D /* HelpView.swift */; };
 		F862A1112B69249C00C44AE3 /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1102B69249C00C44AE3 /* AWSS3StoragePlugin */; };
 		F862A1132B69249C00C44AE3 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1122B69249C00C44AE3 /* Amplify */; };
 		F862A1152B69249C00C44AE3 /* CoreMLPredictionsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1142B69249C00C44AE3 /* CoreMLPredictionsPlugin */; };
@@ -64,6 +67,8 @@
 		F8C1E1CB2B83F27A005EC82C /* GroupEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E1CA2B83F27A005EC82C /* GroupEditView.swift */; };
 		F8C1E1D12B84083C005EC82C /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E1D02B84083C005EC82C /* ProfileEditView.swift */; };
 		F8C1E1D42B840ECA005EC82C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E1D32B840ECA005EC82C /* ProfileViewModel.swift */; };
+		F8C1E1D62B841C62005EC82C /* ColorSchemeSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E1D52B841C62005EC82C /* ColorSchemeSetting.swift */; };
+		F8C1E1D92B841CDF005EC82C /* DarkModeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1E1D82B841CDF005EC82C /* DarkModeSettingsView.swift */; };
 		F8E519232B7EA6F500A9E089 /* JoinGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E519222B7EA6F500A9E089 /* JoinGroupViewModel.swift */; };
 		F8E519272B7EA75F00A9E089 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E519252B7EA75F00A9E089 /* JoinGroupView.swift */; };
 		F8E519282B7EA75F00A9E089 /* JoinGroupPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E519262B7EA75F00A9E089 /* JoinGroupPreviewView.swift */; };
@@ -121,6 +126,9 @@
 		F831A9932B743C82004C13B2 /* AvatarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPicker.swift; sourceTree = "<group>"; };
 		F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeUtils.swift; sourceTree = "<group>"; };
 		F832BE3E2B0EC7050037DA45 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
+		F85450602B85442100E70E8D /* NotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsView.swift; sourceTree = "<group>"; };
+		F85450632B8545F600E70E8D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		F85450652B8545FE00E70E8D /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		F862A1192B6939C200C44AE3 /* GroupLocalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLocalImage.swift; sourceTree = "<group>"; };
 		F874FB342B7F9E4D00868CA1 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		F874FB362B7F9F2600868CA1 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
@@ -138,6 +146,8 @@
 		F8C1E1CA2B83F27A005EC82C /* GroupEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupEditView.swift; sourceTree = "<group>"; };
 		F8C1E1D02B84083C005EC82C /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		F8C1E1D32B840ECA005EC82C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F8C1E1D52B841C62005EC82C /* ColorSchemeSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeSetting.swift; sourceTree = "<group>"; };
+		F8C1E1D82B841CDF005EC82C /* DarkModeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeSettingsView.swift; sourceTree = "<group>"; };
 		F8E519222B7EA6F500A9E089 /* JoinGroupViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupViewModel.swift; sourceTree = "<group>"; };
 		F8E519252B7EA75F00A9E089 /* JoinGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
 		F8E519262B7EA75F00A9E089 /* JoinGroupPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinGroupPreviewView.swift; sourceTree = "<group>"; };
@@ -204,6 +214,8 @@
 		F80A44822B6172F5007217DD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F85450622B8545EA00E70E8D /* About */,
+				F8C1E1D72B841CD0005EC82C /* Settings */,
 				F80A44832B617300007217DD /* ProfileView.swift */,
 				F8C1E1D02B84083C005EC82C /* ProfileEditView.swift */,
 			);
@@ -349,6 +361,15 @@
 			path = Avatar;
 			sourceTree = "<group>";
 		};
+		F85450622B8545EA00E70E8D /* About */ = {
+			isa = PBXGroup;
+			children = (
+				F85450632B8545F600E70E8D /* AboutView.swift */,
+				F85450652B8545FE00E70E8D /* HelpView.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		F862A1162B692BD200C44AE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +429,15 @@
 				F8C1E1D32B840ECA005EC82C /* ProfileViewModel.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F8C1E1D72B841CD0005EC82C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F8C1E1D82B841CDF005EC82C /* DarkModeSettingsView.swift */,
+				F85450602B85442100E70E8D /* NotificationsSettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F8E519242B7EA75F00A9E089 /* Join */ = {
@@ -523,6 +553,7 @@
 				F82D543F2B06A21C000BE2B3 /* Group */,
 				F8F6B72E2B065A0600B9E41D /* Auth */,
 				F89493BD2B27D5D300D6A7B6 /* UserData.swift */,
+				F8C1E1D52B841C62005EC82C /* ColorSchemeSetting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -656,11 +687,13 @@
 				F80397472B68456A000D7CD8 /* CameraView.swift in Sources */,
 				F8C1E1D42B840ECA005EC82C /* ProfileViewModel.swift in Sources */,
 				F829C83E2B75551F00D7DB2A /* CarouselView.swift in Sources */,
+				F8C1E1D92B841CDF005EC82C /* DarkModeSettingsView.swift in Sources */,
 				F82D54342B068876000BE2B3 /* CreateGroupView.swift in Sources */,
 				F8EC88E32B7663A400853DC6 /* CreateGroupImageView.swift in Sources */,
 				F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */,
 				F8C1E1C92B83EDBD005EC82C /* CardDivider.swift in Sources */,
 				F8EC88E52B76861100853DC6 /* CreateGroupPreviewView.swift in Sources */,
+				F85450642B8545F600E70E8D /* AboutView.swift in Sources */,
 				F82D54392B068BAF000BE2B3 /* CreateGroupViewModel.swift in Sources */,
 				F874FB352B7F9E4D00868CA1 /* ToastView.swift in Sources */,
 				F8E519302B7EA76F00A9E089 /* GroupCarouselView.swift in Sources */,
@@ -678,6 +711,7 @@
 				F8E519272B7EA75F00A9E089 /* JoinGroupView.swift in Sources */,
 				F8E519312B7EA76F00A9E089 /* GroupGridView.swift in Sources */,
 				F831A98C2B73CF65004C13B2 /* ImagePicker.swift in Sources */,
+				F8C1E1D62B841C62005EC82C /* ColorSchemeSetting.swift in Sources */,
 				F8C1E1D12B84083C005EC82C /* ProfileEditView.swift in Sources */,
 				F8E519322B7EA76F00A9E089 /* GroupImageView.swift in Sources */,
 				F8EC88E02B7662AD00853DC6 /* CreateGroupNameView.swift in Sources */,
@@ -687,6 +721,7 @@
 				F831A98A2B73C8A8004C13B2 /* AccountSetupViewModel.swift in Sources */,
 				F8E519282B7EA75F00A9E089 /* JoinGroupPreviewView.swift in Sources */,
 				F831A9872B73C101004C13B2 /* AccountSetupView.swift in Sources */,
+				F85450612B85442100E70E8D /* NotificationsSettingsView.swift in Sources */,
 				F8C1E1CB2B83F27A005EC82C /* GroupEditView.swift in Sources */,
 				F831A9942B743C82004C13B2 /* AvatarPicker.swift in Sources */,
 				F82D54372B068A79000BE2B3 /* ContentViewModel.swift in Sources */,
@@ -694,6 +729,7 @@
 				F831A98E2B73D7F0004C13B2 /* ImageUtils.swift in Sources */,
 				F82D54202B066F2C000BE2B3 /* User.swift in Sources */,
 				F8E519332B7EA76F00A9E089 /* GroupView.swift in Sources */,
+				F85450662B8545FE00E70E8D /* HelpView.swift in Sources */,
 				F8A4E5DB2B62BF8A00632E82 /* GroupImage.swift in Sources */,
 				F8E5192F2B7EA76F00A9E089 /* GroupLocalImageView.swift in Sources */,
 				F8E519392B7EA78000A9E089 /* ShareGroupView.swift in Sources */,

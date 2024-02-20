@@ -11,6 +11,7 @@ import SwiftUI
 struct ToastModifier: ViewModifier {
   
     @Binding var toast: Toast?
+    var isSheet: Bool
     @State private var workItem: DispatchWorkItem?
   
     func body(content: Content) -> some View {
@@ -18,6 +19,9 @@ struct ToastModifier: ViewModifier {
             .overlay() {
                 mainToastView()
                     .animation(.spring(), value: toast)
+                    .if(isSheet) { view in
+                        view.offset(y: 16)
+                    }
             }
             .onChange(of: toast) { _ in
                 showToast()

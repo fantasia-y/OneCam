@@ -28,12 +28,14 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var showLoginScreen = false
+    @Published var toast: Toast?
     
     @Published var currentUser: User?
     
     @Published var email = ""
     @Published var password = ""
-    @Published var password2 = ""
+    
+    @Published var authError = ""
     
     private var currentNonce: String?
     
@@ -146,12 +148,13 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
             break;
         case .serverError(let error):
             if error.message == Errors.ERR_WRONG_CREDENTIALS {
-                print("email and password do not match")
+                authError = "The username or password you entered is incorrect"
+            } else {
+                toast = Toast.from(response: response)
             }
             break;
         default:
-            // TODO handle error
-            print("Unknown Error")
+            toast = Toast.from(response: response)
             break;
         }
     }

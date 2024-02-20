@@ -24,6 +24,8 @@ class GroupSettingsViewModel: ObservableObject {
     @Published var newImage: UIImage?
     @Published var newName: String = ""
     
+    @Published var toast: Toast?
+    
     @MainActor
     func removeSelectedUserFrom(group: Group) async -> User? {
         if let selectedUser {
@@ -34,7 +36,7 @@ class GroupSettingsViewModel: ObservableObject {
                 self.selectedUser = nil
                 return removedUser
             } else {
-                // toast
+                toast = Toast.from(response: result)
             }
         }
         
@@ -56,7 +58,7 @@ class GroupSettingsViewModel: ObservableObject {
         if case .success(let data) = result {
             return data
         } else {
-            // toast = Toast.Error
+            toast = Toast.from(response: result)
         }
         
         return nil

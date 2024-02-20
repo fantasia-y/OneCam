@@ -26,7 +26,7 @@ class JoinGroupViewModel: ObservableObject {
         if case .success(let data) = result {
             group = data
         } else {
-            toast = Toast.Error
+            toast = Toast.from(response: result)
         }
     }
     
@@ -36,7 +36,7 @@ class JoinGroupViewModel: ObservableObject {
         if case .success = result {
             return true
         } else {
-            toast = Toast.Error
+            toast = Toast.from(response: result)
             return false
         }
     }

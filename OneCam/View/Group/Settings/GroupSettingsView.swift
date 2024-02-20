@@ -102,6 +102,8 @@ struct GroupSettingsView: View {
                 }
             }
         }
+        .toastView(toast: $viewModel.toast, isSheet: true)
+        .toastView(toast: $homeViewModel.toast, isSheet: true)
         .environmentObject(viewModel)
         .environmentObject(userData)
     }

@@ -38,7 +38,7 @@ class CreateGroupViewModel: ObservableObject {
         if case .success(let data) = result {
             return data
         } else {
-            toast = Toast.Error
+            toast = Toast.from(response: result)
         }
         
         return nil

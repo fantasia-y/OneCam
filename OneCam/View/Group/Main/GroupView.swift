@@ -27,7 +27,6 @@ struct GroupView: View {
         } else {
             GroupGridView(group: group)
                 .environmentObject(viewModel)
-                //.background(.black)
         }
     }
 }

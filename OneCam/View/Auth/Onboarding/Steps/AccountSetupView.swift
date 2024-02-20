@@ -38,6 +38,7 @@ struct AccountSetupView: View {
             .disabled(viewModel.displayname.isEmpty)
         }
         .padding()
+        .toastView(toast: $contentViewModel.toast)
     }
 }
 

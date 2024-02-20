@@ -42,7 +42,9 @@ struct HomeView: View {
                                     }
                                     .buttonStyle(.plain)
                                     .contextMenu() {
-                                        Button("Share", systemImage: "square.and.arrow.up") {
+                                        ShareLink(item: URLUtils.generateShareUrl(forGroup: group))
+                                        
+                                        Button("Share QR Code...", systemImage: "qrcode") {
                                             viewModel.showShareGroup = true
                                         }
                                         

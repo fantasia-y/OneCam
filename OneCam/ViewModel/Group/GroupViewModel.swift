@@ -21,6 +21,8 @@ class GroupViewModel: ObservableObject {
     @Published var showCarousel = false
     @Published var selectedImage: GroupImage?
     
+    @Published var toast: Toast?
+    
     var currentPage = -1
     
     func getImages(_ group: Group) async {
@@ -31,7 +33,7 @@ class GroupViewModel: ObservableObject {
         if case .success(let data) = result {
             self.images += data
         } else {
-            // handle error
+            toast = Toast.from(response: result)
         }
     }
     
@@ -47,7 +49,7 @@ class GroupViewModel: ObservableObject {
         if case .success(let data) = result {
             self.images = data
         } else {
-            // handle error
+            toast = Toast.from(response: result)
         }
     }
     
@@ -67,21 +69,23 @@ class GroupViewModel: ObservableObject {
             if case .success(let data) = result {
                 self.replaceLocalImage(localImage, with: data)
             } else {
-                // TODO handle error
-                print("Upload error")
+                toast = Toast.from(response: result)
             }
         } else {
-            // TODO handle error
-            print("Upload error")
+            toast = Toast.ServerError
         }
     }
     
     func deleteImage(_ image: GroupImage, group: Group) async {
         images.removeAll(where: { $0.id == image.id })
         
-        let _ = await API.shared.delete(path: "/group/\(group.uuid)/images/\(image.id)")
+        let result = await API.shared.delete(path: "/group/\(group.uuid)/images/\(image.id)")
         
-        // TODO handle error
+        if case .success(_) = result {
+            return
+        } else {
+            toast = Toast.from(response: result)
+        }
     }
     
     private func replaceLocalImage(_ localImage: GroupLocalImage, with image: GroupImage) {

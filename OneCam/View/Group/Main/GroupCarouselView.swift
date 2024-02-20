@@ -125,6 +125,7 @@ struct GroupCarouselView: View {
                 }
             }
         })
+        .toastView(toast: $viewModel.toast)
     }
 }
 

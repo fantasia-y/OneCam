@@ -34,7 +34,7 @@ class HomeViewModel: ObservableObject {
             groups = data
             return data
         } else {
-            toast = Toast.Error
+            toast = Toast.from(response: result)
         }
         
         return []
@@ -62,6 +62,8 @@ class HomeViewModel: ObservableObject {
             
             return true
         } else {
+            toast = Toast.from(response: result)
+            
             return false
         }
     }
@@ -79,6 +81,8 @@ class HomeViewModel: ObservableObject {
             
             return true
         } else {
+            toast = Toast.from(response: result)
+            
             return false
         }
     }

@@ -13,36 +13,18 @@ struct ShareGroupView: View {
     
     var body: some View {
         SheetWrapper { _ in
-            GeometryReader { geometry in
-                VStack {
-                    Text("Let your friends scan this QR Code...")
-                    
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color("buttonSecondary"))
-                            .frame(width: geometry.size.width, height: geometry.size.width)
-                        
-                        Image(uiImage: QRCodeUtils.generate(forGroup: group))
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geometry.size.width - 25, height: geometry.size.width - 25)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                    }
-                    
-                    HStack {
-                        VStack { Divider() }
-                        Text("or")
-                        VStack { Divider() }
-                    }
-                    .padding()
-                    
-                    Text("...send them a link to join this group")
-                    
-                    ShareLink(item: URLUtils.generateShareUrl(forGroup: group))
-                        .modifier(PrimaryButtonModifier())
-                }
+            VStack {
+                Text("Let your friends scan this QR Code")
+                    .bold()
+                
+                Image(uiImage: QRCodeUtils.generate(forGroup: group))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 250)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
         }
+        .presentationDetents([.height(400)])
     }
 }
 

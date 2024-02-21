@@ -41,6 +41,8 @@
 		F832BE362B0E8ECF0037DA45 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = F832BE352B0E8ECF0037DA45 /* CodeScanner */; };
 		F832BE3D2B0EBFCB0037DA45 /* QRCodeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */; };
 		F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3E2B0EC7050037DA45 /* URLUtils.swift */; };
+		F83AC4142B862C0D00A717C6 /* LocalNotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83AC4132B862C0D00A717C6 /* LocalNotificationSettings.swift */; };
+		F83AC4162B862DF000A717C6 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83AC4152B862DF000A717C6 /* NotificationSettings.swift */; };
 		F85450612B85442100E70E8D /* NotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450602B85442100E70E8D /* NotificationsSettingsView.swift */; };
 		F85450642B8545F600E70E8D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450632B8545F600E70E8D /* AboutView.swift */; };
 		F85450662B8545FE00E70E8D /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450652B8545FE00E70E8D /* HelpView.swift */; };
@@ -153,6 +155,8 @@
 		F831A9932B743C82004C13B2 /* AvatarPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPicker.swift; sourceTree = "<group>"; };
 		F832BE3C2B0EBFCB0037DA45 /* QRCodeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeUtils.swift; sourceTree = "<group>"; };
 		F832BE3E2B0EC7050037DA45 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
+		F83AC4132B862C0D00A717C6 /* LocalNotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationSettings.swift; sourceTree = "<group>"; };
+		F83AC4152B862DF000A717C6 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		F85450602B85442100E70E8D /* NotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsView.swift; sourceTree = "<group>"; };
 		F85450632B8545F600E70E8D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F85450652B8545FE00E70E8D /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 			isa = PBXGroup;
 			children = (
 				F8C1E1D32B840ECA005EC82C /* ProfileViewModel.swift */,
+				F83AC4132B862C0D00A717C6 /* LocalNotificationSettings.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -613,6 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				F82D541F2B066F2C000BE2B3 /* User.swift */,
+				F83AC4152B862DF000A717C6 /* NotificationSettings.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -772,6 +778,7 @@
 				F8C1E1C52B83EB75005EC82C /* GroupSettingsUserListView.swift in Sources */,
 				F803974C2B6846AE000D7CD8 /* CameraManager.swift in Sources */,
 				F82D54312B067212000BE2B3 /* CustomTextFieldBase.swift in Sources */,
+				F83AC4162B862DF000A717C6 /* NotificationSettings.swift in Sources */,
 				F8E519232B7EA6F500A9E089 /* JoinGroupViewModel.swift in Sources */,
 				F8C1E1BC2B83BF11005EC82C /* GroupUserCellView.swift in Sources */,
 				F8C1E1C72B83ED0B005EC82C /* CardListButton.swift in Sources */,
@@ -807,6 +814,7 @@
 				F8E519322B7EA76F00A9E089 /* GroupImageView.swift in Sources */,
 				F8EC88E02B7662AD00853DC6 /* CreateGroupNameView.swift in Sources */,
 				F80A44842B617300007217DD /* ProfileView.swift in Sources */,
+				F83AC4142B862C0D00A717C6 /* LocalNotificationSettings.swift in Sources */,
 				F8E519362B7EA77700A9E089 /* PreviewGroupView.swift in Sources */,
 				F8A4E5DD2B62BFD300632E82 /* GroupViewModel.swift in Sources */,
 				F831A98A2B73C8A8004C13B2 /* AccountSetupViewModel.swift in Sources */,

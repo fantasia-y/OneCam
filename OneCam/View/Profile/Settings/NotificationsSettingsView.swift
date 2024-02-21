@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct NotificationsSettingsView: View {
+    @EnvironmentObject var notificationSettings: LocalNotificationsSettings
+    
     var body: some View {
         VStack(spacing: 25) {
             VStack(alignment: .leading) {
                 Card {
-                    Toggle("New images", isOn: .constant(false))
+                    Toggle("New images", isOn: $notificationSettings.newImage)
                         .padding()
                 }
                 
@@ -23,7 +25,7 @@ struct NotificationsSettingsView: View {
             
             VStack(alignment: .leading) {
                 Card {
-                    Toggle("New group members", isOn: .constant(false))
+                    Toggle("New group members", isOn: $notificationSettings.newMember)
                         .padding()
                 }
                 

@@ -11,6 +11,7 @@ import CodeScanner
 struct ContentView: View {
     @EnvironmentObject var authenticatedViewModel: AuthenticatedViewModel
     @StateObject var viewModel = ContentViewModel()
+    @StateObject var notificationSettings = LocalNotificationsSettings()
     
     var body: some View {
         if viewModel.isLoaded {
@@ -21,34 +22,35 @@ struct ContentView: View {
             case .finished, .emailVerification:
                 HomeView()
                     .environmentObject(viewModel.userData)
+                    .environmentObject(notificationSettings)
             }
         } else {
             VStack {
                 if !viewModel.failedLoading {
                     ProgressView()
                         .task {
-                            let _ = await viewModel.loadUser()
+                            if await viewModel.loadUser() {
+                                notificationSettings.sync(fromUser: viewModel.userData.currentUser)
+                            }
                         }
                 } else {
                     VStack(spacing: 20) {
-                        Button {
-                            Task {
-                                if await viewModel.loadUser() {
-                                    authenticatedViewModel.onAuthenticated()
-                                }
+                        AsyncButton("Try again") {
+                            if await viewModel.loadUser() {
+                                authenticatedViewModel.onAuthenticated()
+                                notificationSettings.sync(fromUser: viewModel.userData.currentUser)
                             }
-                        } label: {
-                            Label("Try again", systemImage: "arrow.clockwise")
                         }
+                        .secondary()
                         
-                        Button {
+                        AsyncButton("Logout") {
                             Task {
                                 await authenticatedViewModel.logout()
                             }
-                        } label: {
-                            Label("Logout", systemImage: "multiply.circle.fill")
                         }
+                        .destructive()
                     }
+                    .padding()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

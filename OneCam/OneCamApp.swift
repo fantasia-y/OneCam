@@ -32,6 +32,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct OneCamApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @Environment(\.scenePhase) var scenePhase
     
     @StateObject var colorSchemeSetting = ColorSchemeSetting()
     
@@ -54,6 +55,14 @@ struct OneCamApp: App {
             }
             .preferredColorScheme(colorSchemeSetting.colorScheme)
             .environmentObject(colorSchemeSetting)
+        }
+        .onChange(of: scenePhase) { oldPhase, newPhase in
+            if newPhase == .active {
+                if let userDefaults = UserDefaults(suiteName: "group.dev.gordonkirsch.OneCam") {
+                    userDefaults.set(0, forKey: "badgeCount")
+                }
+                UNUserNotificationCenter.current().setBadgeCount(0)
+            }
         }
     }
 }

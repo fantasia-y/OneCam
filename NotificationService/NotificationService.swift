@@ -17,7 +17,19 @@ class NotificationService: UNNotificationServiceExtension {
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
         if let bestAttemptContent = bestAttemptContent {
-            
+            if let userDefaults = UserDefaults(suiteName: "group.dev.gordonkirsch.OneCam") {
+                let badgeCount = userDefaults.integer(forKey: "badgeCount")
+                
+                if badgeCount > 0 {
+                    userDefaults.set(badgeCount + 1, forKey: "badgeCount")
+                    bestAttemptContent.badge = badgeCount + 1 as NSNumber
+                } else {
+                    userDefaults.set(1, forKey: "badgeCount")
+                    bestAttemptContent.badge = 1
+                }
+                
+                contentHandler(bestAttemptContent)
+            }
         }
     }
     

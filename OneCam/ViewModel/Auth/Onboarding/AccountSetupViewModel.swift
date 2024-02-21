@@ -17,7 +17,7 @@ class AccountSetupViewModel: ObservableObject {
     @Published var displaynameDebounced = ""
     @Published var image: UIImage?
     
-    private var subscriptions = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
         $displayname
@@ -25,6 +25,6 @@ class AccountSetupViewModel: ObservableObject {
             .sink(receiveValue: { [weak self] displayname in
                 self?.displaynameDebounced = displayname
             })
-            .store(in: &subscriptions)
+            .store(in: &cancellables)
     }
 }

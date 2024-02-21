@@ -11,6 +11,7 @@ import CodeScanner
 struct ContentView: View {
     @EnvironmentObject var authenticatedViewModel: AuthenticatedViewModel
     @StateObject var viewModel = ContentViewModel()
+    @StateObject var notificationSettings = LocalNotificationsSettings()
     
     var body: some View {
         if viewModel.isLoaded {
@@ -21,32 +22,47 @@ struct ContentView: View {
             case .finished, .emailVerification:
                 HomeView()
                     .environmentObject(viewModel.userData)
+                    .environmentObject(notificationSettings)
             }
         } else {
             VStack {
                 if !viewModel.failedLoading {
                     ProgressView()
                         .task {
-                            await viewModel.loadUser()
+                            if await viewModel.loadUser() {
+                                notificationSettings.sync(fromUser: viewModel.userData.currentUser)
+                            }
                         }
                 } else {
                     VStack(spacing: 20) {
-                        Button {
-                            Task {
-                                await viewModel.loadUser()
-                            }
-                        } label: {
-                            Label("Try again", systemImage: "arrow.clockwise")
-                        }
+                        Text("Oops!")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 25)
                         
-                        Button {
-                            Task {
-                                await authenticatedViewModel.logout()
+                        Text("We had trouble connecting to our servers.\nCheck your internet connection and try again.")
+                            .multilineTextAlignment(.center)
+                        
+                        Spacer()
+                        
+                        VStack {
+                            AsyncButton("Try again") {
+                                if await viewModel.loadUser() {
+                                    authenticatedViewModel.onAuthenticated()
+                                    notificationSettings.sync(fromUser: viewModel.userData.currentUser)
+                                }
                             }
-                        } label: {
-                            Label("Logout", systemImage: "multiply.circle.fill")
+                            .secondary()
+                            
+                            AsyncButton("Logout") {
+                                Task {
+                                    await authenticatedViewModel.logout()
+                                }
+                            }
+                            .destructive()
                         }
                     }
+                    .padding()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -56,4 +72,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(AuthenticatedViewModel())
 }

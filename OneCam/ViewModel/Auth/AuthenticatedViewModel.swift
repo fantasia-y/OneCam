@@ -137,6 +137,8 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func login() async {
+        authError = ""
+        
         let result = await API.shared.login(email: email, password: password)
         
         await MainActor.run {
@@ -145,6 +147,8 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func register() async {
+        authError = ""
+        
         let result = await API.shared.register(email: email, password: password)
         
         await MainActor.run {

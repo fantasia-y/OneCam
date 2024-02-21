@@ -35,20 +35,32 @@ struct ContentView: View {
                         }
                 } else {
                     VStack(spacing: 20) {
-                        AsyncButton("Try again") {
-                            if await viewModel.loadUser() {
-                                authenticatedViewModel.onAuthenticated()
-                                notificationSettings.sync(fromUser: viewModel.userData.currentUser)
-                            }
-                        }
-                        .secondary()
+                        Text("Oops!")
+                            .font(.title)
+                            .bold()
+                            .padding(.top, 25)
                         
-                        AsyncButton("Logout") {
-                            Task {
-                                await authenticatedViewModel.logout()
+                        Text("We had trouble connecting to our servers.\nCheck your internet connection and try again.")
+                            .multilineTextAlignment(.center)
+                        
+                        Spacer()
+                        
+                        VStack {
+                            AsyncButton("Try again") {
+                                if await viewModel.loadUser() {
+                                    authenticatedViewModel.onAuthenticated()
+                                    notificationSettings.sync(fromUser: viewModel.userData.currentUser)
+                                }
                             }
+                            .secondary()
+                            
+                            AsyncButton("Logout") {
+                                Task {
+                                    await authenticatedViewModel.logout()
+                                }
+                            }
+                            .destructive()
                         }
-                        .destructive()
                     }
                     .padding()
                 }
@@ -60,4 +72,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(AuthenticatedViewModel())
 }

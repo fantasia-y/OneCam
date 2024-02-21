@@ -44,6 +44,9 @@
 		F85450612B85442100E70E8D /* NotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450602B85442100E70E8D /* NotificationsSettingsView.swift */; };
 		F85450642B8545F600E70E8D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450632B8545F600E70E8D /* AboutView.swift */; };
 		F85450662B8545FE00E70E8D /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450652B8545FE00E70E8D /* HelpView.swift */; };
+		F854506C2B858F4100E70E8D /* PushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = F854506B2B858F4100E70E8D /* PushNotifications */; };
+		F85450742B859CE400E70E8D /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450732B859CE400E70E8D /* NotificationService.swift */; };
+		F85450782B859CE400E70E8D /* NotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F85450712B859CE400E70E8D /* NotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F862A1112B69249C00C44AE3 /* AWSS3StoragePlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1102B69249C00C44AE3 /* AWSS3StoragePlugin */; };
 		F862A1132B69249C00C44AE3 /* Amplify in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1122B69249C00C44AE3 /* Amplify */; };
 		F862A1152B69249C00C44AE3 /* CoreMLPredictionsPlugin in Frameworks */ = {isa = PBXBuildFile; productRef = F862A1142B69249C00C44AE3 /* CoreMLPredictionsPlugin */; };
@@ -92,6 +95,30 @@
 		F8F6B7362B065BA100B9E41D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F6B7352B065BA100B9E41D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F85450762B859CE400E70E8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F8EC94482AF141DA00D0F466 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F85450702B859CE400E70E8D;
+			remoteInfo = NotificationService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F854507C2B859CE500E70E8D /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F85450782B859CE400E70E8D /* NotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		15167226092B59E4EAAB7993 /* amplifyconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		16AA0DFC516BD9ED213C56C7 /* awsconfiguration.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
@@ -129,6 +156,10 @@
 		F85450602B85442100E70E8D /* NotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsView.swift; sourceTree = "<group>"; };
 		F85450632B8545F600E70E8D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F85450652B8545FE00E70E8D /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		F85450712B859CE400E70E8D /* NotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F85450732B859CE400E70E8D /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		F85450752B859CE400E70E8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F854507D2B859D0600E70E8D /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
 		F862A1192B6939C200C44AE3 /* GroupLocalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupLocalImage.swift; sourceTree = "<group>"; };
 		F874FB342B7F9E4D00868CA1 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		F874FB362B7F9F2600868CA1 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
@@ -171,6 +202,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F854506E2B859CE400E70E8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8EC944D2AF141DA00D0F466 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +220,7 @@
 				F862A1112B69249C00C44AE3 /* AWSS3StoragePlugin in Frameworks */,
 				F81FB4D72B751B7A00F4A53F /* SwiftUIIntrospect in Frameworks */,
 				F862A1152B69249C00C44AE3 /* CoreMLPredictionsPlugin in Frameworks */,
+				F854506C2B858F4100E70E8D /* PushNotifications in Frameworks */,
 				F862A1132B69249C00C44AE3 /* Amplify in Frameworks */,
 				F80A447F2B61695D007217DD /* CachedAsyncImage in Frameworks */,
 				F832BE362B0E8ECF0037DA45 /* CodeScanner in Frameworks */,
@@ -370,6 +409,16 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		F85450722B859CE400E70E8D /* NotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				F854507D2B859D0600E70E8D /* NotificationService.entitlements */,
+				F85450732B859CE400E70E8D /* NotificationService.swift */,
+				F85450752B859CE400E70E8D /* Info.plist */,
+			);
+			path = NotificationService;
+			sourceTree = "<group>";
+		};
 		F862A1162B692BD200C44AE3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +557,7 @@
 			isa = PBXGroup;
 			children = (
 				F8EC94522AF141DA00D0F466 /* OneCam */,
+				F85450722B859CE400E70E8D /* NotificationService */,
 				F8EC94512AF141DA00D0F466 /* Products */,
 				189AC52034306C7D1043AF2E /* AmplifyConfig */,
 				F862A1162B692BD200C44AE3 /* Frameworks */,
@@ -518,6 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				F8EC94502AF141DA00D0F466 /* OneCam.app */,
+				F85450712B859CE400E70E8D /* NotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -580,6 +631,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F85450702B859CE400E70E8D /* NotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F85450792B859CE500E70E8D /* Build configuration list for PBXNativeTarget "NotificationService" */;
+			buildPhases = (
+				F854506D2B859CE400E70E8D /* Sources */,
+				F854506E2B859CE400E70E8D /* Frameworks */,
+				F854506F2B859CE400E70E8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NotificationService;
+			productName = NotificationService;
+			productReference = F85450712B859CE400E70E8D /* NotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F8EC944F2AF141DA00D0F466 /* OneCam */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8EC945E2AF141DF00D0F466 /* Build configuration list for PBXNativeTarget "OneCam" */;
@@ -587,10 +655,12 @@
 				F8EC944C2AF141DA00D0F466 /* Sources */,
 				F8EC944D2AF141DA00D0F466 /* Frameworks */,
 				F8EC944E2AF141DA00D0F466 /* Resources */,
+				F854507C2B859CE500E70E8D /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F85450772B859CE400E70E8D /* PBXTargetDependency */,
 			);
 			name = OneCam;
 			packageProductDependencies = (
@@ -605,6 +675,7 @@
 				F862A1142B69249C00C44AE3 /* CoreMLPredictionsPlugin */,
 				F862A1172B692BD200C44AE3 /* AWSCognitoAuthPlugin */,
 				F81FB4D62B751B7A00F4A53F /* SwiftUIIntrospect */,
+				F854506B2B858F4100E70E8D /* PushNotifications */,
 			);
 			productName = OneCam;
 			productReference = F8EC94502AF141DA00D0F466 /* OneCam.app */;
@@ -620,6 +691,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					F85450702B859CE400E70E8D = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					F8EC944F2AF141DA00D0F466 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -643,17 +717,26 @@
 				F80A447D2B61695D007217DD /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				F862A0FD2B69249C00C44AE3 /* XCRemoteSwiftPackageReference "amplify-swift" */,
 				F81FB4D52B751B7A00F4A53F /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
+				F854506A2B858F4000E70E8D /* XCRemoteSwiftPackageReference "push-notifications-swift" */,
 			);
 			productRefGroup = F8EC94512AF141DA00D0F466 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				F8EC944F2AF141DA00D0F466 /* OneCam */,
+				F85450702B859CE400E70E8D /* NotificationService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F854506F2B859CE400E70E8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8EC944E2AF141DA00D0F466 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -668,6 +751,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F854506D2B859CE400E70E8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F85450742B859CE400E70E8D /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F8EC944C2AF141DA00D0F466 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -745,7 +836,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		F85450772B859CE400E70E8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F85450702B859CE400E70E8D /* NotificationService */;
+			targetProxy = F85450762B859CE400E70E8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		F854507A2B859CE500E70E8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B2RFHB4JYK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.gordonkirsch.OneCam.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F854507B2B859CE500E70E8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B2RFHB4JYK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.gordonkirsch.OneCam.NotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F8EC945C2AF141DF00D0F466 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -868,6 +1021,7 @@
 		F8EC945F2AF141DF00D0F466 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneCam/OneCam.entitlements;
@@ -905,6 +1059,7 @@
 		F8EC94602AF141DF00D0F466 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = OneCam/OneCam.entitlements;
@@ -942,6 +1097,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F85450792B859CE500E70E8D /* Build configuration list for PBXNativeTarget "NotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F854507A2B859CE500E70E8D /* Debug */,
+				F854507B2B859CE500E70E8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F8EC944B2AF141DA00D0F466 /* Build configuration list for PBXProject "OneCam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -985,6 +1149,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.3.3;
+			};
+		};
+		F854506A2B858F4000E70E8D /* XCRemoteSwiftPackageReference "push-notifications-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pusher/push-notifications-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
 			};
 		};
 		F862A0FD2B69249C00C44AE3 /* XCRemoteSwiftPackageReference "amplify-swift" */ = {
@@ -1044,6 +1216,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F832BE342B0E8ECF0037DA45 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		F854506B2B858F4100E70E8D /* PushNotifications */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F854506A2B858F4000E70E8D /* XCRemoteSwiftPackageReference "push-notifications-swift" */;
+			productName = PushNotifications;
 		};
 		F862A1102B69249C00C44AE3 /* AWSS3StoragePlugin */ = {
 			isa = XCSwiftPackageProductDependency;

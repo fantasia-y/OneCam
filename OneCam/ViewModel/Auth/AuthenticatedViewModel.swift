@@ -11,6 +11,7 @@ import Combine
 import JWTDecode
 import GordonKirschAPI
 import GordonKirschUtils
+import PushNotifications
 
 enum AuthenticationState {
     case unauthenticated
@@ -55,7 +56,21 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         do {
             let jwt = try decode(jwt: KeychainStorage.shared.getAccessToken().token)
 
-            // OneSignal.setExternalUserId(jwt.uuid.uuidString)
+            let tokenProvider = BeamsTokenProvider(authURL: "\(API.shared.getBaseUrl())/beamer/token") { () -> AuthData in
+                let sessionToken = KeychainStorage.shared.getAccessToken().token
+                let headers = ["Authorization": "Bearer \(sessionToken)"]
+                let queryParams: [String: String] = [:]
+                return AuthData(headers: headers, queryParams: queryParams)
+            }
+            
+            PushNotifications.shared.setUserId(jwt.uuid.uuidString, tokenProvider: tokenProvider, completion: { error in
+                guard error == nil else {
+                    print(error.debugDescription)
+                    return
+                }
+
+                print("Successfully authenticated with Pusher Beams")
+            })
         } catch {
             print(error)
         }
@@ -160,9 +175,13 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func logout() async {
-        await API.shared.logout()
-        await MainActor.run {
-            authenticationState = .unauthenticated
+        PushNotifications.shared.clearAllState {
+            Task {
+                await API.shared.logout()
+                await MainActor.run {
+                    self.authenticationState = .unauthenticated
+                }
+            }
         }
     }
 }

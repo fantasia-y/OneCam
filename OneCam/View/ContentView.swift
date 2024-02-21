@@ -27,13 +27,15 @@ struct ContentView: View {
                 if !viewModel.failedLoading {
                     ProgressView()
                         .task {
-                            await viewModel.loadUser()
+                            let _ = await viewModel.loadUser()
                         }
                 } else {
                     VStack(spacing: 20) {
                         Button {
                             Task {
-                                await viewModel.loadUser()
+                                if await viewModel.loadUser() {
+                                    authenticatedViewModel.onAuthenticated()
+                                }
                             }
                         } label: {
                             Label("Try again", systemImage: "arrow.clockwise")

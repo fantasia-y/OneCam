@@ -26,7 +26,7 @@ class ContentViewModel: ObservableObject {
     var onboardingUser: User?
     
     @MainActor
-    func loadUser() async {
+    func loadUser() async -> Bool {
         self.failedLoading = false
         
         let result = await API.shared.get(path: "/user", decode: User.self)
@@ -35,11 +35,10 @@ class ContentViewModel: ObservableObject {
         case .success(let user):
             self.onUserLoaded(user)
             self.isLoaded = true
-            break
-        case .networkError(_):
-            self.failedLoading = true
+            return true
         default:
             self.failedLoading = true
+            return false
         }
     }
         

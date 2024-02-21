@@ -10,10 +10,22 @@ import GordonKirschAPI
 import UIKit
 import Amplify
 
+struct ImageWrapper: Identifiable {
+    let id = UUID()
+    let image: UIImage
+}
+
 @MainActor
-class GroupViewModel: ObservableObject {
+class GroupViewModel: NSObject, ObservableObject {
     @Published var localImages: [GroupLocalImage] = []
     @Published var images: [GroupImage] = []
+    
+    @Published var isEditing = false
+    @Published var isSaving = false
+    @Published var selectedSubviews = Set<Int>()
+    @Published var saveProgress = 0.0
+    @Published var downloadedImages: [UIImage] = []
+    @Published var showDownloadedImages = false
     
     @Published var showShareView = false
     @Published var showSettings = false
@@ -91,5 +103,30 @@ class GroupViewModel: ObservableObject {
     private func replaceLocalImage(_ localImage: GroupLocalImage, with image: GroupImage) {
         localImages.removeAll(where: { $0.id == localImage.id })
         images.insert(image, at: 0)
+    }
+    
+    func saveSelectedImages() async {
+        // prep ui
+        downloadedImages = []
+        isEditing = false
+        isSaving = true
+        
+        for index in selectedSubviews {
+            let selectedImage = self.images[index]
+            let url = selectedImage.urls[FilterType.none.rawValue]!
+            
+            saveProgress = Double(downloadedImages.count + 1) / Double(selectedSubviews.count)
+            print("Downloading image: \(selectedImage.imageName!)")
+            
+            if let (data, _) = try? await URLSession.shared.data(from: URL(string: url)!) {
+                downloadedImages.append(UIImage(data: data)!)
+            }
+        }
+        
+        // clean up
+        isSaving = false
+        saveProgress = 0.0
+        selectedSubviews = Set<Int>()
+        showDownloadedImages = true
     }
 }

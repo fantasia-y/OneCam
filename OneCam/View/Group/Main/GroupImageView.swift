@@ -15,7 +15,8 @@ struct GroupImageView: View {
     
     let image: GroupImage
     let group: Group
-    @Binding var isEditing: Bool
+    var isEditing: Bool
+    var isSelected: Bool
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -82,7 +83,7 @@ struct GroupImageView: View {
             }
             
             if isEditing {
-                Image(systemName: "circle")
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
                     .foregroundStyle(.white)
                     .font(.system(size: 20))
                     .shadow(radius: 4)
@@ -93,7 +94,7 @@ struct GroupImageView: View {
 }
 
 #Preview {
-    GroupImageView(image: GroupImage.Example, group: Group.Example, isEditing: .constant(false))
+    GroupImageView(image: GroupImage.Example, group: Group.Example, isEditing: false, isSelected: false)
         .environmentObject(GroupViewModel())
         .environmentObject(UserData())
 }

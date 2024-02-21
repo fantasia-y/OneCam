@@ -13,6 +13,7 @@
 		F803974C2B6846AE000D7CD8 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F803974B2B6846AE000D7CD8 /* CameraManager.swift */; };
 		F80397522B6860CE000D7CD8 /* CameraViewFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80397512B6860CE000D7CD8 /* CameraViewFinder.swift */; };
 		F8069FB22B863F1000994B78 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = F8069FB12B863F1000994B78 /* Localizable.xcstrings */; };
+		F8069FB42B865FD200994B78 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8069FB32B865FD200994B78 /* ActivityViewController.swift */; };
 		F80A447A2B615CA5007217DD /* GroupSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A44792B615CA5007217DD /* GroupSettingsView.swift */; };
 		F80A447C2B6162D4007217DD /* GroupSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80A447B2B6162D4007217DD /* GroupSettingsViewModel.swift */; };
 		F80A447F2B61695D007217DD /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = F80A447E2B61695D007217DD /* CachedAsyncImage */; };
@@ -129,6 +130,7 @@
 		F803974B2B6846AE000D7CD8 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
 		F80397512B6860CE000D7CD8 /* CameraViewFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewFinder.swift; sourceTree = "<group>"; };
 		F8069FB12B863F1000994B78 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		F8069FB32B865FD200994B78 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		F80A44792B615CA5007217DD /* GroupSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsView.swift; sourceTree = "<group>"; };
 		F80A447B2B6162D4007217DD /* GroupSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSettingsViewModel.swift; sourceTree = "<group>"; };
 		F80A44802B616D95007217DD /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				F80397482B6845AC000D7CD8 /* Camera */,
 				F82D54302B067212000BE2B3 /* CustomTextFieldBase.swift */,
 				F880298E2B7501A000502F58 /* CustomButton.swift */,
+				F8069FB32B865FD200994B78 /* ActivityViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -715,7 +718,6 @@
 			knownRegions = (
 				en,
 				Base,
-				de,
 			);
 			mainGroup = F8EC94472AF141DA00D0F466;
 			packageReferences = (
@@ -799,6 +801,7 @@
 				F85450642B8545F600E70E8D /* AboutView.swift in Sources */,
 				F82D54392B068BAF000BE2B3 /* CreateGroupViewModel.swift in Sources */,
 				F874FB352B7F9E4D00868CA1 /* ToastView.swift in Sources */,
+				F8069FB42B865FD200994B78 /* ActivityViewController.swift in Sources */,
 				F8E519302B7EA76F00A9E089 /* GroupCarouselView.swift in Sources */,
 				F862A11A2B6939C200C44AE3 /* GroupLocalImage.swift in Sources */,
 				F80A447C2B6162D4007217DD /* GroupSettingsViewModel.swift in Sources */,
@@ -1047,6 +1050,7 @@
 				INFOPLIST_FILE = OneCam/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR Code";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save images to your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1085,6 +1089,7 @@
 				INFOPLIST_FILE = OneCam/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR Code";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save images to your library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

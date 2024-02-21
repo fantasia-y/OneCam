@@ -109,6 +109,9 @@
         }
       }
     },
+    "Cancel" : {
+
+    },
     "Coming soon" : {
       "localizations" : {
         "de" : {
@@ -314,6 +317,9 @@
           }
         }
       }
+    },
+    "Loading..." : {
+
     },
     "Members" : {
       "localizations" : {

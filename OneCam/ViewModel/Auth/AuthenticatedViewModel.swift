@@ -63,6 +63,8 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
                 return AuthData(headers: headers, queryParams: queryParams)
             }
             
+            
+            
             PushNotifications.shared.setUserId(jwt.uuid.uuidString, tokenProvider: tokenProvider, completion: { error in
                 guard error == nil else {
                     print(error.debugDescription)
@@ -180,12 +182,11 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     
     func logout() async {
         PushNotifications.shared.clearAllState {
-            Task {
-                await API.shared.logout()
-                await MainActor.run {
-                    self.authenticationState = .unauthenticated
-                }
-            }
+            PushNotifications.shared.start(instanceId: Bundle.main.infoDictionary?["PUSHER_INSTANCE_ID"] as! String)
+        }
+        await API.shared.logout()
+        await MainActor.run {
+            self.authenticationState = .unauthenticated
         }
     }
 }

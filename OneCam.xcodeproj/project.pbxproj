@@ -45,6 +45,8 @@
 		F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3E2B0EC7050037DA45 /* URLUtils.swift */; };
 		F83AC4142B862C0D00A717C6 /* LocalNotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83AC4132B862C0D00A717C6 /* LocalNotificationSettings.swift */; };
 		F83AC4162B862DF000A717C6 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83AC4152B862DF000A717C6 /* NotificationSettings.swift */; };
+		F852EE072B87F2A6008748FC /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F852EE052B87F2A6008748FC /* Main.xcdatamodeld */; };
+		F852EE092B87F305008748FC /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F852EE082B87F305008748FC /* PersistenceController.swift */; };
 		F85450612B85442100E70E8D /* NotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450602B85442100E70E8D /* NotificationsSettingsView.swift */; };
 		F85450642B8545F600E70E8D /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450632B8545F600E70E8D /* AboutView.swift */; };
 		F85450662B8545FE00E70E8D /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450652B8545FE00E70E8D /* HelpView.swift */; };
@@ -161,6 +163,8 @@
 		F832BE3E2B0EC7050037DA45 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
 		F83AC4132B862C0D00A717C6 /* LocalNotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationSettings.swift; sourceTree = "<group>"; };
 		F83AC4152B862DF000A717C6 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		F852EE062B87F2A6008748FC /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
+		F852EE082B87F305008748FC /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		F85450602B85442100E70E8D /* NotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsView.swift; sourceTree = "<group>"; };
 		F85450632B8545F600E70E8D /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		F85450652B8545FE00E70E8D /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -600,6 +604,8 @@
 				F8EC94572AF141DF00D0F466 /* Assets.xcassets */,
 				F8EC94592AF141DF00D0F466 /* Preview Content */,
 				F8069FB12B863F1000994B78 /* Localizable.xcstrings */,
+				F852EE052B87F2A6008748FC /* Main.xcdatamodeld */,
+				F852EE082B87F305008748FC /* PersistenceController.swift */,
 			);
 			path = OneCam;
 			sourceTree = "<group>";
@@ -828,12 +834,14 @@
 				F80A44842B617300007217DD /* ProfileView.swift in Sources */,
 				F83AC4142B862C0D00A717C6 /* LocalNotificationSettings.swift in Sources */,
 				F8E519362B7EA77700A9E089 /* PreviewGroupView.swift in Sources */,
+				F852EE092B87F305008748FC /* PersistenceController.swift in Sources */,
 				F8A4E5DD2B62BFD300632E82 /* GroupViewModel.swift in Sources */,
 				F831A98A2B73C8A8004C13B2 /* AccountSetupViewModel.swift in Sources */,
 				F8E519282B7EA75F00A9E089 /* JoinGroupPreviewView.swift in Sources */,
 				F831A9872B73C101004C13B2 /* AccountSetupView.swift in Sources */,
 				F85450612B85442100E70E8D /* NotificationsSettingsView.swift in Sources */,
 				F8C1E1CB2B83F27A005EC82C /* GroupEditView.swift in Sources */,
+				F852EE072B87F2A6008748FC /* Main.xcdatamodeld in Sources */,
 				F831A9942B743C82004C13B2 /* AvatarPicker.swift in Sources */,
 				F82D54372B068A79000BE2B3 /* ContentViewModel.swift in Sources */,
 				F82D542A2B06718B000BE2B3 /* AuthView.swift in Sources */,
@@ -1287,6 +1295,19 @@
 			productName = JWTDecode;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F852EE052B87F2A6008748FC /* Main.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F852EE062B87F2A6008748FC /* Main.xcdatamodel */,
+			);
+			currentVersion = F852EE062B87F2A6008748FC /* Main.xcdatamodel */;
+			path = Main.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F8EC94482AF141DA00D0F466 /* Project object */;
 }

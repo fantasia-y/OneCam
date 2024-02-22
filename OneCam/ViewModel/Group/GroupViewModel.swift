@@ -17,7 +17,7 @@ struct ImageWrapper: Identifiable {
 
 @MainActor
 class GroupViewModel: NSObject, ObservableObject {
-    @Published var localImages: [GroupLocalImage] = []
+    @Published var localImages: [LocalImage] = []
     @Published var images: [GroupImage] = []
     
     @Published var isEditing = false
@@ -27,6 +27,7 @@ class GroupViewModel: NSObject, ObservableObject {
     @Published var saveProgress = 0.0
     @Published var downloadedImages: [UIImage] = []
     @Published var showDownloadedImages = false
+    @Published var hasFailedImages = false
     
     @Published var showShareView = false
     @Published var showSettings = false
@@ -51,7 +52,19 @@ class GroupViewModel: NSObject, ObservableObject {
     }
     
     func getLocalImages(_ group: Group) {
-        // self.localImages = GroupLocalImageDataSource.shared.fetch(byGroup: group)
+        let request = LocalImage.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "groupId == %@", group.groupId as CVarArg)
+        
+        do {
+            localImages = try PersistenceController.shared.context.fetch(request)
+            
+            if localImages.filter({ $0.failed }).count > 0 {
+                hasFailedImages = true
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func refreshImage(_ group: Group) async {
@@ -68,24 +81,64 @@ class GroupViewModel: NSObject, ObservableObject {
     
     @MainActor
     func uploadImage(_ image: UIImage, group: Group) async {
-        // store image locally (swift data)
-        // else -> mark as queued
-        // if upload fails -> mark as queued
-        let localImage = GroupLocalImage(id: UUID(), group: group, image: image.jpegData(compressionQuality: 100)!)
+        let localImage = LocalImage(context: PersistenceController.shared.context)
+        localImage.id = UUID()
+        localImage.groupId = group.groupId
+        localImage.imageData = image.jpegData(compressionQuality: 100)
+        PersistenceController.shared.save()
         
         localImages.insert(localImage, at: 0)
-        // GroupLocalImageDataSource.shared.append(localImage)
+        
         showCamera = false
         
-        if let _ = await ImageUtils.uploadImage(image, key: localImage.key) {
-            let result = await API.shared.post(path: "/group/\(group.uuid)/images", decode: GroupImage.self, parameters: ["name": localImage.name])
+        if let groupImage = await uploadLocalImage(localImage) {
+            self.replaceLocalImage(localImage, with: groupImage)
+        }
+    }
+    
+    @MainActor
+    func uploadLocalImage(_ localImage: LocalImage) async -> GroupImage? {
+        localImage.failed = false
+        self.updateLocalImage(localImage)
+        
+        let image = UIImage(data: localImage.imageData!)!
+        let name = "\(localImage.id!.uuidString.lowercased()).jpeg"
+        let key = "images/\(localImage.groupId!.uuidString.lowercased())/\(name)"
+        
+        if let _ = await ImageUtils.uploadImage(image, key: key) {
+            let result = await API.shared.post(path: "/group/\(localImage.groupId!.uuidString.lowercased())/images", decode: GroupImage.self, parameters: ["name": name])
             if case .success(let data) = result {
-                self.replaceLocalImage(localImage, with: data)
+                return data
             } else {
                 toast = Toast.from(response: result)
             }
         } else {
             toast = Toast.ServerError
+        }
+        
+        hasFailedImages = true
+        localImage.failed = true
+        self.updateLocalImage(localImage)
+        
+        return nil
+    }
+    
+    @MainActor
+    func retryLocalImages() async {
+        hasFailedImages = false
+        
+        await withTaskGroup(of: (LocalImage, GroupImage?).self) { group in
+            for localImage in localImages {
+                group.addTask {
+                    return (localImage, await self.uploadLocalImage(localImage))
+                }
+            }
+            
+            for await (localImage, groupImage) in group {
+                if let groupImage {
+                    self.replaceLocalImage(localImage, with: groupImage)
+                }
+            }
         }
     }
     
@@ -101,15 +154,26 @@ class GroupViewModel: NSObject, ObservableObject {
         }
     }
     
-    private func replaceLocalImage(_ localImage: GroupLocalImage, with image: GroupImage) {
+    func updateLocalImage(_ localImage: LocalImage) {
+        if let index = localImages.firstIndex(of: localImage) {
+            localImages[index] = localImage
+        }
+        PersistenceController.shared.save()
+    }
+    
+    func deleteLocalImage(_ localImage: LocalImage) {
         localImages.removeAll(where: { $0.id == localImage.id })
+        PersistenceController.shared.context.delete(localImage)
+    }
+    
+    private func replaceLocalImage(_ localImage: LocalImage, with image: GroupImage) {
+        self.deleteLocalImage(localImage)
         images.insert(image, at: 0)
     }
     
     func saveSelectedImages() async {
         // prep ui
         downloadedImages = []
-        isEditing = false
         isSaving = true
         
         for index in selectedSubviews {
@@ -127,7 +191,6 @@ class GroupViewModel: NSObject, ObservableObject {
         // clean up
         isSaving = false
         saveProgress = 0.0
-        selectedSubviews = Set<Int>()
         showDownloadedImages = true
     }
 }

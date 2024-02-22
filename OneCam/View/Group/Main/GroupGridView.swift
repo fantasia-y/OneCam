@@ -14,13 +14,10 @@ class Rectangles {
 
 struct GroupGridView: View {
     @EnvironmentObject var viewModel: GroupViewModel
+    @State var group: Group
     
     var rectangles = Rectangles()
     @State var selectRect: CGRect?
-    
-    
-    @State var group: Group
-    let columns = [GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2)]
     
     // TODO fix selected subviews
     private var dragSelect: some Gesture {
@@ -56,12 +53,15 @@ struct GroupGridView: View {
         return viewModel.selectedSubviews.contains(index) || viewModel.dragSelectedSubviews.contains(index)
     }
     
+    let columns = [GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2)]
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 2) {
                     ForEach(viewModel.localImages) { image in
                         GroupLocalImageView(image: image)
+                            .environmentObject(viewModel)
                     }
                     
                     ForEach(Array(viewModel.images.enumerated()), id: \.element) { index, image in
@@ -130,6 +130,14 @@ struct GroupGridView: View {
             if !viewModel.showCarousel, !viewModel.isEditing {
                 ToolbarItem(placement: .primaryAction) {
                     Menu {
+                        if viewModel.hasFailedImages {
+                            Button("Retry upload", systemImage: "arrow.clockwise") {
+                                Task {
+                                    await viewModel.retryLocalImages()
+                                }
+                            }
+                        }
+                        
                         Button("Select", systemImage: "checkmark.circle") {
                             viewModel.isEditing = true
                         }
@@ -152,8 +160,6 @@ struct GroupGridView: View {
             if viewModel.isEditing {
                 ToolbarItem(placement: .primaryAction) {
                     HStack {
-                        
-                        
                         Button("Cancel") {
                             viewModel.isEditing = false
                             viewModel.selectedSubviews = Set<Int>()
@@ -197,7 +203,7 @@ struct GroupGridView: View {
             Task {
                 if viewModel.currentPage == -1 {
                     await viewModel.getImages(group)
-                    // viewModel.getLocalImages(group)
+                    viewModel.getLocalImages(group)
                 }
             }
         }
@@ -224,9 +230,4 @@ struct GroupGridView: View {
         }
         .toastView(toast: $viewModel.toast)
     }
-}
-
-#Preview {
-    GroupGridView(group: Group.Example)
-        .environmentObject(GroupViewModel())
 }

@@ -68,6 +68,12 @@ struct GroupImageView: View {
                             }
                     }
                     .disabled(isEditing)
+                    .overlay {
+                        if isEditing, isSelected {
+                            Color.white
+                                .opacity(0.2)
+                        }
+                    }
                 case .failure:
                     ZStack {
                         Rectangle()

@@ -10,6 +10,7 @@ import Amplify
 import AWSCognitoAuthPlugin
 import AWSS3StoragePlugin
 import PushNotifications
+import CoreData
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,6 +37,8 @@ struct OneCamApp: App {
     
     @StateObject var colorSchemeSetting = ColorSchemeSetting()
     
+    let persistenceController = PersistenceController.shared
+    
     init() {
         do {
             try Amplify.add(plugin: AWSCognitoAuthPlugin())
@@ -55,6 +58,7 @@ struct OneCamApp: App {
             }
             .preferredColorScheme(colorSchemeSetting.colorScheme)
             .environmentObject(colorSchemeSetting)
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         .onChange(of: scenePhase) { oldPhase, newPhase in
             if newPhase == .active {
@@ -63,6 +67,7 @@ struct OneCamApp: App {
                 }
                 UNUserNotificationCenter.current().setBadgeCount(0)
             }
+            PersistenceController.shared.save()
         }
     }
 }

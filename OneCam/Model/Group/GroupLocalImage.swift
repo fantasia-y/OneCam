@@ -28,38 +28,3 @@ struct GroupLocalImage: Hashable, Identifiable {
         get { "images/\(group.uuid)/\(name)" }
     }
 }
-
-//final class GroupLocalImageDataSource {
-//    private let modelContainer: ModelContainer
-//    private let modelContext: ModelContext
-//
-//    @MainActor
-//    static let shared = GroupLocalImageDataSource()
-//
-//    @MainActor
-//    private init() {
-//        self.modelContainer = try! ModelContainer(for: GroupLocalImage.self)
-//        self.modelContext = modelContainer.mainContext
-//    }
-//
-//    func append(_ item: GroupLocalImage) {
-//        modelContext.insert(item)
-//        do {
-//            try modelContext.save()
-//        } catch {
-//            fatalError(error.localizedDescription)
-//        }
-//    }
-//
-//    func fetch(byGroup group: Group) -> [GroupLocalImage] {
-//        do {
-//            return try modelContext.fetch(FetchDescriptor<GroupLocalImage>())
-//        } catch {
-//            fatalError(error.localizedDescription)
-//        }
-//    }
-//
-//    func remove(_ item: GroupLocalImage) {
-//        modelContext.delete(item)
-//    }
-//}

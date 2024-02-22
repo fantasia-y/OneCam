@@ -722,7 +722,7 @@
 			mainGroup = F8EC94472AF141DA00D0F466;
 			packageReferences = (
 				F8F6B72A2B0659B500B9E41D /* XCRemoteSwiftPackageReference "keychain-swift" */,
-				F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode" */,
+				F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
 				F832BE342B0E8ECF0037DA45 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				F89493C62B27EAFC00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschAPI" */,
 				F89493C92B27EDFD00D6A7B6 /* XCRemoteSwiftPackageReference "GordonKirschUtils" */,
@@ -1209,7 +1209,7 @@
 				minimumVersion = 20.0.0;
 			};
 		};
-		F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+		F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
 			requirement = {
@@ -1277,7 +1277,7 @@
 		};
 		F8F6B7322B065A5900B9E41D /* JWTDecode */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			package = F8F6B7312B065A5900B9E41D /* XCRemoteSwiftPackageReference "JWTDecode.swift" */;
 			productName = JWTDecode;
 		};
 /* End XCSwiftPackageProductDependency section */

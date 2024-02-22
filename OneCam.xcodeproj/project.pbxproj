@@ -177,6 +177,8 @@
 		F89493C32B27D77000D6A7B6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		F8A4E5DA2B62BF8A00632E82 /* GroupImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupImage.swift; sourceTree = "<group>"; };
 		F8A4E5DC2B62BFD300632E82 /* GroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewModel.swift; sourceTree = "<group>"; };
+		F8B6C4FB2B87AFA500540503 /* OneCamDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneCamDebug.entitlements; sourceTree = "<group>"; };
+		F8B6C4FC2B87AFAB00540503 /* NotificationServiceDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationServiceDebug.entitlements; sourceTree = "<group>"; };
 		F8C1E1BB2B83BF11005EC82C /* GroupUserCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupUserCellView.swift; sourceTree = "<group>"; };
 		F8C1E1C02B83E6F0005EC82C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F8C1E1C42B83EB75005EC82C /* GroupSettingsUserListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupSettingsUserListView.swift; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 		F85450722B859CE400E70E8D /* NotificationService */ = {
 			isa = PBXGroup;
 			children = (
+				F8B6C4FC2B87AFAB00540503 /* NotificationServiceDebug.entitlements */,
 				F854507D2B859D0600E70E8D /* NotificationService.entitlements */,
 				F85450732B859CE400E70E8D /* NotificationService.swift */,
 				F85450752B859CE400E70E8D /* Info.plist */,
@@ -586,6 +589,7 @@
 		F8EC94522AF141DA00D0F466 /* OneCam */ = {
 			isa = PBXGroup;
 			children = (
+				F8B6C4FB2B87AFA500540503 /* OneCamDebug.entitlements */,
 				F82D54252B06710A000BE2B3 /* Info.plist */,
 				F82D541B2B066EF5000BE2B3 /* ViewModel */,
 				F82D54172B066EB2000BE2B3 /* View */,
@@ -864,7 +868,7 @@
 		F854507A2B859CE500E70E8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationService.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NotificationService/NotificationServiceDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = B2RFHB4JYK;
@@ -1040,7 +1044,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = OneCam/OneCam.entitlements;
+				CODE_SIGN_ENTITLEMENTS = OneCam/OneCamDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"OneCam/Preview Content\"";

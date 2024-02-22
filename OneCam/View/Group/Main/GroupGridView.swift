@@ -22,6 +22,7 @@ struct GroupGridView: View {
     @State var group: Group
     let columns = [GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2), GridItem(.flexible(), spacing: 2)]
     
+    // TODO fix selected subviews
     private var dragSelect: some Gesture {
         DragGesture(minimumDistance: 2)
             .onChanged() { drag in
@@ -39,18 +40,20 @@ struct GroupGridView: View {
                 }
                 
                 if !resSet.isEmpty {
-                    viewModel.selectedSubviews = Set(resSet.first!...resSet.last!)
+                    viewModel.dragSelectedSubviews = Set(resSet.first!...resSet.last!)
                 } else {
-                    viewModel.selectedSubviews = Set<Int>()
+                    viewModel.dragSelectedSubviews = Set<Int>()
                 }
             }
             .onEnded() { _ in
                 selectRect = nil
+                viewModel.selectedSubviews.formUnion(viewModel.dragSelectedSubviews)
+                viewModel.dragSelectedSubviews = Set<Int>()
             }
     }
     
     private func isSelected(_ index: Int) -> Bool {
-        return viewModel.selectedSubviews.contains(index)
+        return viewModel.selectedSubviews.contains(index) || viewModel.dragSelectedSubviews.contains(index)
     }
     
     var body: some View {

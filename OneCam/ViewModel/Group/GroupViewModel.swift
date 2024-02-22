@@ -23,6 +23,7 @@ class GroupViewModel: NSObject, ObservableObject {
     @Published var isEditing = false
     @Published var isSaving = false
     @Published var selectedSubviews = Set<Int>()
+    @Published var dragSelectedSubviews = Set<Int>()
     @Published var saveProgress = 0.0
     @Published var downloadedImages: [UIImage] = []
     @Published var showDownloadedImages = false

@@ -9,6 +9,9 @@ import Foundation
 import AuthenticationServices
 import Combine
 import JWTDecode
+import GordonKirschAPI
+import GordonKirschUtils
+import PushNotifications
 
 enum AuthenticationState {
     case unauthenticated
@@ -25,14 +28,15 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     private var cancellables = Set<AnyCancellable>()
     
     @Published var authenticationState: AuthenticationState = .unauthenticated
-    @Published var authenticationFlow: AuthenticationFlow = .login
     @Published var showLoginScreen = false
+    @Published var toast: Toast?
     
     @Published var currentUser: User?
     
     @Published var email = ""
     @Published var password = ""
-    @Published var password2 = ""
+    
+    @Published var authError = ""
     
     private var currentNonce: String?
     
@@ -41,7 +45,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func checkAccessToken() {
-        self.authenticationState = ApiClient.shared.hasAccessToken() ? .authenticated : .unauthenticated
+        self.authenticationState = API.shared.hasAccessToken() ? .authenticated : .unauthenticated
         
         if self.authenticationState == .authenticated {
             onAuthenticated()
@@ -52,14 +56,26 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         do {
             let jwt = try decode(jwt: KeychainStorage.shared.getAccessToken().token)
 
-            // OneSignal.setExternalUserId(jwt.uuid.uuidString)
+            let tokenProvider = BeamsTokenProvider(authURL: "\(API.shared.getBaseUrl())/beamer/token") { () -> AuthData in
+                let sessionToken = KeychainStorage.shared.getAccessToken().token
+                let headers = ["Authorization": "Bearer \(sessionToken)"]
+                let queryParams: [String: String] = [:]
+                return AuthData(headers: headers, queryParams: queryParams)
+            }
+            
+            
+            
+            PushNotifications.shared.setUserId(jwt.uuid.uuidString, tokenProvider: tokenProvider, completion: { error in
+                guard error == nil else {
+                    print(error.debugDescription)
+                    return
+                }
+
+                print("Successfully authenticated with Pusher Beams")
+            })
         } catch {
             print(error)
         }
-    }
-    
-    func switchFlow() {
-        authenticationFlow = authenticationFlow == .login ? .signup : .login
     }
     
     func handleSignInWithAppleRequest(_ request: ASAuthorizationAppleIDRequest) {
@@ -89,7 +105,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
                 }
                 
                 Task {
-                    let result = await ApiClient.shared.login(withIDToken: idTokenString, fromProvider: "apple")
+                    let result = await API.shared.login(withIDToken: idTokenString, fromProvider: "apple")
                     await MainActor.run {
                         self.handleLoginResponse(result)
                     }
@@ -103,7 +119,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func handleThirdPartySignIn(withProvider provider: String) {
-        let url = ApiClient.shared.generateConnectUrl(forProvider: provider, redirectTo: "coliving://oauth-callback")
+        let url = API.shared.generateConnectUrl(forProvider: provider, redirectTo: "coliving://oauth-callback")
         
         let session = ASWebAuthenticationSession(url: url, callbackURLScheme: "coliving") { callbackUrl, error in
             if let error {
@@ -113,7 +129,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
             
             guard let callbackUrl else { return }
             
-            let result = ApiClient.shared.login(fromURL: callbackUrl)
+            let result = API.shared.login(fromURL: callbackUrl)
             
             self.handleLoginResponse(result)
         }
@@ -123,7 +139,9 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func login() async {
-        let result = await ApiClient.shared.login(email: email, password: password)
+        authError = ""
+        
+        let result = await API.shared.login(email: email, password: password)
         
         await MainActor.run {
             handleLoginResponse(result)
@@ -131,7 +149,9 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
     }
     
     func register() async {
-        let result = await ApiClient.shared.register(email: email, password: password)
+        authError = ""
+        
+        let result = await API.shared.register(email: email, password: password)
         
         await MainActor.run {
             handleLoginResponse(result)
@@ -142,24 +162,31 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         switch response {
         case .success(_):
             authenticationState = .authenticated
+            email = ""
+            password = ""
+            
             onAuthenticated()
             break;
         case .serverError(let error):
             if error.message == Errors.ERR_WRONG_CREDENTIALS {
-                print("email and password do not match")
+                authError = "The username or password you entered is incorrect"
+            } else {
+                toast = Toast.from(response: response)
             }
             break;
         default:
-            // TODO handle error
-            print("Unknown Error")
+            toast = Toast.from(response: response)
             break;
         }
     }
     
     func logout() async {
-        await ApiClient.shared.logout()
+        PushNotifications.shared.clearAllState {
+            PushNotifications.shared.start(instanceId: Bundle.main.infoDictionary?["PUSHER_INSTANCE_ID"] as! String)
+        }
+        await API.shared.logout()
         await MainActor.run {
-            authenticationState = .unauthenticated
+            self.authenticationState = .unauthenticated
         }
     }
 }

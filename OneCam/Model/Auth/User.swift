@@ -7,37 +7,25 @@
 
 import Foundation
 
-struct User: Codable, Identifiable, Hashable {
-    let id: String
+struct User: Codable, Identifiable, Hashable, ImageStorage {
+    let id: Int
     let email: String?
     let displayname: String?
-    let imageUrl: String?
-    let emailVerified: Bool
-    let setupDone: Bool
-    
-    enum CodingKeys: String, CodingKey {
-        case imageUrl = "image_url"
-        case emailVerified = "email_verified"
-        case setupDone = "setup_done"
-        
-        case id
-        case email
-        case displayname
-    }
-}
-
-struct UpdateUser: Codable {
-    var displayname: String
-    var imageUrl: String?
+    let emailVerified: Bool?
+    let setupDone: Bool?
+    var imageName: String?
+    var urls: [String : String]
+    let notificationSettings: NotificationSettings?
 }
 
 extension User {
     static let Example = User(
-        id: "1edcf4d6-51e4-6602-b6bf-b9b7cfc1c077",
+        id: 1,
         email: "me@gordonkirsch.dev",
         displayname: "Gordon",
-        imageUrl: "2374EA57-8EBD-48C4-BBEB-08779895BBD6.jpeg",
         emailVerified: true,
-        setupDone: true
+        setupDone: true,
+        urls: ["original": "https://onecam-dev133716-dev.s3.eu-central-1.amazonaws.com/public/user/cd709dc1-6603-400c-af8c-9c621b162a82.jpg", "thumbnail": "https://onecam-dev133716-dev.s3.eu-central-1.amazonaws.com/cache/user_thumbnail/cd709dc1-6603-400c-af8c-9c621b162a82.jpg"],
+        notificationSettings: NotificationSettings.Example
     )
 }

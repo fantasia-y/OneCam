@@ -3,4 +3,182 @@
    uuid = "BB1F67AB-4CB8-4268-BFA6-CCC9B98B615D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD7FB37A-0893-456D-BBE9-9314033C3B85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/ViewModel/Session/PreviewSessionViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "isJoinable(forUser:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AD7FB37A-0893-456D-BBE9-9314033C3B85 - 27b70028b71814c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OneCam.PreviewSessionViewModel.isJoinable(forUser: OneCam.User) -&gt; Swift.Bool"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Session/PreviewSessionViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "557">
+               </Location>
+               <Location
+                  uuid = "AD7FB37A-0893-456D-BBE9-9314033C3B85 - a7a0e68b067b62eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (OneCam.User) -&gt; Swift.Bool in implicit closure #1 () throws -&gt; Swift.Bool in OneCam.PreviewSessionViewModel.isJoinable(forUser: OneCam.User) -&gt; Swift.Bool"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Session/PreviewSessionViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AAB5A43C-181F-4C52-A944-3DE2E6421CCF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/OneCam-eeiaesnteofviwhiuvrznwjscwhn/SourcePackages/checkouts/swiftui-cached-async-image/Sources/CachedAsyncImage/CachedAsyncImage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "remoteImage(from:session:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE8BAFAD-F1B0-49AD-84C2-4AD1F195F1ED"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/OneCam-eeiaesnteofviwhiuvrznwjscwhn/SourcePackages/checkouts/swiftui-cached-async-image/Sources/CachedAsyncImage/CachedAsyncImage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
+            landmarkName = "cachedImage(from:cache:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53A9A44A-1535-4FF8-BA16-9321E0ABB340"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Library/Developer/Xcode/DerivedData/OneCam-eeiaesnteofviwhiuvrznwjscwhn/SourcePackages/checkouts/swiftui-cached-async-image/Sources/CachedAsyncImage/CachedAsyncImage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "load()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "341B38DC-80FB-4A48-A3F9-57906B2BF56D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/View/Group/Settings/GroupSettingsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "25A70644-BCC6-48ED-9CCE-2644F9865E78"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/ViewModel/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "remove(user:fromGroup:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2E9BCB8F-EEB3-439C-9E64-90A9B972D777"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneCam/ViewModel/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "remove(user:fromGroup:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2E9BCB8F-EEB3-439C-9E64-90A9B972D777 - 627cd65417c0ed54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OneCam.HomeViewModel.remove(user: OneCam.User, fromGroup: OneCam.Group) -&gt; ()"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "829">
+               </Location>
+               <Location
+                  uuid = "2E9BCB8F-EEB3-439C-9E64-90A9B972D777 - 8944c575e9dcf372"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (OneCam.User) -&gt; Swift.Bool in OneCam.HomeViewModel.remove(user: OneCam.User, fromGroup: OneCam.Group) -&gt; ()"
+                  moduleName = "OneCam"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gordon/Projects/OneCam/OneCam/ViewModel/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

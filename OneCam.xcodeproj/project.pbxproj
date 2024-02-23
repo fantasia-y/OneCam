@@ -45,6 +45,9 @@
 		F832BE3F2B0EC7060037DA45 /* URLUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F832BE3E2B0EC7050037DA45 /* URLUtils.swift */; };
 		F83AC4142B862C0D00A717C6 /* LocalNotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83AC4132B862C0D00A717C6 /* LocalNotificationSettings.swift */; };
 		F83AC4162B862DF000A717C6 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83AC4152B862DF000A717C6 /* NotificationSettings.swift */; };
+		F83C510E2B88D243004D769A /* GroupGridToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C510D2B88D243004D769A /* GroupGridToolbar.swift */; };
+		F83C51112B88D50F004D769A /* GroupGridDragGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C51102B88D50F004D769A /* GroupGridDragGesture.swift */; };
+		F83C51142B88D659004D769A /* GroupGridSaveOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F83C51132B88D659004D769A /* GroupGridSaveOverlay.swift */; };
 		F852EE072B87F2A6008748FC /* Main.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F852EE052B87F2A6008748FC /* Main.xcdatamodeld */; };
 		F852EE092B87F305008748FC /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F852EE082B87F305008748FC /* PersistenceController.swift */; };
 		F85450612B85442100E70E8D /* NotificationsSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85450602B85442100E70E8D /* NotificationsSettingsView.swift */; };
@@ -163,6 +166,9 @@
 		F832BE3E2B0EC7050037DA45 /* URLUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtils.swift; sourceTree = "<group>"; };
 		F83AC4132B862C0D00A717C6 /* LocalNotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationSettings.swift; sourceTree = "<group>"; };
 		F83AC4152B862DF000A717C6 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
+		F83C510D2B88D243004D769A /* GroupGridToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGridToolbar.swift; sourceTree = "<group>"; };
+		F83C51102B88D50F004D769A /* GroupGridDragGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGridDragGesture.swift; sourceTree = "<group>"; };
+		F83C51132B88D659004D769A /* GroupGridSaveOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupGridSaveOverlay.swift; sourceTree = "<group>"; };
 		F852EE062B87F2A6008748FC /* Main.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Main.xcdatamodel; sourceTree = "<group>"; };
 		F852EE082B87F305008748FC /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		F85450602B85442100E70E8D /* NotificationsSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettingsView.swift; sourceTree = "<group>"; };
@@ -415,6 +421,30 @@
 			path = Avatar;
 			sourceTree = "<group>";
 		};
+		F83C510C2B88D232004D769A /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				F83C510D2B88D243004D769A /* GroupGridToolbar.swift */,
+			);
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		F83C510F2B88D502004D769A /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				F83C51102B88D50F004D769A /* GroupGridDragGesture.swift */,
+			);
+			path = Gesture;
+			sourceTree = "<group>";
+		};
+		F83C51122B88D649004D769A /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				F83C51132B88D659004D769A /* GroupGridSaveOverlay.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
 		F85450622B8545EA00E70E8D /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +536,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		F8D608F82B88DD3C0062E88A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F8E5192A2B7EA76F00A9E089 /* GroupLocalImageView.swift */,
+				F8E5192D2B7EA76F00A9E089 /* GroupImageView.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F8E519242B7EA75F00A9E089 /* Join */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,10 +557,12 @@
 		F8E519292B7EA76F00A9E089 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				F8E5192A2B7EA76F00A9E089 /* GroupLocalImageView.swift */,
+				F8D608F82B88DD3C0062E88A /* Cells */,
+				F83C51122B88D649004D769A /* Overlay */,
+				F83C510F2B88D502004D769A /* Gesture */,
+				F83C510C2B88D232004D769A /* Toolbar */,
 				F8E5192B2B7EA76F00A9E089 /* GroupCarouselView.swift */,
 				F8E5192C2B7EA76F00A9E089 /* GroupGridView.swift */,
-				F8E5192D2B7EA76F00A9E089 /* GroupImageView.swift */,
 				F8E5192E2B7EA76F00A9E089 /* GroupView.swift */,
 			);
 			path = Main;
@@ -791,6 +832,7 @@
 				F8EC94562AF141DB00D0F466 /* ContentView.swift in Sources */,
 				F89493C12B27D74300D6A7B6 /* HomeView.swift in Sources */,
 				F832BE3D2B0EBFCB0037DA45 /* QRCodeUtils.swift in Sources */,
+				F83C51112B88D50F004D769A /* GroupGridDragGesture.swift in Sources */,
 				F82D542E2B0671BE000BE2B3 /* ThirdPartyLoginView.swift in Sources */,
 				F8C1E1C52B83EB75005EC82C /* GroupSettingsUserListView.swift in Sources */,
 				F803974C2B6846AE000D7CD8 /* CameraManager.swift in Sources */,
@@ -819,8 +861,10 @@
 				F8C1E1C12B83E6F0005EC82C /* Card.swift in Sources */,
 				F880298F2B7501A000502F58 /* CustomButton.swift in Sources */,
 				F82D541E2B066F08000BE2B3 /* AuthenticatedViewModel.swift in Sources */,
+				F83C510E2B88D243004D769A /* GroupGridToolbar.swift in Sources */,
 				F80397522B6860CE000D7CD8 /* CameraViewFinder.swift in Sources */,
 				F82D54412B06A225000BE2B3 /* Group.swift in Sources */,
+				F83C51142B88D659004D769A /* GroupGridSaveOverlay.swift in Sources */,
 				F8EC94542AF141DB00D0F466 /* OneCamApp.swift in Sources */,
 				F89493BE2B27D5D300D6A7B6 /* UserData.swift in Sources */,
 				F831A9912B742783004C13B2 /* ImageStorage.swift in Sources */,

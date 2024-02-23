@@ -22,15 +22,16 @@ struct JoinGroupPreviewView: View {
                 Spacer()
                 
                 VStack {
-                    AsyncButton("Join") {
-                        // await viewModel.publish()
-                        dismiss()
+                    AsyncButton("button.join") {
+                        if await viewModel.joinGroup(group) {
+                            dismiss()
+                        }
                     }
                     .primary()
                     .disabled(!viewModel.isJoinable(forUser: userData.currentUser!))
                     
                     if !viewModel.isJoinable(forUser: userData.currentUser!) {
-                        Text("You're already part of this group")
+                        Text("group.join.info")
                             .font(.subheadline)
                             .foregroundStyle(Color("textSecondary"))
                     }

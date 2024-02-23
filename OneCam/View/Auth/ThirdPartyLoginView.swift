@@ -29,7 +29,7 @@ struct ThirdPartyLoginView: View {
                         .resizable()
                         .frame(width: 20, height: 20)
                     
-                    Text("Sign in with Google")
+                    Text("button.google")
                         .bold()
                 }
                 .frame(maxWidth: .infinity)

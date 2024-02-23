@@ -60,16 +60,16 @@ struct AvatarPicker: View {
             }
         }
         .confirmationDialog("", isPresented: $showImageSelection) {
-            Button("Camera") {
+            Button("button.camera") {
                 showCamera = true
             }
             
-            Button("Gallery") {
+            Button("button.gallery") {
                 showLibrary = true
             }
             
             if let _ = image {
-                Button("Remove", role: .destructive) {
+                Button("button.remove", role: .destructive) {
                     image = nil
                 }
             }

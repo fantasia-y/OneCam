@@ -18,11 +18,11 @@ struct ProfileEditView: View {
         VStack(spacing: 20) {
             AvatarPicker(image: $viewModel.image, displayname: "", loadUserImage: true)
             
-            CustomTextField("Name", text: $viewModel.newDisplayname)
+            CustomTextField("name", text: $viewModel.newDisplayname)
             
             Spacer()
             
-            AsyncButton("Save") {
+            AsyncButton("button.save") {
                 if let user = await viewModel.updateUser() {
                     path.wrappedValue.removeLast()
                     userData.currentUser = user

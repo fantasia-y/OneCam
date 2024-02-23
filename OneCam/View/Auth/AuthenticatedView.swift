@@ -31,7 +31,7 @@ struct AuthenticatedView<Unauthenticated: View, Content: View>: View {
                     
                     Spacer()
                     
-                    Button("Get started") {
+                    Button("get-started") {
                         viewModel.showLoginScreen = true
                     }
                     .primary()

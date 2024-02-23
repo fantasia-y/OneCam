@@ -10,10 +10,10 @@ import SwiftUI
 struct AboutView: View {
     var body: some View {
         VStack {
-            Text("Coming soon")
+            Text("coming-soon")
         }
         .padding()
-        .navigationTitle("About")
+        .navigationTitle("profile.about-us")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

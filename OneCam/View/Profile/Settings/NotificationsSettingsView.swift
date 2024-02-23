@@ -10,26 +10,28 @@ import SwiftUI
 struct NotificationsSettingsView: View {
     @EnvironmentObject var notificationSettings: LocalNotificationsSettings
     
+    let user: User
+    
     var body: some View {
         VStack(spacing: 25) {
             VStack(alignment: .leading) {
                 Card {
-                    Toggle("New images", isOn: $notificationSettings.newImage)
+                    Toggle("profile.notifications.new-images", isOn: $notificationSettings.newImage)
                         .padding()
                 }
                 
-                Text("A new images was added to group")
+                Text("\(user.displayname ?? "Displayname") profile.notifications.new-images.info")
                     .font(.subheadline)
                     .foregroundStyle(Color("textSecondary"))
             }
             
             VStack(alignment: .leading) {
                 Card {
-                    Toggle("New group members", isOn: $notificationSettings.newMember)
+                    Toggle("profile.notifications.new-members", isOn: $notificationSettings.newMember)
                         .padding()
                 }
                 
-                Text("Gordon joined group")
+                Text("\(user.displayname ?? "Displayname") profile.notifications.new-members.info")
                     .font(.subheadline)
                     .foregroundStyle(Color("textSecondary"))
             }
@@ -37,11 +39,12 @@ struct NotificationsSettingsView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("Notifications")
+        .navigationTitle("profile.notifications")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    NotificationsSettingsView()
+    NotificationsSettingsView(user: User.Example)
+        .environmentObject(LocalNotificationsSettings())
 }

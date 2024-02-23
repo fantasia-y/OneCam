@@ -20,12 +20,12 @@ struct HomeView: View {
                         VStack {
                             Spacer()
                             
-                            Button("Create Group") {
+                            Button("group.create") {
                                 viewModel.showCreateGroup = true
                             }
                             .primary()
                             
-                            Button("Join Group") {
+                            Button("group.join") {
                                 viewModel.showCodeScanner = true
                             }
                             .secondary()
@@ -44,17 +44,17 @@ struct HomeView: View {
                                     .contextMenu() {
                                         ShareLink(item: URLUtils.generateShareUrl(forGroup: group))
                                         
-                                        Button("Share QR Code...", systemImage: "qrcode") {
+                                        Button("share.qr", systemImage: "qrcode") {
                                             viewModel.showShareGroup = true
                                         }
                                         
-                                        Button("Leave", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
+                                        Button("button.leave", systemImage: "rectangle.portrait.and.arrow.right", role: .destructive) {
                                             viewModel.showLeaveDialog = true
                                             viewModel.selectedGroup = group
                                         }
                                         
                                         if let currentUser = userData.currentUser, group.isOwner(currentUser) {
-                                            Button("Delete", systemImage: "trash", role: .destructive) {
+                                            Button("button.delete", systemImage: "trash", role: .destructive) {
                                                 viewModel.showDeleteDialog = true
                                                 viewModel.selectedGroup = group
                                             }
@@ -77,7 +77,7 @@ struct HomeView: View {
                     Spacer()
 
                 }
-                .navigationTitle("Groups")
+                .navigationTitle("group.title")
                 .navigationBarTitleDisplayMode(.large)
                 .navigationDestination(for: Group.self) { group in
                     GroupView(group: group)
@@ -92,8 +92,8 @@ struct HomeView: View {
                 .sheet(isPresented: $viewModel.showProfile) {
                     ProfileView()
                 }
-                .confirmationDialog("Are you sure you want to leave this group?", isPresented: $viewModel.showLeaveDialog, titleVisibility: .visible) {
-                    Button("Leave", role: .destructive) {
+                .confirmationDialog("group.leave.confirm", isPresented: $viewModel.showLeaveDialog, titleVisibility: .visible) {
+                    Button("button.leave", role: .destructive) {
                         Task {
                             if let currentUser = userData.currentUser, let group = viewModel.selectedGroup {
                                 if await viewModel.leaveGroup(group, user: currentUser) {
@@ -103,8 +103,8 @@ struct HomeView: View {
                         }
                     }
                 }
-                .confirmationDialog("Are you sure you want to delete this group?", isPresented: $viewModel.showDeleteDialog, titleVisibility: .visible) {
-                    Button("Delete", role: .destructive) {
+                .confirmationDialog("group.delete.confirm", isPresented: $viewModel.showDeleteDialog, titleVisibility: .visible) {
+                    Button("button.delete", role: .destructive) {
                         Task {
                             if let group = viewModel.selectedGroup {
                                 if await viewModel.deleteGroup(group) {
@@ -115,24 +115,26 @@ struct HomeView: View {
                     }
                 }
                 .toolbar() {
-                    if !viewModel.groups.isEmpty {
-                        Button {
-                            viewModel.showCreateGroup = true
-                        } label: {
-                            Image(systemName: "plus")
+                    ToolbarItemGroup(placement: .topBarTrailing) {
+                        if !viewModel.groups.isEmpty {
+                            Button {
+                                viewModel.showCreateGroup = true
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+                            
+                            Button {
+                                viewModel.showCodeScanner = true
+                            } label: {
+                                Image(systemName: "person.badge.plus")
+                            }
                         }
                         
                         Button {
-                            viewModel.showCodeScanner = true
+                            viewModel.showProfile = true
                         } label: {
-                            Image(systemName: "person.badge.plus")
+                            Avatar(user: userData.currentUser, filter: FilterType.thumbnail)
                         }
-                    }
-                    
-                    Button {
-                        viewModel.showProfile = true
-                    } label: {
-                        Avatar(user: userData.currentUser, filter: FilterType.thumbnail)
                     }
                 }
             }

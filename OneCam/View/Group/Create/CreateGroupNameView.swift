@@ -12,14 +12,14 @@ struct CreateGroupNameView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Let's start by choosing a name")
+            Text("group.create.name")
                 .padding(.bottom, 25)
             
-            CustomTextField("Name", text: $viewModel.groupName)
+            CustomTextField("name", text: $viewModel.groupName)
             
             Spacer()
             
-            AsyncButton("Next") {
+            AsyncButton("button.next") {
                 hideKeyboard()
                 
                 withAnimation {

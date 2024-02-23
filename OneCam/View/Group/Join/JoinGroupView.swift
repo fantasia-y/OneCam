@@ -15,7 +15,7 @@ struct JoinGroupView: View {
     var body: some View {
         SheetWrapper(padding: nil) { _ in
             CarouselView(page: $viewModel.page) {
-                CodeScannerView(codeTypes: [.qr], showViewfinder: true, simulatedData: "https://lamb-uncommon-goose.ngrok-free.app/join/df46e7ba-140d-4721-8b9e-a359dce5e78a") { result in
+                CodeScannerView(codeTypes: [.qr], showViewfinder: true, simulatedData: "https://lamb-uncommon-goose.ngrok-free.app/join/a6700557-a790-407d-a1b4-53860df9aa95") { result in
                     switch(result) {
                     case .success(let data):
                         if let url = URL(string: data.string), URLUtils.isOwnHost(url) {

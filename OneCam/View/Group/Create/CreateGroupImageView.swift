@@ -13,7 +13,7 @@ struct CreateGroupImageView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(spacing: 20) {
-                Text("Next, let's choose a profile image")
+                Text("group.create.image")
                 
                 Button {
                     viewModel.showImageSelection = true
@@ -42,16 +42,16 @@ struct CreateGroupImageView: View {
                     }
                 }
                 .confirmationDialog("", isPresented: $viewModel.showImageSelection) {
-                    Button("Camera") {
+                    Button("button.camera") {
                         viewModel.showCamera = true
                     }
                     
-                    Button("Gallery") {
+                    Button("button.gallery") {
                         viewModel.showLibrary = true
                     }
                     
                     if let _ = viewModel.image {
-                        Button("Remove", role: .destructive) {
+                        Button("button.remove", role: .destructive) {
                             viewModel.image = nil
                         }
                     }
@@ -67,14 +67,14 @@ struct CreateGroupImageView: View {
                 Spacer()
                 
                 HStack {
-                    Button("Back") {
+                    Button("button.back") {
                         withAnimation {
                             viewModel.page -= 1
                         }
                     }
                     .secondary()
                     
-                    Button("Next") {
+                    Button("button.next") {
                         withAnimation {
                             viewModel.page += 1
                         }

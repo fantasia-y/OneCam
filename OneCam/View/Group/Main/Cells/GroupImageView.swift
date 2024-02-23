@@ -18,6 +18,8 @@ struct GroupImageView: View {
     var isEditing: Bool
     var isSelected: Bool
     
+    @State var showDeleteDialog = false
+    
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
             CachedAsyncImage(url: URL(string: image.urls[FilterType.thumbnail.rawValue]!)) { phase in
@@ -33,10 +35,8 @@ struct GroupImageView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .contextMenu {
-                                Button("Delete", systemImage: "trash", role: .destructive) {
-                                    Task {
-                                        await viewModel.deleteImage(self.image, group: group)
-                                    }
+                                Button("button.delete", systemImage: "trash", role: .destructive) {
+                                    showDeleteDialog = true
                                 }
                             } preview: {
                                 CachedAsyncImage(url: URL(string: self.image.urls[FilterType.none.rawValue]!)) { contextPhase in
@@ -94,6 +94,13 @@ struct GroupImageView: View {
                     .font(.system(size: 20))
                     .shadow(radius: 4)
                     .padding(4)
+            }
+        }
+        .confirmationDialog("group.grid.delete.confirm", isPresented: $showDeleteDialog, titleVisibility: .visible) {
+            Button("button.delete", role: .destructive) {
+                Task {
+                    await viewModel.deleteImages([image], group: group)
+                }
             }
         }
     }

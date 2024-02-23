@@ -15,7 +15,7 @@ struct CreateGroupView: View {
     var body: some View {
         SheetWrapper(padding: .vertical) { _ in
             VStack(spacing: 0) {
-                Text("Create a new Group")
+                Text("group.create.title")
                     .font(.title)
                     .bold()
                     .padding(.bottom, 10)

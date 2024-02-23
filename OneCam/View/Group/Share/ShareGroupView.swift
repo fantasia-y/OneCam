@@ -14,7 +14,7 @@ struct ShareGroupView: View {
     var body: some View {
         SheetWrapper { _ in
             VStack {
-                Text("Let your friends scan this QR Code")
+                Text("share.qr.title")
                     .bold()
                 
                 Image(uiImage: QRCodeUtils.generate(forGroup: group))

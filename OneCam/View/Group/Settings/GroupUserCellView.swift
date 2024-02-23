@@ -23,13 +23,13 @@ struct GroupUserCellView: View {
             Spacer()
             
             if group.isOwner(user) {
-                Text("Owner")
+                Text("group.member.owner")
                     .foregroundStyle(Color("textSecondary"))
             }
             
             if let currentUser = userData.currentUser, currentUser.id != user.id, group.isOwner(currentUser) {
                 Menu {
-                    Button("Remove", systemImage: "trash", role: .destructive) {
+                    Button("button.remove", systemImage: "trash", role: .destructive) {
                         viewModel.showRemoveDialog = true
                         viewModel.selectedUser = user
                     }

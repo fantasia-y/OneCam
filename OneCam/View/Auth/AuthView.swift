@@ -12,36 +12,36 @@ struct AuthView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Welcome to OneCam")
+            Text("welcome.title")
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .center)
                 .padding(.top, 25)
             
-            Text("Get started by creating or logging into an account")
+            Text("auth.subtitle")
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 25)
             
-            CustomTextField("E-Mail", text: $viewModel.email, invalid: !viewModel.authError.isEmpty)
+            CustomTextField("email", text: $viewModel.email, invalid: !viewModel.authError.isEmpty)
                 .keyboardType(.emailAddress)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled(true)
             
-            CustomSecureField("Password", text: $viewModel.password, invalid: !viewModel.authError.isEmpty)
+            CustomSecureField("password", text: $viewModel.password, invalid: !viewModel.authError.isEmpty)
             
             if !viewModel.authError.isEmpty {
-                Text("The username or password you entered is incorrect")
+                Text("auth.error.credentials")
                     .foregroundStyle(Color("textDestructive"))
                     .font(.subheadline)
             }
             
             HStack {
-                AsyncButton("Log in") {
+                AsyncButton("button.login") {
                     await viewModel.login()
                 }
                 .secondary()
                 
-                AsyncButton("Sign up") {
+                AsyncButton("button.signup") {
                     await viewModel.register()
                 }
                 .primary()
@@ -49,7 +49,7 @@ struct AuthView: View {
             
             HStack {
                 VStack { Divider() }
-                Text("or")
+                Text("divider.or")
                 VStack { Divider() }
             }
             .padding()
@@ -58,7 +58,7 @@ struct AuthView: View {
             
             Spacer()
             
-            Text("By continuing you agree to our Terms of Service and Privacy Policy")
+            Text("tos")
                 .font(.footnote)
                 .foregroundStyle(Color("textSecondary"))
         }

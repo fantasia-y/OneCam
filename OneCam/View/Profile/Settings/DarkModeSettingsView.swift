@@ -19,7 +19,7 @@ struct DarkModeSettingsView: View {
                     Button {
                         colorSchemeSetting.colorScheme = nil
                     } label: {
-                        Text("System")
+                        Text("profile.design.system")
                         
                         Spacer()
                         
@@ -35,7 +35,7 @@ struct DarkModeSettingsView: View {
                     Button {
                         colorSchemeSetting.colorScheme = .light
                     } label: {
-                        Text("Light")
+                        Text("profile.design.light")
 
                         Spacer()
                         
@@ -51,7 +51,7 @@ struct DarkModeSettingsView: View {
                     Button {
                         colorSchemeSetting.colorScheme = .dark
                     } label: {
-                        Text("Dark")
+                        Text("profile.design.dark")
                         
                         Spacer()
                         
@@ -67,7 +67,7 @@ struct DarkModeSettingsView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle("Design")
+        .navigationTitle("profile.design")
         .navigationBarTitleDisplayMode(.inline)
         .preferredColorScheme(colorSchemeSetting.colorScheme)
     }

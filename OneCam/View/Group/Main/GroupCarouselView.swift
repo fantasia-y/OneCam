@@ -108,12 +108,11 @@ struct GroupCarouselView: View {
                             .foregroundColor(.white)
                             .frame(width: 16, height: 16)
                     }
-                    .confirmationDialog("Are you sure you want to delete this image?", isPresented: $showDeleteDialog, titleVisibility: .visible) {
-                        Button("Delete", role: .destructive) {
+                    .confirmationDialog("group.grid.delete.confirm", isPresented: $showDeleteDialog, titleVisibility: .visible) {
+                        Button("button.delete", role: .destructive) {
                             Task {
                                 if let currentGroupImage {
-                                    await viewModel.deleteImage(currentGroupImage, group: group)
-                                    if viewModel.images.count == 0 {
+                                    if await viewModel.deleteImages([currentGroupImage], group: group), viewModel.images.count == 0 {
                                         withAnimation() {
                                             viewModel.showCarousel = false
                                         }

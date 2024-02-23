@@ -10,10 +10,10 @@ import SwiftUI
 struct HelpView: View {
     var body: some View {
         VStack {
-            Text("Coming soon")
+            Text("coming-soon")
         }
         .padding()
-        .navigationTitle("Help")
+        .navigationTitle("profile.help")
         .navigationBarTitleDisplayMode(.inline)
     }
 }

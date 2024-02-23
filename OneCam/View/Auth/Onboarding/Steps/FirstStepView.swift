@@ -18,14 +18,14 @@ struct FirstStepView: View {
             Spacer()
             
             HStack {
-                Button("Back") {
+                Button("button.back") {
                     withAnimation {
                         selection -= 1
                     }
                 }
                 .secondary()
                 
-                Button("Finish") {
+                Button("button.finish") {
                     onFinish()
                 }
                 .primary()

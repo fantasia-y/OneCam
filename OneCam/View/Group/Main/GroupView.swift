@@ -17,7 +17,7 @@ struct GroupView: View {
         if viewModel.showCamera {
             CameraView(showCamera: $viewModel.showCamera) { image in
                 HStack {
-                    AsyncButton("Upload") {
+                    AsyncButton("button.upload") {
                         await viewModel.uploadImage(image, group: group)
                     }
                     .primary()

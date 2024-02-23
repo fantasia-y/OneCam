@@ -16,7 +16,7 @@ struct GroupSettingsView: View {
     var group: Binding<Group>
     
     var body: some View {
-        SheetWrapper(title: "Settings") { path in
+        SheetWrapper(title: "group.settings") { path in
             VStack(alignment: .leading) {
                 PreviewGroupView(group: group.wrappedValue, size: .list) {
                     HStack {
@@ -33,13 +33,13 @@ struct GroupSettingsView: View {
                     }
                 }
 
-                Text("Members")
+                Text("group.members")
                     .bold()
                     .padding(.top, 15)
                 
                 GroupSettingsUserListView(group: group.wrappedValue, path: path, truncate: true)
-                    .confirmationDialog("Are you sure you want to remove this user from the group?", isPresented: $viewModel.showRemoveDialog, titleVisibility: .visible) {
-                        Button("Remove", role: .destructive) {
+                    .confirmationDialog("group.remove.confirm", isPresented: $viewModel.showRemoveDialog, titleVisibility: .visible) {
+                        Button("button.remove", role: .destructive) {
                             Task {
                                 if let removedUser = await viewModel.removeSelectedUserFrom(group: group.wrappedValue) {
                                     if let group = homeViewModel.remove(user: removedUser, fromGroup: group.wrappedValue) {
@@ -56,11 +56,11 @@ struct GroupSettingsView: View {
                                 GroupSettingsUserListView(group: group.wrappedValue, path: path)
                                     .padding()
                             }
-                            .navigationTitle("Members")
+                            .navigationTitle("group.members")
                             .navigationBarTitleDisplayMode(.inline)
                         case "edit":
                             GroupEditView(group: group, path: path)
-                                .navigationTitle("Edit")
+                                .navigationTitle("group.edit")
                                 .navigationBarTitleDisplayMode(.inline)
                         default:
                             EmptyView()
@@ -70,12 +70,12 @@ struct GroupSettingsView: View {
                 Spacer()
                 
                 if let user = userData.currentUser {
-                    Button("Leave") {
+                    Button("button.leave") {
                         viewModel.showLeaveDialog = true
                     }
                     .destructive()
-                    .confirmationDialog("Are you sure you want to leave this group?", isPresented: $viewModel.showLeaveDialog, titleVisibility: .visible) {
-                        Button("Leave", role: .destructive) {
+                    .confirmationDialog("group.leave.confirm", isPresented: $viewModel.showLeaveDialog, titleVisibility: .visible) {
+                        Button("button.leave", role: .destructive) {
                             Task {
                                 if await homeViewModel.leaveGroup(group.wrappedValue, user: user) {
                                     dismiss()
@@ -85,12 +85,12 @@ struct GroupSettingsView: View {
                     }
                     
                     if group.wrappedValue.isOwner(user) {
-                        Button("Delete") {
+                        Button("button.delete") {
                             viewModel.showDeleteDialog = true
                         }
                         .destructive()
-                        .confirmationDialog("Are you sure you want to delete this group?", isPresented: $viewModel.showDeleteDialog, titleVisibility: .visible) {
-                            Button("Delete", role: .destructive) {
+                        .confirmationDialog("group.delete.confirm", isPresented: $viewModel.showDeleteDialog, titleVisibility: .visible) {
+                            Button("button.delete", role: .destructive) {
                                 Task {
                                     if await homeViewModel.deleteGroup(group.wrappedValue) {
                                         dismiss()

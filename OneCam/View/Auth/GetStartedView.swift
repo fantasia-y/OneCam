@@ -10,12 +10,12 @@ import SwiftUI
 struct GetStartedView: View {
     var body: some View {
         VStack(spacing: 20) {
-            Text("Welcome to OneCam")
+            Text("welcome.title")
                 .font(.title)
                 .bold()
                 .padding(.top, 25)
             
-            Text("The easiest way to share images with your friends")
+            Text("welcome.subtitle")
                 .multilineTextAlignment(.center)
             
             // TODO get started image

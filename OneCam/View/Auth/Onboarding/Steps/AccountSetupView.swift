@@ -16,21 +16,21 @@ struct AccountSetupView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Step by step")
+            Text("onboarding.setup.title")
                 .font(.title)
                 .bold()
                 .padding(.top, 25)
             
-            Text("Let's start by setting up your profile")
+            Text("onboarding.setup.subtitle")
                 .padding(.bottom, 25)
             
             AvatarPicker(image: $viewModel.image, displayname: viewModel.displaynameDebounced)
             
-            CustomTextField("Name", text: $viewModel.displayname)
+            CustomTextField("name", text: $viewModel.displayname)
             
             Spacer()
             
-            AsyncButton("Next") {
+            AsyncButton("button.next") {
                 hideKeyboard()
                 await contentViewModel.updateUser(viewModel.displayname, viewModel.image, completion: onFinish)
             }

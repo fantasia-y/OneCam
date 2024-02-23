@@ -63,16 +63,16 @@ struct GroupEditView: View {
                     }
                 }
                 .confirmationDialog("", isPresented: $viewModel.showImageSelection) {
-                    Button("Camera") {
+                    Button("button.camera") {
                         viewModel.showCamera = true
                     }
                     
-                    Button("Gallery") {
+                    Button("button.gallery") {
                         viewModel.showLibrary = true
                     }
                     
                     if let _ = viewModel.newImage {
-                        Button("Undo", role: .destructive) {
+                        Button("button.undo", role: .destructive) {
                             viewModel.newImage = nil
                         }
                     }
@@ -85,11 +85,11 @@ struct GroupEditView: View {
                         }
                 }
                 
-                CustomTextField("Name", text: $viewModel.newName)
+                CustomTextField("name", text: $viewModel.newName)
                 
                 Spacer()
                 
-                AsyncButton("Save") {
+                AsyncButton("button.save") {
                     if let group = await viewModel.save(group: group.wrappedValue) {
                         path.wrappedValue.removeLast()
                         self.group.wrappedValue = group

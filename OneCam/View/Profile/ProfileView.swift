@@ -40,30 +40,30 @@ struct ProfileView: View {
                         .padding()
                     }
                     
-                    Button("Edit") {
+                    Button("button.edit") {
                         path.wrappedValue.append(currentUser)
                     }
                     .secondary()
                     .navigationDestination(for: User.self) { _ in
                         ProfileEditView(path: path)
-                            .navigationTitle("Edit")
+                            .navigationTitle("profile.edit")
                             .navigationBarTitleDisplayMode(.inline)
                     }
                     
                     VStack(alignment: .leading) {
-                        Text("Settings")
+                        Text("profile.title")
                             .bold()
                             .padding(.top, 15)
                         
                         Card {
                             VStack(spacing: 0) {
-                                CardListButton(text: "Design") {
+                                CardListButton(text: "profile.design") {
                                     path.wrappedValue.append("darkmode")
                                 }
                                 
                                 CardDivider()
                                 
-                                CardListButton(text: "Notifications") {
+                                CardListButton(text: "profile.notifications") {
                                     path.wrappedValue.append("notifications")
                                 }
                             }
@@ -71,25 +71,25 @@ struct ProfileView: View {
                     }
                     
                     VStack(alignment: .leading) {
-                        Text("About")
+                        Text("profile.about")
                             .bold()
                             .padding(.top, 15)
                         
                         Card {
                             VStack(spacing: 0) {
-                                CardListButton(text: "Rate us") {
+                                CardListButton(text: "profile.rate") {
                                     requestReview()
                                 }
                                 
                                 CardDivider()
                                 
-                                CardListButton(text: "Help") {
+                                CardListButton(text: "profile.help") {
                                     path.wrappedValue.append("help")
                                 }
                                 
                                 CardDivider()
                                 
-                                CardListButton(text: "About us") {
+                                CardListButton(text: "profile.about-us") {
                                     path.wrappedValue.append("about")
                                 }
                             }
@@ -98,23 +98,23 @@ struct ProfileView: View {
                     
                     Spacer()
                     
-                    AsyncButton("Logout") {
+                    AsyncButton("button.logout") {
                         await authenticatedViewModel.logout()
                         dismiss()
                     }
                     .destructive()
                     
-                    Text("Version 1.0.0")
+                    Text("profile.version \("1.0.0")")
                         .font(.subheadline)
                         .foregroundStyle(Color("textSecondary"))
                 }
-                .navigationTitle("Settings")
+                .navigationTitle("profile.title")
                 .navigationDestination(for: String.self) { path in
                     switch path {
                     case "darkmode":
                         DarkModeSettingsView()
                     case "notifications":
-                        NotificationsSettingsView()
+                        NotificationsSettingsView(user: currentUser)
                     case "help":
                         HelpView()
                     case "about":

@@ -68,7 +68,7 @@ struct CameraView<Content: View>: View {
 #Preview {
     CameraView(showCamera: .constant(false)) { image in
         HStack {
-            Button("Upload", systemImage: "paperplane.fill") {
+            Button("button.upload", systemImage: "paperplane.fill") {
                 
             }
         }

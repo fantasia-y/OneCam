@@ -14,7 +14,7 @@ struct CreateGroupPreviewView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Like what you see?")
+            Text("group.create.preview")
                 .frame(maxWidth: .infinity)
             
             PreviewGroupView(image: viewModel.image, name: viewModel.groupName)
@@ -22,14 +22,14 @@ struct CreateGroupPreviewView: View {
             Spacer()
             
             HStack {
-                Button("Back") {
+                Button("button.back") {
                     withAnimation {
                         viewModel.page -= 1
                     }
                 }
                 .secondary()
                 
-                AsyncButton("Create") {
+                AsyncButton("button.create") {
                     if let group = await viewModel.publish() {
                         homeViewModel.groups.append(group)
                         dismiss()

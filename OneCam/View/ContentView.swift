@@ -35,18 +35,18 @@ struct ContentView: View {
                         }
                 } else {
                     VStack(spacing: 20) {
-                        Text("Oops!")
+                        Text("login.error")
                             .font(.title)
                             .bold()
                             .padding(.top, 25)
                         
-                        Text("We had trouble connecting to our servers.\nCheck your internet connection and try again.")
+                        Text("login.error.text")
                             .multilineTextAlignment(.center)
                         
                         Spacer()
                         
                         VStack {
-                            AsyncButton("Try again") {
+                            AsyncButton("button.try-again") {
                                 if await viewModel.loadUser() {
                                     authenticatedViewModel.onAuthenticated()
                                     notificationSettings.sync(fromUser: viewModel.userData.currentUser)
@@ -54,7 +54,7 @@ struct ContentView: View {
                             }
                             .secondary()
                             
-                            AsyncButton("Logout") {
+                            AsyncButton("button.logout") {
                                 Task {
                                     await authenticatedViewModel.logout()
                                 }

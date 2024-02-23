@@ -20,20 +20,27 @@ class GroupViewModel: NSObject, ObservableObject {
     @Published var localImages: [LocalImage] = []
     @Published var images: [GroupImage] = []
     
-    @Published var isEditing = false
-    @Published var isSaving = false
+    // selection variables
+    var rectangles = Rectangles()
+    @Published var selectRect: CGRect?
     @Published var selectedSubviews = Set<Int>()
     @Published var dragSelectedSubviews = Set<Int>()
+    
+    @Published var isEditing = false
+    @Published var isSaving = false
+    
     @Published var saveProgress = 0.0
     @Published var downloadedImages: [UIImage] = []
     @Published var showDownloadedImages = false
     @Published var hasFailedImages = false
     
+    // sheet controls
+    @Published var selectedImage: GroupImage?
     @Published var showShareView = false
     @Published var showSettings = false
     @Published var showCamera = false
     @Published var showCarousel = false
-    @Published var selectedImage: GroupImage?
+    @Published var showDeleteDialog = false
     
     @Published var toast: Toast?
     
@@ -142,15 +149,29 @@ class GroupViewModel: NSObject, ObservableObject {
         }
     }
     
-    func deleteImage(_ image: GroupImage, group: Group) async {
-        images.removeAll(where: { $0.id == image.id })
+    func deleteImages(_ images: [GroupImage], group: Group) async -> Bool {
+        let ids = images.map({ $0.id })
+        self.images.removeAll(where: { ids.contains($0.id) })
         
-        let result = await API.shared.delete(path: "/group/\(group.uuid)/images/\(image.id)")
+        let result = await API.shared.delete(path: "/group/\(group.uuid)/images", parameters: ["images": ids])
         
         if case .success(_) = result {
-            return
+            return true
         } else {
             toast = Toast.from(response: result)
+            return false
+        }
+    }
+    
+    func deleteSelectedImages(_ group: Group) async {
+        var images: [GroupImage] = []
+        
+        for index in selectedSubviews {
+            images.append(self.images[index])
+        }
+        
+        if await self.deleteImages(images, group: group) {
+            selectedSubviews = Set<Int>()
         }
     }
     
@@ -172,6 +193,8 @@ class GroupViewModel: NSObject, ObservableObject {
     }
     
     func saveSelectedImages() async {
+        guard selectedSubviews.count > 0 else { return }
+        
         // prep ui
         downloadedImages = []
         isSaving = true

@@ -84,7 +84,7 @@ struct PreviewGroupView<Actions: View>: View {
                         Text(name)
                             .bold()
                         
-                        Text("\(imageCount) image\(imageCount != 1 ? "s" : "")")
+                        Text(imageCount != 1 ? "\(imageCount) group.preview.subtitle" : "group.preview.subtitle.single")
                             .font(.subheadline)
                             .foregroundStyle(Color("textSecondary"))
                     }

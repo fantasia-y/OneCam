@@ -138,24 +138,22 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
         session.start()
     }
     
+    @MainActor
     func login() async {
         authError = ""
         
         let result = await API.shared.login(email: email, password: password)
         
-        await MainActor.run {
-            handleLoginResponse(result)
-        }
+        handleLoginResponse(result)
     }
     
+    @MainActor
     func register() async {
         authError = ""
         
         let result = await API.shared.register(email: email, password: password)
         
-        await MainActor.run {
-            handleLoginResponse(result)
-        }
+        handleLoginResponse(result)
     }
     
     func handleLoginResponse(_ response: ApiResult<LoginResponse>) {
@@ -164,6 +162,7 @@ class AuthenticatedViewModel: NSObject, ObservableObject, ASWebAuthenticationPre
             authenticationState = .authenticated
             email = ""
             password = ""
+            authError = ""
             
             onAuthenticated()
             break;

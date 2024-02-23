@@ -125,9 +125,6 @@ struct AsyncButton<Label: View>: View {
             },
             label: {
                 ZStack {
-                    // We hide the label by setting its opacity
-                    // to zero, since we don't want the button's
-                    // size to change while its task is performed:
                     label().opacity(isPerformingTask ? 0 : 1)
 
                     if isPerformingTask {
@@ -144,7 +141,7 @@ struct AsyncButton<Label: View>: View {
 extension AsyncButton where Label == Text {
     init(_ titleKey: String, action: @escaping () async -> Void) {
         self.init(action: action) {
-            Text(titleKey)
+            Text(LocalizedStringKey(titleKey))
         }
     }
 }

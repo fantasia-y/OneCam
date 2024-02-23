@@ -17,7 +17,7 @@ struct CardListButton: View {
             action()
         } label: {
             HStack {
-                Text(text)
+                Text(LocalizedStringKey(text))
                 
                 Spacer()
                 

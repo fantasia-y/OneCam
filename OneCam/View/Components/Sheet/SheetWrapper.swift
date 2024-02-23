@@ -23,7 +23,7 @@ struct SheetWrapper<Content: View>: View {
     var body: some View {
         NavigationStack(path: $path) {
             sheetContent($path)
-                .navigationTitle(title ?? "")
+                .navigationTitle(LocalizedStringKey(title ?? ""))
                 .toolbar() {
                     CloseButton()
                 }

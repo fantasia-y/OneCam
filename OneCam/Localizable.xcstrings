@@ -84,7 +84,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Melde dich oder registriere dich um loszulegen"
+            "value" : "Melde dich an oder registriere dich um loszulegen"
           }
         },
         "en" : {
@@ -288,7 +288,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Log in"
+            "value" : "Anmelden"
           }
         },
         "en" : {
@@ -423,7 +423,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sign up"
+            "value" : "Registrieren"
           }
         },
         "en" : {

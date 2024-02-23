@@ -55,7 +55,7 @@ struct CustomTextField: View {
             TextField("", text: text)
                 .overlay(alignment: .leading,content: {
                     if text.wrappedValue.isEmpty {
-                        Text(placeholder)
+                        Text(LocalizedStringKey(placeholder))
                             .foregroundStyle(Color("textSecondary"))
                     }
                 })
@@ -79,7 +79,7 @@ struct CustomSecureField: View {
             SecureField("", text: text)
                 .overlay(alignment: .leading,content: {
                     if text.wrappedValue.isEmpty {
-                        Text(placeholder)
+                        Text(LocalizedStringKey(placeholder))
                             .foregroundStyle(Color("textSecondary"))
                     }
                 })
